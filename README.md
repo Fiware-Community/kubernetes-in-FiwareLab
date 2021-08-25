@@ -11,8 +11,8 @@ This repository has set of ansible playbooks created to setup a kubernetes clust
 
 # How to use this (Setup Instructions)
 1.	Make servers ready (Ansible Host, one master node and multiple worker nodes) by creating new VMs on Fiware-Lab.
-2.	Update the Kernel if it is lower than 5.x (for CentOS). Steps are added in update-kernel.md file.
-3.	Install firewall (if not installed). Steps are added in setup-firewalld.md file.
+2.	Update the Kernel if it is lower than 5.x (for CentOS). Steps are added in [update-kernel.md](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/update-kernel.md).
+3.	Install firewall (if not installed). Steps are added in [setup-firewalld.md](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/setup-firewalld.md).
 4.	Make an entry of each hosts in /etc/hosts file for name resolution in Master and Worker VM as:
     On Master: 127.0.0.1   <master-vm-name>.novalocal
     On Worker: 127.0.0.1   <worker-vm-name>.novalocal
@@ -21,8 +21,8 @@ This repository has set of ansible playbooks created to setup a kubernetes clust
 7.	Copy the script and ansible playbooks on Ansible Host VM.
 8.	There is a file "hosts" in this folder, make entries of all kubernetes nodes.
 9.	Provide server details in "playbooks/env_variables”.
-10.	Deploy the ssh key from Ansible Host to nodes for password less authentication. Steps are added in passwordless-ssh.md file.
-11.	Provide root level privilege to centos or ubuntu user. Steps are added in root-access.md file.
+10.	Deploy the ssh key from Ansible Host to nodes for password less authentication. Steps are added in [passwordless-ssh.md](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/passwordless-ssh.md).
+11.	Provide root level privilege to centos or ubuntu user. Steps are added in [root-access.md](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/root-access.md).
 12.	Run "settingup_kubernetes_cluster.yml" playbook to setup all nodes and kubernetes master configuration.
     ansible-playbook settingup_kubernetes_cluster.yml
 13.	Run "join_kubernetes_workers_nodes.yml" playbook to join the worker nodes with kubernetes master node once "settingup_kubernetes_cluster.yml" playbook tasks are completed.
