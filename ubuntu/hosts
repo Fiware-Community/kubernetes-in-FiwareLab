@@ -1,0 +1,5 @@
+[kubernetes-master-nodes]
+red-2 ansible_host=195.134.187.22
+
+[kubernetes-worker-nodes]
+red-1 ansible_host=195.134.187.73
