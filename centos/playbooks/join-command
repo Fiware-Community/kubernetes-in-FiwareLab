@@ -1,1 +1,0 @@
-kubeadm join 195.134.187.9:6443 --token bmoth0.fr22bu0dtqchb63p --discovery-token-ca-cert-hash sha256:bd6e225ef5e6ba49a4c832f244f647bccab0abface676790b7aba6c166069f20 
