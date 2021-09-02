@@ -10,7 +10,7 @@ extra_css: ["https://www.fiware.org/style/fiware_readthedocs.css", "https://www.
 nav:
   - Home: 'index.md'
   - 'User & Programmers Manual':
-    - 'Using Ansible': 'docs/README.md'
+    - 'Using Ansible': 'README.md'
   - 'Installation & Administration Manual':
     - 'Install Ansible': 'install-ansible.md'
     - 'Passwordless SSH': 'passwordless-ssh.md'
