@@ -8,9 +8,9 @@ theme: readthedocs
 markdown_extensions: [toc,fenced_code]
 extra_css: ["https://www.fiware.org/style/fiware_readthedocs.css", "https://www.fiware.org/style/fiware_readthedocs_core.css"]
 nav:
-  - Home: 'docs/README.md'
+  - Home: 'README.md'
   - 'User & Programmers Manual':
-    - 'Using Ansible': 'README.md'
+    - 'Using Ansible': 'docs/README.md'
   - 'Installation & Administration Manual':
     - 'Install Ansible': 'install-ansible.md'
     - 'Passwordless SSH': 'passwordless-ssh.md'
