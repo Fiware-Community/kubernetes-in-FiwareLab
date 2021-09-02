@@ -3,17 +3,17 @@ site_url: https://kubernetes-in-fiwarelab.readthedocs.io/en/latest/
 site_description: To deploy kubernetes on Fiware-Lab using ansible.
 repo_url: https://github.com/Fiware-Community/kubernetes-in-FiwareLab
 edit_uri: 'edit/main/docs/'
-docs_dir: 
+docs_dir: docs/
 theme: readthedocs
 markdown_extensions: [toc,fenced_code]
 extra_css: ["https://www.fiware.org/style/fiware_readthedocs.css", "https://www.fiware.org/style/fiware_readthedocs_core.css"]
 nav:
   - Home: 'docs/README.md'
   - 'User & Programmers Manual':
-    - 'Using Ansible': 'docs/README.md'
+    - 'Using Ansible': 'README.md'
   - 'Installation & Administration Manual':
-    - 'Install Ansible': 'docs/install-ansible.md'
-    - 'Passwordless SSH': 'docs/passwordless-ssh.md'
-    - 'Root Access': 'docs/root-access.md'
-    - 'Setup Firewalld': 'docs/setup-firewalld.md'
-    - 'Update Kernel': 'docs/update-kernel.md'
+    - 'Install Ansible': 'install-ansible.md'
+    - 'Passwordless SSH': 'passwordless-ssh.md'
+    - 'Root Access': 'root-access.md'
+    - 'Setup Firewalld': 'setup-firewalld.md'
+    - 'Update Kernel': 'update-kernel.md'
