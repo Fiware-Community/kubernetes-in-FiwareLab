@@ -16,5 +16,4 @@ nav:
     - 'Passwordless SSH': 'docs/passwordless-ssh.md'
     - 'Root Access': 'docs/root-access.md'
     - 'Setup Firewalld': 'docs/setup-firewalld.md'
-    - 'CrateDB': 'admin/crate.md'
     - 'Update Kernel': 'docs/update-kernel.md'
