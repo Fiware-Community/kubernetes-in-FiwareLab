@@ -42,7 +42,6 @@ This repository has set of ansible playbooks created to setup a kubernetes clust
     
     ```
     kubectl get nodes
-    
     kubectl get pods --all-namespaces
     ```
     
