@@ -38,17 +38,19 @@ This repository has set of ansible playbooks created to setup a kubernetes clust
     
     ```ansible-playbook join_kubernetes_workers_nodes.yml```
 
-14.	Verify the configuration from master node.
+14.	Verify the configuration from master node:
+    
     ```
     kubectl get nodes
+    
     kubectl get pods --all-namespaces
     ```
-
+    
 # Troubleshooting
 In case settingup_kubernetes_cluster playbook fails due to some system errors. Then reset the cluster otherwise it will show different errors like **PORT IN USE** and **CERTIFICATES ALREADY EXIST**
 To fix these errors run below commands on master node:
     
-    Kubeadm reset
+    kubeadm reset
     iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
  
 # Files in this repository
