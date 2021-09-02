@@ -10,6 +10,7 @@ This repository has set of ansible playbooks created to setup a kubernetes clust
     b. Master Node
     
     c. Worker Nodes
+    
 3.	Ansible should be installed on Ansible Host. For installation steps, follow [install-ansible.md](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/install-ansible.md).
 
 # How to use this (Setup Instructions)
@@ -21,6 +22,7 @@ This repository has set of ansible playbooks created to setup a kubernetes clust
     On Master: 127.0.0.1   <master-vm-name>.novalocal
     
     On Worker: 127.0.0.1   <worker-vm-name>.novalocal
+    
 5.	Make sure kubernetes master node and other worker nodes are reachable between each other.
 6.	Internet connection must be enabled in all nodes, required packages will be downloaded from kubernetes official yum repository. 
 7.	Copy the script and ansible playbooks on Ansible Host VM.
@@ -31,9 +33,11 @@ This repository has set of ansible playbooks created to setup a kubernetes clust
 12.	Run ```settingup_kubernetes_cluster.yml``` playbook to setup all nodes and kubernetes master configuration.
     
     ```ansible-playbook settingup_kubernetes_cluster.yml```
+
 13.	Run ```join_kubernetes_workers_nodes.yml``` playbook to join the worker nodes with kubernetes master node once ```settingup_kubernetes_cluster.yml``` playbook tasks are completed.
     
     ```ansible-playbook join_kubernetes_workers_nodes.yml```
+
 14.	Verify the configuration from master node.
     ```
     kubectl get nodes
