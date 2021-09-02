@@ -5,6 +5,7 @@
 2. To update CentOS software repositories, use the command:
 
 	```# sudo yum -y update```
+
 3. To install the new kernel version, a new repository (ELRepo repository) needs to be enabled, type:
 
 	```# sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org```
@@ -30,6 +31,7 @@
 10. To set Default Kernel Version type the following in the terminal:
 
 	```# sudo vim /etc/default/grub```
+
 11. Once the file opens, look for the line that says ```GRUB_DEFAULT=X```, and change it to ```GRUB_DEFAULT=0```
 12. Save the file, and then type the following command in the terminal to recreate the kernel configuration:
 
