@@ -16,9 +16,9 @@
 3.	Install firewall (if not installed). Steps are added in [setup-firewalld.md](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/setup-firewalld.md).
 4.	Make an entry of each hosts in /etc/hosts file for name resolution in Master and Worker VM as:
 
-    On Master: 127.0.0.1   <master-vm-name>.novalocal
+    On Master: 127.0.0.1   \<master-vm-name\>.novalocal
     
-    On Worker: 127.0.0.1   <worker-vm-name>.novalocal
+    On Worker: 127.0.0.1   \<worker-vm-name\>.novalocal
     
 5.	Make sure kubernetes master node and other worker nodes are reachable between each other.
 6.	Internet connection must be enabled in all nodes, required packages will be downloaded from kubernetes official yum repository. 
