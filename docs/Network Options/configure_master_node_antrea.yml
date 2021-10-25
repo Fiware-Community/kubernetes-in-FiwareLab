@@ -25,6 +25,13 @@
      mkdir -p $HOME/.kube
      sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
      sudo chown $(id -u):$(id -g) $HOME/.kube/config
+ 
+   - name: Installing Helm
+    shell: |
+     curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+     chmod 700 get_helm.sh
+     export PATH=$PATH:/usr/local/bin
+     ./get_helm.sh
 
   - name: Install Network Add-on
     command: kubectl apply -f https://raw.githubusercontent.com/antrea-io/antrea/main/build/yamls/antrea.yml
