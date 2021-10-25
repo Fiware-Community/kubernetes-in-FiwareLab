@@ -1,5 +1,7 @@
 # kubernetes-in-FiwareLab
-This repository has set of ansible playbooks created to setup a kubernetes cluster fully automated with one master and multiple worker nodes. This will work on Fiware-Lab VMs. This has been tested and verified on Centos 7.9 64 bit operating systems with Kernel 5.12.10-1.el7.elrepo.x86_64 and Ubuntu 16.04 64 bit operating systems with Kernel Linux 4.4.0-210-generic. 
+This repository has set of ansible playbooks created to setup a kubernetes cluster fully automated with one master and multiple worker nodes. This will work on Fiware-Lab VMs. This has been tested and verified on Centos 7.9 64 bit operating systems with Kernel 5.12.10-1.el7.elrepo.x86_64 and Ubuntu 16.04 64 bit operating systems with Kernel Linux 4.4.0-210-generic.
+
+[quick_start_guide](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/quick_start_guide.md) provide the steps which needs to be followed sor the setup using this repository.
  
 # Files in this repository under centos and ubuntu folders
 1.	**ansible.cfg** - Ansible configuration file created locally.
