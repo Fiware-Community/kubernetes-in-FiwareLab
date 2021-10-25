@@ -18,6 +18,6 @@ nav:
     - 'Setup Firewalld': 'setup-firewalld.md'
     - 'Update Kernel': 'update-kernel.md'
   - 'Persistent Storage':
-    - 'Using Persitent Storage': 'Persistent%20Storage/README.md'
+    - 'Using Persitent Storage': '/Persistent Storage/README.md'
   - 'Network Configuration Options':
-    - 'Using Network Configuration Options': 'Network%20Options/README.md'
+    - 'Using Network Configuration Options': '/Network Options/README.md'
