@@ -1,6 +1,6 @@
 We can create persistent Storage i.e., Persistent Volume (PV) and Persistent Volume Claim (PVC) in the kubernetes cluster created.
 
-Example for the PV, PVC and Pod is provided with the following options:
+Example for the [PV](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/Persistent%20Storage/pv.yaml), [PVC](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/Persistent%20Storage/pvc.yaml) and [Pod](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/Persistent%20Storage/pod.yaml) is provided with the following options:
 
 ## PersistentVolume:
 **Capacity:** PV will have a specific storage capacity.
