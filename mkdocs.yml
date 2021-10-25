@@ -17,3 +17,7 @@ nav:
     - 'Root Access': 'root-access.md'
     - 'Setup Firewalld': 'setup-firewalld.md'
     - 'Update Kernel': 'update-kernel.md'
+  - 'Persistent Storage':
+    - 'Using Persitent Storage': 'Persistent%20Storage/README.md'
+  - 'Network Configuration Options':
+    - 'Using Network Configuration Options': 'Network%20Options/README.md'
