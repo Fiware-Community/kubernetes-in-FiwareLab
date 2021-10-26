@@ -21,3 +21,5 @@ nav:
     - 'Using Persitent Storage': 'Persistent Storage/README.md'
   - 'Network Configuration Options':
     - 'Using Network Configuration Options': 'Network Options/README.md'
+  - 'Fiware GEs setup':
+    - 'Fiware GEs setup': 'Fiware GEs/README.md'
