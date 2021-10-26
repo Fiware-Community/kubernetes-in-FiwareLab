@@ -2,7 +2,7 @@ User can make use of Helm charts to deploy Fiware at [helm-charts](https://githu
 
 ## MongoDB
 To setup mongoDB required for Fiware GEs like ```orion``` and ```iot-agent``` below commands needs to be followed:
-1. Copy storage.yaml and values.yaml to the master node.
+1. Copy [storage.yaml](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/Fiware%20GEs/storage.yaml) and [values.yaml](https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/Fiware%20GEs/values.yaml) to the master node.
 2. Add repo using command:
 
    ```helm repo add bitnami https://charts.bitnami.com/bitnami```
