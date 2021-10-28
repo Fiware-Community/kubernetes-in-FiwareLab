@@ -23,3 +23,5 @@ nav:
     - 'Using Network Configuration Options': 'Network Options/README.md'
   - 'Fiware GEs setup':
     - 'Fiware GEs setup': 'Fiware GEs/README.md'
+  - 'Security Options':
+    - 'Using Security Options': 'Security Options/README.md'
