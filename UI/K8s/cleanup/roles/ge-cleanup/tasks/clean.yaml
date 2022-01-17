@@ -1,0 +1,62 @@
+---
+# tasks file
+
+- name: cleaning orion
+  shell: ./orion_cleanup.sh
+  args:
+    chdir: /tmp/IotGEs/orion
+  when:
+    - clean.clean_orion | bool
+  changed_when: True
+
+- name: cleaning cepheus
+  shell: ./cepheus_cleanup.sh
+  args:
+    chdir: /tmp/IotGEs/cepheus
+  when:
+    - clean.clean_cepheus | bool
+  changed_when: True
+
+- name: cleaning cygnus_sth
+  shell: ./cygnus_sth_cleanup.sh
+  args:
+    chdir: /tmp/IotGEs/cygnus-sth
+  when:
+    - clean.clean_cygnus_sth | bool
+  changed_when: True
+
+- name: cleaning sth
+  shell: ./sth-comet_cleanup.sh
+  args:
+    chdir: /tmp/IotGEs/sth-comet
+  when:
+    - clean.clean_sth_comet | bool
+  changed_when: True
+
+- name: cleaning cygnus_ckan
+  shell: ./cygnus_ckan_cleanup.sh
+  args:
+    chdir: /tmp/IotGEs/cygnus-ckan
+  when:
+    - clean.clean_cygnus_ckan | bool
+  changed_when: True
+
+- name: cleaning ckan
+  shell: ./ckan_cleanup.sh
+  args:
+    chdir: /tmp/IotGEs/ckan
+  when:
+    - clean.clean_ckan | bool
+  changed_when: True
+
+- name: cleaning fogflow
+  shell: ./fogflow_cleanup.sh
+  args:
+    chdir: /tmp/IotGEs/fogflow
+  when:
+    - clean.clean_fogflow | bool
+  changed_when: True
+
+- name:  displaying cleanup results
+  debug:
+    msg: "Cleanup done!"
