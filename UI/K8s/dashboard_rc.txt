@@ -1,0 +1,11 @@
+<!-- BEGIN ANSIBLE GENRATED dashboard details file -->
+---------------------------
+---------------------------
+kubernetes dashboard is on  https://180.179.214.185:443  
+and token is given below, please use token to login.
+---------------------------
+---------------------------
+token:      eyJhbGciOiJSUzI1NiIsImtpZCI6ImE4VE84QVl5cHJXM0syV3JlR2Zib3JsZ1FxSmNhTWJPdlBsZHBPaW84dncifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLXRqcWZzIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiI0NGNkZjBhOC0wNWFmLTQ1YTUtYjMzOC01NTdiOTRiMDZhNmYiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06YWRtaW4tdXNlciJ9.eoRmGnvX3xCASgQjO3RhI-iJPmNBUim36nUk6uR5Hs_F2_A0FoUXiACgWlaVmFbC3PuUpshNeVNzF2g2WrfP6jUsTabB5vOdx8leSs-L7-hABtb_LtvXKSuBX1yHF4Fz90wNFXg1H1JDH8zRASmt8A63-Jx9zeAdRq1n4CDaaBwzsvZRcDjV6VNWII5dOoCvz90AebGaNcvJIBRktF_sg1hPXFDLuRIsO-TJrGpLjs_HxlosYEijpMyXPFA5qGxp6Y0D7CdPW1yFrtcGh9K_admVEb-4-bANOGpAqE-Y_6zyz4j4EGuSVTsEZeQA8qglIzLJARCl8-gJD_IbNkZZlg
+---------------------------
+---------------------------
+<!-- END ANSIBLE GENRATED dashboard details file -->

@@ -1,0 +1,23 @@
+- name: Destroy VM on OpenStack
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Get aws instances facts
+      ec2_instance_info:
+        filters:
+          "tag:Name": "{{aws_name}}"
+          instance-state-name: [ "running" ]
+      register: result
+    - debug:
+        msg: so output is {{ result }}
+    - name: Terminate aws instances that were previously launched
+      ec2:
+        state: 'absent'
+        instance_ids: '{{ item.instance_id }}'
+      loop: "{{ result.instances }}"
+      when:
+        - infra_type == 'AWS'
+  environment:
+    AWS_ACCESS_KEY_ID: "{{ ACCESS_KEY_ID }}"
+    AWS_SECRET_ACCESS_KEY: "{{ SECRET_ACCESS_KEY }}"
+    AWS_REGION: "{{ REGION }}"

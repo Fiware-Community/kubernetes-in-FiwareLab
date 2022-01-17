@@ -1,0 +1,130 @@
+#
+# This file includes all the user input variables. Provide the requirements here and then start the environment deployment.
+---
+infra_type: "openstack"                         # Valid options are ['openstack','AWS','baremetal']
+cluster_os: "centos"                       # Valid options are ['centos', 'ubuntu']
+
+
+
+###give IPs for baremetal nodes.
+###Password for all pxe node is "abc@1234" for root user.
+###If you are using self installed nodes please makesure you have user "root" with password "abc@1234" is accessible over ssh.
+###Or just use "ssh-copy-id" command for passwordless ssh of root user.
+#baremetal:
+#Example for IPs. Uncomment below lines for IPs and specify all host in same pattern.
+bm_nodeIPs:
+  - SomeIP1
+  - SomeIP2
+  - SomeIP3
+
+
+#Openstack Details for VMs creation
+op_vm_name_prefix: testcli           # prefix of VM name here (1,2,3... will be added to	 this based on count)
+op_key_name: sandboxKey                      # security key-name same as in openstack
+op_flavor: m1.large                        # flavor name for instance as in openstack (Minimum ' m1.small ' is required)
+op_private_network: sandbox_private_net      # private network name as in openstack
+op_external_network: public1                # external network name as in openstack
+op_image: centos7                       #supported Images versiona Centos7/ Ubuntu16 (name as your openstack image name)
+op_security_groups: all                      # name of security group as in openstack
+op_key_path: /tmp/sandbox.pem                # path to security key file
+op_count: 3                                 # number of VMs required
+
+
+#AWS:
+aws_name: yadavaws
+aws_count: 2
+aws_key_name: sandbox_aws
+aws_instance_type: t2.micro
+aws_image: ami-0e32ec5bc225539f5
+aws_security_group: default
+aws_vpc_subnet_id: subnet-0ba79351
+aws_key_path: /home/necuser/Downloads/sandbox_aws.pem 
+
+#NO need to change this "kubernetes" section for testing purpose.
+#kubernetes:                           # If using NGB only than set ' enable_kubernetes: "no" '.For all other GE's set it "yes".
+k8s_enable_kubernetes: "yes"            # yes / no
+k8s_flannel_cidr: 10.244.0.0/16         # default address, do not change it until your VM Network CIDR conflit with it.
+k8s_namespace: default             #default namespace is "default".
+
+
+enable_orion: "yes"                    # yes / no
+orion_version: 2.2.0                  ## valid options are:  latest, 2.3.0, 2.2.0, 2.1.0, 2.0.0, 1.15.1, 1.15.0, 1.14.0, 1.13.0
+mongodb_version: 3.6                  ## valid options are:  3.4 ,3.6 
+
+enable_sth_comet: "yes"                # yes / no
+sth_version: 2.7.0                    ## valid options are:  2.7.0 , 2.6.0 ,2.5.0
+sth_mongo_version: 3.6                ## valid options are:  4.0 , 3.6 ,3.4
+
+enable_cygnus_sth: "yes"               # yes / no
+cygnus_sth_version: 1.7.1             ## valid options are: 1.7.1 
+                                      #versions failed in test for sending data are: 1.10.0,1.9.0,1.11.0
+                                      ## using sth-comet's mongodb
+
+enable_iotagent: "yes"                 # yes / no
+iot_version: 1.13.0                   #valid options are:  1.13.0, 1.12.0, 1.11.0  
+                                      ### using orion's mongodb
+
+enable_quantumleap: "yes"              # yes / no
+quantumleap_version: 0.7.5            #valid options are:  0.7.4, 0.7.5
+crate_version: 3.1.2                  #valid options are:  3.1.2, 3.1.6, 3.3.4
+
+enable_draco: "yes"                    # yes / no
+draco_version: latest                 #valid options are:  latest, FIWARE_7.8.1, 1.3.1, 1.3.0
+                                      #versions failed in test for sending data are: FIWARE_7.8.1,1.3.1,1.3.0
+
+
+enable_ckan: "yes"                     # yes / no
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### below GEs or Content is under testing phase, So not recommended for use as of now
+#-------------------------------------------------------------------------------------#
+#enable_cepheus: "no"                        # yes / no
+#enable_cygnus_ckan: "no"                    # yes / no
+#enable_fogflow: "no"                        # yes / no
+
+#Only base_distro: "ubuntu" is supported at this for NGB.
+#NGB:                              # NGB group is independent of any other group.
+#  enable_ngb: "no"                # yes / no
+#  vm_name_prefix: NGB             # prefix of VM name here (1,2,3... will be added to this based on count)
+#  key_name: yadav2                # security key-name same as in openstack
+#  flavor: m1.medium               # flavor name for instance as in openstack)
+#  private_network: demo-net       # private network name as in openstack
+#  external_network: ext-net       # external network name as in openstack
+#  image: ubuntu_18.04             #supported Images versiona Ubuntu18 (name as your openstack image name)
+#  security_groups: sandbox_kube         # name of security group as in openstack
+#  key_path: /root/yadav/yadav.pem       # path to security key file
+#  count: 1                              # number of VMs required, only 1 allowed
+
+#This method is deprecated.
+#enable_IotGEs: "no"                  # yes / no, it will   #(not needed now or deprecated)
+#-------------------------------------------------------------------------------------#
+###Example for range 1 to 50 is 192.168.100.[01:50]
+###uncomment below line and specify range as above line pattern.
+
+#  node_range: 192.168.100.[01:50]
+
+#OR

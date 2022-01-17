@@ -1,0 +1,35 @@
+---
+- hosts: localhost
+  become: true
+  vars:
+    internet_interface: "{{ pxe_internet_interface_name }}" #enp3s0  #example eth0 etc. This interface will be the gateway for dhcp for internet conectivity.
+    dhcp_interface: "{{ dhcp_interface_name }}"  # enp1s0f1
+#    dhcp_interface_ip: 192.168.50.2
+#    dhcp_interface_netmask: 255.255.255.0
+
+    dhcp_subnets:
+      - ip: "{{ dhcp_subnet_ip }}" # 192.168.50.0
+        netmask: "{{ dhcp_subnet_netmask }}" # 255.255.255.0
+        range_begin: "{{ dhcp_subnet_range_begin }}" #192.168.50.5
+        range_end: "{{ dhcp_subnet_range_end }}"  #192.168.50.150
+        domain_name_servers: "{{ dhcp_subnet_domain_name_servers }}" #8.8.8.8
+        routers: "{{ dhcp_interface_ip }}"
+        
+    pxeserver_ip: "{{dhcp_interface_ip}}"
+    pxeserver_images:
+      - name: centos7.6_x86_64
+        default: true
+        kernel_url: http://vault.centos.org/7.6.1810/os/x86_64/isolinux/vmlinuz
+        initrd_url: http://vault.centos.org/7.6.1810/os/x86_64/isolinux/initrd.img
+        label: CentOS 7.6 1810 x86_64
+
+    OS_source_path: /root/OS ## Open and Copy your Centos ISO iamge  data to /root/OS  directory.
+    OS_source_link: "ftp://{{ pxeserver_ip }}/pub/OS"
+  
+    ks_file_location: "ftp://{{pxeserver_ip}}/pub/centos7.cfg"
+    #password of PXE installed OS will be "abc@1234"
+
+  roles:
+    - tftp
+    - dhcp
+    - pxeserver

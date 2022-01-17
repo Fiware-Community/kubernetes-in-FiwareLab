@@ -1,0 +1,21 @@
+- name: Destroy VM on OpenStack
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Destroy all instances assuming vm name already present in cloud.
+      os_server:
+              name: "{{op_vm_name_prefix}}{{ item }}"
+              state: absent
+      with_sequence:
+        count={{ op_count }}
+      when:
+        - infra_type == 'openstack'
+  environment:
+    OS_AUTH_URL: "{{ op_OS_AUTH_URL }}"
+    OS_USERNAME: "{{ op_OS_USERNAME }}"
+    OS_PASSWORD: "{{ op_OS_PASSWORD }}"
+    OS_PROJECT_NAME: "{{ op_OS_PROJECT_NAME }}"
+    OS_USER_DOMAIN_NAME: "{{ op_OS_USER_DOMAIN_NAME }}"
+    OS_PROJECT_DOMAIN_NAME: "{{ op_OS_PROJECT_DOMAIN_NAME }}"
+    #OS_REGION_NAME: "{{ op_OS_REGION_NAME }}"
+

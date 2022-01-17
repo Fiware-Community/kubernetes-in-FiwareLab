@@ -1,0 +1,240 @@
+---
+- name: include_vars
+  hosts: localhost
+  vars_files:
+    -  cloud-config.yaml
+
+- name: create kubernetes vms on openstack/aws/baremetal with floating ips using cloud-config.yaml
+  gather_facts: true
+  hosts: localhost
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - { role: vm-deploy,
+        when: (k8s_enable_kubernetes  | bool) and  (infra_type == 'AWS' or infra_type == 'openstack')}
+
+- name: create baremetal with iPs using cloud-config.yaml
+  gather_facts: true
+  hosts: localhost
+  vars_files:
+    -  cloud-config.yaml
+  tasks:
+    - import_role:
+        name: baremetal 
+      when: (k8s_enable_kubernetes  | bool) and  (infra_type == 'baremetal')
+#  roles:
+#    - { role: baremetal,
+#        when: (k8s_enable_kubernetes  | bool) and  (infra_type == 'baremetal')}
+
+#- name: Apply ngb-vm-deploy
+#  gather_facts: true
+  #become: True
+#  hosts:
+#    - localhost
+#  roles:
+#    - role: ngb-vm-deploy
+#      when:
+#        - stuff.NGB.enable_ngb  | bool
+#        - infra_type == 'cloud'
+
+
+- name: Apply kubernetes-common role for common tasks
+  gather_facts: true
+  #become: True
+  hosts:
+    - kubernetes
+  vars_files:
+    -  cloud-config.yaml
+  tasks:
+    - name: Clear gathered facts from all currently targeted hosts
+      meta: clear_facts
+
+- name: Apply kubernetes-common role for common tasks
+  gather_facts: true
+  #become: True
+  hosts:
+    - kubernetes
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - role: kubernetes-common
+      when:
+        - k8s_enable_kubernetes  | bool
+
+- name: Apply kubernetes master role for kubernetes master tasks
+  gather_facts: true
+  #become: True
+  hosts:
+    - master
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - role: master
+      when:
+        - k8s_enable_kubernetes  | bool
+
+- name: Apply kubernetes worker role for kubernetes worker tasks
+  gather_facts: true
+  #become: True
+  hosts:
+    - worker
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - role: worker
+      when:
+        - op_count > 1
+        - k8s_enable_kubernetes  | bool
+
+- name: Apply kubernetes-post-deploy role for kubernetes post deploy check
+  gather_facts: true
+  #become: True
+  hosts:
+    - master
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - role: kubernetes-post-deploy
+      when:
+        - k8s_enable_kubernetes  | bool
+
+- name: install pip  setuptools and openshift for k8 ansible module
+  gather_facts: true
+  #become: True
+  hosts:
+    - master
+  vars_files:
+    -  cloud-config.yaml
+  pre_tasks:
+    - yum:
+        name: python-pip
+        state: present
+      become: True
+      when: ansible_os_family == 'RedHat'
+    - apt:
+        name: python3-pip
+        state: present
+      become: True
+      when: ansible_os_family == 'Debian'
+    - name: Ensure OpenShift client is installed.
+      pip:
+        name: setuptools
+        state: latest
+    - name: Ensure OpenShift client is installed.
+      pip:
+        name: openshift
+        state: present
+
+- name: install orion
+  gather_facts: true
+  #become: True
+  hosts:
+    - master
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - role: orion
+      when:
+        - enable_orion  | bool
+
+- name: install sth-comet
+  gather_facts: true
+  #become: True
+  hosts:
+    - master
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - role: sth-comet
+      when:
+        - enable_sth_comet  | bool
+
+- name: install cygnus-sth
+  gather_facts: true
+  #become: True
+  hosts:
+    - master
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - role: cygnus-sth
+      when:
+        - enable_cygnus_sth  | bool
+        - enable_sth_comet  | bool
+
+- name: install 
+  gather_facts: true
+  #become: True
+  hosts:
+    - master
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - role: iotagent
+      when:
+        - enable_iotagent  | bool
+        - enable_orion  | bool
+
+- name: install quantumleap
+  gather_facts: true
+  #become: True
+  hosts:
+    - master
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - role: quantumLeap
+      when:
+        - enable_quantumleap  | bool
+
+- name: install draco
+  gather_facts: true
+  #become: True
+  hosts:
+    - master
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - role: draco
+      when:
+        - enable_draco  | bool
+
+- name: install ckan
+  gather_facts: true
+  #become: True
+  hosts:
+    - master
+  vars_files:
+    -  cloud-config.yaml
+  roles:
+    - role: ckan
+      when:
+        - enable_ckan  | bool
+
+
+
+#- name: install IoTGEs
+#  gather_facts: true
+#  become: True
+#  hosts:
+#    - master
+#  roles:
+#    - role: IotGEs
+#      when:
+#        - stuff.enable_IotGEs  | bool
+
+#- name: Apply ngb deploy
+#  gather_facts: true
+  #become: True
+#  hosts:
+#    - NGB
+#  roles:
+#    - role: NGB
+#      when:
+#        - stuff.NGB.enable_ngb  | bool
+
+#- name: Destroy VM on OpenStack
+#  hosts: localhost
+#  gather_facts: false
+#  roles:
+#    - role: vm-destroy
