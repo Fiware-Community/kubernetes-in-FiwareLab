@@ -1,0 +1,2803 @@
+werkzeug - WARNING -  * Debugger is active!
+werkzeug - INFO -  * Debugger PIN: 589-744-875
+werkzeug - INFO - 127.0.0.1 -werkzeug - INFO -  * Restarting with stat
+werkzeug - INFO -  * Restarting with stat
+rkzeug - INFO - 127.0.0.1 - - [29/Jan/2020 14:23:01] "POST /home/buttonclick HTTP/1.1" 200 -
+werkzeug - INFO -  * Detected change in '/home/necuser/Downloads/flask_pro1/blue/utility/utility.py', reloading
+2020-01-29 14:32:29,281 - example_logger - DEBUG - test logging qqq 
+2020-01-29 14:33:13,911 - example_logger - DEBUG - test logging qqq 
+2020-01-29 14:33:40,539 - example_logger - DEBUG - test logging qqq 
+2020-01-29 14:33:40,539 - example_logger - DEBUG - test logging qqq 
+2020-01-29 14:36:13,358 - Sandbox - DEBUG - b'run.py\n'
+2020-01-29 14:36:15,191 - Sandbox - DEBUG - b'sandbox.log\n'
+2020-01-29 14:36:15,191 - Sandbox - DEBUG - b'sandbox.log\n'
+2020-01-29 14:36:16,456 - Sandbox - DEBUG - b'sandbox.log\n'
+2020-01-29 14:36:16,456 - Sandbox - DEBUG - b'sandbox.log\n'
+2020-01-29 14:36:16,456 - Sandbox - DEBUG - b'sandbox.log\n'
+2020-01-29 14:37:43,829 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 14:37:43,829 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 14:37:43,829 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 14:37:43,829 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 14:37:44,684 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 14:37:44,684 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 14:37:44,684 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 14:37:44,685 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 14:37:44,685 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 14:37:44,685 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:18:11,713 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:18:11,713 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:18:11,713 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:18:11,713 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:18:16,888 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:18:16,888 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:18:16,888 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:18:16,888 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:18:16,888 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:18:16,888 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:18:47,393 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:18:47,393 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:18:47,393 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:18:47,393 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:18:47,394 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:18:47,394 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:18:47,394 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:18:47,394 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:19:17,785 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:19:17,785 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:19:17,785 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:19:17,785 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:19:17,785 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:19:17,787 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:19:17,787 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:19:17,787 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:19:17,787 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:19:17,787 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:14,026 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:48,679 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:48,679 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:48,679 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:48,679 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:48,679 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:48,679 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:48,679 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:20:48,680 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:48,680 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:48,680 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:48,680 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:48,680 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:48,680 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:20:48,680 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:21:59,405 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:21:59,405 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:21:59,405 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:21:59,405 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:21:59,405 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:21:59,405 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:21:59,405 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:21:59,405 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:21:59,406 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:21:59,406 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:21:59,406 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:21:59,406 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:21:59,406 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:21:59,406 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:21:59,406 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:21:59,406 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:22:00,592 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:22:00,592 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:22:00,592 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:22:00,592 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:22:00,592 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:22:00,592 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:22:00,592 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:22:00,592 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:22:00,592 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:22:00,593 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:22:00,593 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:22:00,593 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:22:00,593 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:22:00,593 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:22:00,593 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:22:00,593 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:22:00,593 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:22:00,593 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:27,518 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:27,518 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:27,518 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:27,518 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:27,518 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:27,518 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:27,518 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:27,518 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:27,518 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:27,518 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:27,519 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:27,519 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:27,519 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:27,519 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:27,519 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:27,519 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:27,519 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:27,519 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:27,519 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:27,519 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:28,434 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:28,434 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:28,434 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:28,434 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:28,434 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:28,434 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:28,434 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:28,434 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:28,434 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:28,434 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:28,434 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:28,435 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:28,435 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:28,435 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:28,435 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:28,435 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:28,435 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:28,435 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:28,435 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:28,435 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:28,435 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:28,435 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:29,045 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:23:41,640 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,035 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:19,036 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,984 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:24:37,985 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,565 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:57,566 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,290 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,291 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,508 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,509 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,834 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:58,836 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,121 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,122 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,326 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:25:59,327 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,522 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:09,523 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,428 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:10,429 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,011 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,012 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,193 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,194 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,340 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,341 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,499 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:28:11,501 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,793 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:27,797 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,471 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:29:29,472 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,404 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:53,405 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,157 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:55,159 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,375 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:30:56,376 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,532 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:20,535 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,929 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:21,930 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,770 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:22,772 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,629 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:35,630 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,942 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:36,944 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,754 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:37,756 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,598 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:38,600 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,658 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:32:49,660 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,923 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:44:23,925 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,635 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 15:54:35,637 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 16:50:23,025 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 16:50:23,025 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 16:50:23,043 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 16:50:23,043 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 17:04:58,745 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 17:04:58,745 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 17:04:58,745 - Sandbox - DEBUG - sandbox.log
+
+2020-01-29 17:04:58,745 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 17:04:58,745 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-29 17:04:58,745 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-31 11:48:11,721 - Sandbox - DEBUG - sandbox.log
+
+2020-01-31 11:48:11,721 - Sandbox - DEBUG - sandbox.log
+
+2020-01-31 11:48:11,752 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-31 11:48:11,752 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-31 11:49:29,844 - Sandbox - DEBUG - sandbox.log
+
+2020-01-31 11:49:29,844 - Sandbox - DEBUG - sandbox.log
+
+2020-01-31 11:49:29,844 - Sandbox - DEBUG - sandbox.log
+
+2020-01-31 11:49:29,844 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-31 11:49:29,844 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-31 11:49:29,844 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-31 11:53:20,078 - Sandbox - DEBUG - sandbox.log
+
+2020-01-31 11:53:20,078 - Sandbox - DEBUG - sandbox.log
+
+2020-01-31 11:53:20,078 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-31 11:53:20,078 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-31 11:53:28,780 - Sandbox - DEBUG - sandbox.log
+
+2020-01-31 11:53:28,780 - Sandbox - DEBUG - sandbox.log
+
+2020-01-31 11:53:28,780 - Sandbox - DEBUG - sandbox.log
+
+2020-01-31 11:53:28,781 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-31 11:53:28,781 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-01-31 11:53:28,781 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-02-03 09:59:40,242 - Sandbox - DEBUG - python_req.py
+
+2020-02-03 09:59:40,242 - Sandbox - DEBUG - python_req.py
+
+2020-02-03 09:59:40,255 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-02-03 09:59:40,255 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-02-03 12:02:14,226 - Sandbox - DEBUG - python_req.py
+
+2020-02-03 12:02:14,226 - Sandbox - DEBUG - python_req.py
+
+2020-02-03 12:02:14,226 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-02-03 12:02:14,226 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-02-03 12:11:13,313 - Sandbox - DEBUG - sandbox.log
+
+2020-02-03 12:11:13,313 - Sandbox - DEBUG - sandbox.log
+
+2020-02-03 12:11:13,313 - Sandbox - DEBUG - sandbox.log
+
+2020-02-03 12:11:13,314 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-02-03 12:11:13,314 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
+2020-02-03 12:11:13,314 - Sandbox - DEBUG - <Request 'http://127.0.0.1:5000/home/buttonclick' [POST]>
