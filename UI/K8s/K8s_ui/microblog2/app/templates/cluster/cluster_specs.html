@@ -1,0 +1,341 @@
+{% block content %}
+
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cluster_spec.css') }}">
+</head>
+
+<script>
+       function deployNode (c_id){
+           window.location.href="/cluster/cluster/"+c_id+"/deploy";
+        //    $.get( "/cluster/cluster/"+c_id+"/deploy", function(data)  {
+        //         //window.location.href="/cluster/cluster/"+c_id+"/deploy";
+        //     }).done(function() {
+        //     }).fail(function(data, textStatus, xhr) {
+        //             $.alert({
+        //                 title: 'Something went wrong!!',
+        //                 content: '*please add all details',
+        //             });
+        //         console.log("error", data.status);
+        //         console.log("STATUS: "+xhr);
+        //     });
+       }  
+       function addNode(){
+           console.log('{{cluster_items.cluster_type}}')
+           if('{{cluster_items.cluster_type}}' == 'openstack'){
+            window.location.href="/openstack_node/openstack_node?id={{cluster_items.id}}";
+           }else if('{{cluster_items.cluster_type}}' == 'baremetal'){
+               window.location.href="/vm_node/vm_node?id={{cluster_items.id}}";
+           }else if('{{cluster_items.cluster_type}}' == 'AWS'){
+               window.location.href="/aws_node/aws_node?id={{cluster_items.id}}";
+           }
+       }   
+</script>
+
+<div class="mainSection">
+    <div class="pageHeading"> Cluster Configuration</div>
+<div class="cardView" >
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> Cluster ID: </div>
+                <div class="col-sm-6 details"> {{cluster_items.id}} </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> Cluster Name: </div>
+                <div class="col-sm-6 details"> {{cluster_items.cluster_name}} </div> 
+            </div>
+        </div>
+    </div>
+  <br/>
+  <div class="row">
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-6"> Cluster Type: </div>
+            <div class="col-sm-6 details">  {{cluster_items.cluster_type}} </div>     
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-6"> O.S. Type: </div>
+            <div class="col-sm-6 details"> {{cluster_items.cluster_os}} </div>
+        </div>
+
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-6">  Node Count: </div>
+            <div class="col-sm-6 details"> {{cluster_items.node_count}} </div>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-6"> Status: </div>
+            <div class="col-sm-6 details"> {{cluster_items.status}} </div>
+        </div>
+ 
+    </div>
+</div>
+<br/>
+<div class="row">
+
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-6">  Created At: </div>
+            <div class="col-sm-6 details"> {{cluster_items.created_at}}  </div>     
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-6"> Description:  </div>
+            <div class="col-sm-6 details"> {{cluster_items.description}}  </div>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+
+  <div class=" pull-right" >
+
+<button onclick="addNode()"><span class="buttonName">Add Node</span> </button>
+&nbsp;&nbsp;
+
+
+
+ <button><a href="/component/component?id={{cluster_items.id}}"><span class="buttonName" >Add Component </span></a></button> 
+ &nbsp;&nbsp;<button onclick="deployNode('{{cluster_items.id}}')"><span class="buttonName" >  Start Deployment </span></button> 
+</div>
+  <br/>
+ </div>
+  </div>
+
+<br>
+
+{% if cluster_status == 'successful' %}
+
+<div class="cardView" >
+    <div class="row">
+	 <div class="col-sm-6">	
+           <div class="row">
+                <div class="col-sm-6">
+
+		<h5 style="text-align:left">kubernetes_dashboard:</h5>
+
+		</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">Kubernetics Endpoint IP:</div>
+                <div class="col-sm-6 details"> {{kube_endpoint_ip}} </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">Admin Token:</div>
+                <div class="col-sm-6 details"> {{admin_token}} </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+</div>
+ <br>
+
+
+<div class="cardView" >
+    <div class="row">
+         <div class="col-sm-6">
+           <div class="row">
+                <div class="col-sm-6">
+
+                <h5 style="text-align:left">Fiware GE's:</h5>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">Orion:</div>
+                <div class="col-sm-6 details"> http://{{master_ip}}:1026/version </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">sth_comet:</div>
+                <div class="col-sm-6 details">http://{{master_ip}}:8666/version</div>
+            </div>
+        </div>
+    </div>
+    <br>
+	    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">cygnus_sth:</div>
+                <div class="col-sm-6 details"> http://{{master_ip}}:8081/v1/version</div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">iot_agent:</div>
+                <div class="col-sm-6 details"> http://{{master_ip}}:4041/version</div>
+            </div>
+        </div>
+    </div>
+    <br>
+	    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">Quantumleap:</div>
+                <div class="col-sm-6 details"> http://{{master_ip}}:8668/v2/version </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">draco GUI:</div>
+                <div class="col-sm-6 details">  http://{{master_ip}}:9091/nifi</div>
+            </div>
+        </div>
+    </div>
+    <br>
+	    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">ckan GUI:</div>
+                <div class="col-sm-6 details">http://{{master_ip}}:9091:5000</div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6 details"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+
+<br>
+
+
+<div class="cardView" >
+		<div class="row">
+			 <div class="col-sm-6">
+			   <div class="row">
+					<div class="col-sm-6">
+
+					<h5 style="text-align:left">Monitoring Services:</h5>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-sm-6">grafana:</div>
+					<div class="col-sm-6 details">http://{{worker_ip}}:{{grafana_port}} </div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-sm-6">Prometheus:</div>
+					<div class="col-sm-6 details"> http://{{worker_ip}}:{{prometheus_port}}</div>
+				</div>
+			</div>
+		</div>
+		<br>
+			<div class="row">
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-sm-6">alertmanager:</div>
+					<div class="col-sm-6 details"> http://{{worker_ip}}:{{alertmanager_port}}</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-sm-6"></div>
+					<div class="col-sm-6 details"></div>
+				</div>
+			</div>
+		</div>
+		<br>
+	</div>
+<br>
+
+
+	<div class="cardView" >
+		<div class="row">
+			 <div class="col-sm-6">
+			   <div class="row">
+					<div class="col-sm-6">
+
+					<h5 style="text-align:left">other imp ports:</h5>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-sm-6">cygnus_sth_service_port:</div>
+					<div class="col-sm-6 details">{{cygnus_sth_service_port}}</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-sm-6">draco_notify_port:</div>
+					<div class="col-sm-6 details">{{draco_notify_port}}</div>
+				</div>
+			</div>
+		</div>
+		<br>
+			<div class="row">
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-sm-6">iotagent_http_port:</div>
+					<div class="col-sm-6 details">{{iotagent_http_port}}</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row">
+					<div class="col-sm-6"></div>
+					<div class="col-sm-6 details"></div>
+				</div>
+			</div>
+		</div>
+		<br>
+	<div>
+<br>
+
+
+
+{% endif %}
+
+
+
+<!--
+condition for below variable will be if cluster_status = 'successful' .
+than use all these variable to show in card board.
+
+kube_endpoint_ip={{kube_endpoint_ip}},admin_token={{admin_token}},
+orion_port={{orion_port}},sth_comet_port={{sth_comet_port}},cygnus_sth_service_port=cygnus_sth_service_port,
+                           cygnus_sth_admin_port={{cygnus_sth_admin_port}},iotagent_north_port={{iotagent_north_port}},
+                           iotagent_http_port={{iotagent_http_port}},quantumleap_port={{quantumleap_port}},
+                           draco_gui_port=draco_gui_port,draco_notify_port={{draco_notify_port}}
+-->
+{% include 'index.html' %}
+
+
+{% endblock %}

@@ -1,0 +1,75 @@
+ {% block content %}
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cluster_spec.css') }}">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</head>
+
+<script>
+var c_id = null;
+  function dropdownChange() {
+    var selectedID = ($('#next option:selected').val());
+    $("#com-data li.table-row").remove();
+    console.log("change ul " + selectedID);
+    c_id = selectedID;
+    $.get("/component/component_list_api/" + selectedID, function (data) {
+      data_li = data.data;
+      $.each(data_li, function (i, item) {
+
+        $('<li class="table-row">').append(
+          $('<div class="col col-1">').text(i + 1),
+          $('<div class="col col-2">').text(item.name),
+          $('<div class="col col-3">').text(item.state ? "Enable" : "Disable"),
+          $('<div class="col col-4">').text(item.version)).appendTo('#com-data');
+      });
+    });
+
+  }
+  $(function () {
+    $("#next").change(dropdownChange);
+    dropdownChange();
+  });
+
+  function editComponent(){
+    console.log("button click ",c_id)
+    window.location.href="/component/edit_component/" + c_id;
+  }
+</script>
+<div class="mainSection">
+<div class="pageHeading">
+   Component Details
+</div>
+<div class="cardView">
+<div class="dropdownHeading">Cluster List</div>
+<div class="selectWrapper">
+    <select id="next" method="GET" action="/">
+   <option value="" hidden>Select Cluster ......</option>
+        {% for c_list in cluster_list %}
+          <option value="{{c_list.id}}">{{c_list.cluster_name}}</option>
+        {% endfor %}
+    </select>
+</div>
+  
+<div class="container" >
+  <ul class="responsive-table" id="com-data">
+    <li class="table-header">
+      <div class="col col-1">S.no.</div>
+      <div class="col col-2">Component</div>
+      <div class="col col-3">State</div>
+      <div class="col col-4">Version </div>
+      </li>
+    </ul>
+</div>
+<div class="row">
+<div class="col-sm-12 bottomButton">
+<div class="bottomButton">
+  <button class="pull-right" onclick="editComponent()"><span class="buttonName">  Edit Component</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% include 'index.html' %} {% endblock %}

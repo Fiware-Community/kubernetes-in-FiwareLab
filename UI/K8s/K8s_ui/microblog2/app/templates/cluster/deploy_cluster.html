@@ -1,0 +1,27 @@
+
+{% block content %}
+
+nclude 'index.html' %}<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<div><h2> Cluster status</h2></div>
+<div class="card" >
+<div class="card-body">
+    <div> {{playbook_run}}</div>
+   </div>
+   </div>
+    <br>
+    <br>
+  <div class="card" >
+<div class="card-body">
+    <div> {{table}}</div>
+</div>
+</div>
+    <br>
+<div class="card" >
+<div class="card-body">
+    <div>{{tt}}</div>
+   </div>
+   </div>
+{% include 'index.html' %}
+{% endblock %}

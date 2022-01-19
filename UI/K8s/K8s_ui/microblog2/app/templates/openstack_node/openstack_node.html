@@ -1,0 +1,439 @@
+{% block content %}
+
+<head>
+
+
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }} "/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='main.css') }} ">
+         <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='css/cluster.css') }} ">
+<!--===============================================================================================-->
+
+</head>
+
+ <form action="" enctype="multipart/form-data" method="post" novalidate >
+            {{ form.hidden_tag() }}
+<div class="mainSection">
+    <div class="pageHeading"> Add Node detail to Cluster</div>
+<div class="cardView">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.auth_url.label }} <span style="color:red;font-weight:bold">*</span> </div>
+                <div class="col-sm-6 details"> {{ form.auth_url(style="width: 200px;", placeholder="AuthURL") }} </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.username.label }}<span style="color:red;font-weight:bold">*</span>  </div>
+                <div class="col-sm-6 details"> {{ form.username(style="width: 200px;" , placeholder="Username") }} </div>
+            </div>
+        </div>
+    </div>
+  <div class="row">
+       <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+
+               <div class="col-sm-6 details">
+                         {% for error in form.auth_url.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+             </div>
+             </div>
+               <div class="col-sm-6">
+               <div class="row">
+               <div class="col-sm-6"> </div>
+                        <div class="col-sm-6 details">  {% for error in form.username.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+              {% endfor %} </div>
+             </div>
+             </div>
+</div>
+
+
+    <br/>
+
+
+        <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.password.label }} <span style="color:red;font-weight:bold">*</span></div>
+                <div class="col-sm-6 details"> {{ form.password(style="width:200px;" , placeholder ="Password")}} </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.password2.label }} <span style="color:red;font-weight:bold">*</span> </div>
+                <div class="col-sm-6 details"> {{ form.password2(style="width:200px;" , placeholder ="Repeat Password") }} </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="row">
+       <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+
+               <div class="col-sm-6 details">
+                         {% for error in form.password.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+            {% endfor %}
+             </div>
+             </div>
+             </div>
+               <div class="col-sm-6">
+               <div class="row">
+               <div class="col-sm-6"> </div>
+                        <div class="col-sm-6 details">  {% for error in form.password2.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+              {% endfor %} </div>
+             </div>
+             </div>
+</div>
+
+
+<br/>
+
+
+<div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">  {{ form.project_name.label }}<span style="color:red;font-weight:bold">*</span> </div>
+                <div class="col-sm-6 details"> {{ form.project_name(style="width:200px;",placeholder="Project Name") }} </div>
+                        </div>
+                        </div>
+
+                        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.user_domain_name.label }}<span style="color:red;font-weight:bold">*</span>  </div>
+                <div class="col-sm-6 details"> {{ form.user_domain_name(style="width:200px;" ,placeholder="Domain Name") }} </div>
+            </div>
+        </div>
+
+
+ </div>
+
+ <div class="row">
+            <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.project_name.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+                                <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.user_domain_name.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+
+
+
+   </div>
+
+<br/>
+
+
+
+
+
+
+
+<div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">  {{ form.project_domain_name.label }}<span style="color:red;font-weight:bold">*</span> </div>
+                <div class="col-sm-6 details"> {{ form.project_domain_name(style="width:200px;",placeholder="Project Domain Name") }} </div>
+                        </div>
+                        </div>
+                      
+
+                        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.region_name.label }}<span style="color:red;font-weight:bold">*</span>  </div>
+                <div class="col-sm-6 details"> {{ form.region_name(style="width:200px;" ,placeholder="Region Name") }} </div>
+            </div>
+        </div>
+
+
+ </div>
+
+
+
+
+ <div class="row">
+            <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.project_domain_name.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+                                <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.region_name.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+
+
+
+   </div>
+
+<br/>
+
+
+
+
+<div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">  {{ form.image_name.label }}<span style="color:red;font-weight:bold">*</span> </div>
+                <div class="col-sm-6 details"> {{ form.image_name(style="width:200px;",placeholder="Image Name") }} </div>
+                        </div>
+                        </div>
+
+                        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.node_name.label }}<span style="color:red;font-weight:bold">*</span> </div>
+                <div class="col-sm-6 details"> {{ form.node_name(style="width:200px;" ,placeholder="Node Name") }} </div>
+            </div>
+        </div>
+
+
+ </div>
+
+
+
+
+ <div class="row">
+            <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.image_name.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+                                <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.node_name.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+
+
+
+   </div>
+
+<br/>
+
+
+
+
+
+
+<div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">  {{ form.flavor_name.label }}<span style="color:red;font-weight:bold">*</span> </div>
+                <div class="col-sm-6 details"> {{ form.flavor_name(style="width:200px;",placeholder="Flavor Name") }} </div>
+                        </div>
+                        </div>
+
+                        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.security_group_name.label }}<span style="color:red;font-weight:bold">*</span> </div>
+                <div class="col-sm-6 details"> {{ form.security_group_name(style="width:200px;" ,placeholder="Security Group Name") }} </div>
+            </div>
+        </div>
+
+
+ </div>
+
+
+ <div class="row">
+            <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.flavor_name.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+                                <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.security_group_name.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+
+
+
+   </div>
+
+<br/>
+
+<div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">  {{ form.keypair_name.label }}<span style="color:red;font-weight:bold">*</span> </div>
+                <div class="col-sm-6 details"> {{ form.keypair_name(style="width:200px;",placeholder="Key Pair Name") }} </div>
+                        </div>
+                        </div>
+
+                        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.key_path.label }} <span style="color:red;font-weight:bold">*</span></div>
+                <div class="col-sm-6 details"> {{ form.key_path(style="width:200px;") }} </div>
+            </div>
+        </div>
+
+ </div>
+
+
+
+
+ <div class="row">
+            <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.keypair_name.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+                                <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.key_path.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+
+
+
+   </div>
+
+<br/>
+
+
+
+<div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">  {{ form.private_network_name.label }}<span style="color:red;font-weight:bold">*</span> </div>
+                <div class="col-sm-6 details"> {{ form.private_network_name(style="width:200px;",placeholder="Private Network Name") }} </div>
+                        </div>
+                        </div>
+
+                        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.external_network_name.label }}<span style="color:red;font-weight:bold">*</span> </div>
+                <div class="col-sm-6 details"> {{ form.external_network_name(style="width:200px;" ,placeholder="External Network Name") }} </div>
+            </div>
+        </div>
+
+
+ </div>
+
+
+
+
+ <div class="row">
+            <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.private_network_name.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+                                <div class="col-sm-6">
+            <div class="row">
+            <div class="col-sm-6"> </div>
+            <div class="col-sm-6 details">
+                         {% for error in form.external_network_name.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+
+                         </div>
+                         </div>
+
+
+
+
+
+   </div>
+
+<br/>
+
+        {{ form.submit(class="button float-right") }}
+
+<br/>
+<br/>
+</div>
+</div>
+</form>
+{% include 'index.html' %}
+
+
+{% endblock %}

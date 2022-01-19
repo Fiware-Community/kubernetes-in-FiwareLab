@@ -1,0 +1,107 @@
+
+{% block content %}
+
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<div class="mainSection">
+     <div class="pageHeading">Aws Details</div>
+		<br>
+	<div class="cardView" >
+		<h5>User Credentials:</h5>
+		<br>
+    		<div class="row">
+                         <div class="col-sm-6">
+                                <div class="row">
+                                         <div class="col-sm-6"> ACCESS KEY ID </div>
+                                        <div class="col-sm-6 details">{{items[0].ACCESS_KEY_ID}} </div>
+                                 </div>
+                        </div>
+                         <div class="col-sm-6">
+                          <div class="row">
+                                <div class="col-sm-6"> REGION </div>
+                                 <div class="col-sm-6 details">{{items[0].REGION}} </div>
+                         </div>
+                        </div>
+                </div>
+
+<br>
+	 <div class="cardView" >
+		<h5> Node Details: </h5>
+		<br>
+                <div class="row">
+                         <div class="col-sm-6">
+                                <div class="row">
+                                         <div class="col-sm-6"> Id </div>
+                                        <div class="col-sm-6 details">{{items[0].id}} </div>
+                                 </div>
+                        </div>
+                         <div class="col-sm-6">
+                          <div class="row">
+                                <div class="col-sm-6"> Name </div>
+                                 <div class="col-sm-6 details">{{items[0].name}} </div>
+                         </div>
+                        </div>
+                </div>
+		<br>
+		 <div class="row">
+                         <div class="col-sm-6">
+                                <div class="row">
+                                         <div class="col-sm-6"> Instance Type </div>
+                                        <div class="col-sm-6 details">{{items[0].instance_type}} </div>
+                                 </div>
+                        </div>
+                         <div class="col-sm-6">
+                          <div class="row">
+                                <div class="col-sm-6"> Image Name </div>
+                                 <div class="col-sm-6 details">{{items[0].image_name}} </div>
+                         </div>
+                        </div>
+                </div>
+		<br>
+	        <div class="row">
+                         <div class="col-sm-6">
+                                <div class="row">
+                                         <div class="col-sm-6"> Security Group Name </div>
+                                        <div class="col-sm-6 details">{{items[0].security_group_name}} </div>
+                                 </div>
+                        </div>
+                         <div class="col-sm-6">
+                          <div class="row">
+                                <div class="col-sm-6"> VPC Subnet ID </div>
+                                 <div class="col-sm-6 details">{{items[0].vpc_subnet_id}} </div>
+                         </div>
+                        </div>
+                </div>
+		<br>
+                <div class="row">
+
+                         <div class="col-sm-6">
+                          <div class="row">
+                                <div class="col-sm-6"> Status </div>
+                                 <div class="col-sm-6 details">{{items[0].status}} </div>
+                         </div>
+                        </div>
+                </div>
+		<br>
+		 <div class="row">
+                         <div class="col-sm-6">
+                                <div class="row">
+                                         <div class="col-sm-6"> Created at </div>
+                                        <div class="col-sm-6 details">{{items[0].created_at}} </div>
+                                 </div>
+                        </div>
+                         <div class="col-sm-6">
+                          <div class="row">
+                                <div class="col-sm-6"> Cluster ID </div>
+                                 <div class="col-sm-6 details">{{items[0].cluster_id}} </div>
+                         </div>
+                        </div>
+                </div>
+	</div>
+
+</div>
+{% include 'index.html' %}
+
+{% endblock %}

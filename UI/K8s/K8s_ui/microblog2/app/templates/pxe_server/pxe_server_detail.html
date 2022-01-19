@@ -1,0 +1,60 @@
+ {% block content %}
+
+<head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cluster_spec.css') }}">
+</head>
+
+<div class="mainSection">
+        <div class="pageHeading">Pxe server details</div>
+        <br>
+        <div class="cardView">
+                <div>
+                        <ul class="responsive-table">
+                                <li class="table-header">
+                                        <div >S.No.</div>
+                                        <div >dhcp subnet IP</div>
+                                        <div >dhcp subnet netmask</div>
+                                        <div >dhcp interface name</div>
+                                        <div >pxe internet interface name </div>
+                                        <div >dhcp interface IP/pxe_server_ip</div>
+                                        <div >dhcp interface netmask</div>
+                                        <div >dhcp subnet range begin</div>
+                                        <div >dhcp subnet range end</div>
+                                        <div >dhcp subnet dns servers </div>
+                                        <div >OS Source Path</div>
+                                        <div >Status</div>
+                                        <div >Created at</div>
+                                </li>
+                                <li class="table-row">
+                                        <div  data-label="S.No.">{{pxe_dl.sn}}</div>
+                                        <div  data-label="dhcp subnet IP">{{pxe_dl.dhcp_subnet_ip}}</div>
+                                        <div  data-label="dhcp subnet netmask">{{ pxe_dl.dhcp_subnet_netmask }}</div>
+                                        <div  data-label="dhcp interface name">{{ pxe_dl.dhcp_interface_name }}</div>
+                                        <div  data label="pxe internet interface name">{{ pxe_dl.pxe_internet_interface_name }}</div>
+                                        <div  data-label="dhcp interface IP/pxe_server_ip">{{ pxe_dl.dhcp_interface_ip }}</div>
+                                        <div  data-label="dhcp interface netmask">{{pxe_dl.dhcp_interface_netmask}}</div>
+                                        <div  data-label="dhcp subnet range begin">{{pxe_dl.dhcp_subnet_range_begin}}</div>
+                                        <div  data-label="dhcp subnet range end">{{ pxe_dl.dhcp_subnet_range_end }}</div>
+                                        <div  data-label="dhcp dns servers">{{ pxe_dl.dhcp_subnet_domain_name_servers }}</div>
+                                        <div  data-label="OS_source_path"> /root/OS </div>
+                                        <div  data-label="Status">{{ pxe_dl.status }}</div>
+                                        <div  data-label="Created at">{{ pxe_dl.created_at }}</div>
+                                </li>
+                        </ul>
+                </div>
+                <br/>
+
+  <div class=" pull-right" >
+         <button >
+       <a href="/pxe_server/deploy"
+          ><span class="buttonName">Start Deployment </span>
+      </a>
+      </button>
+ </div>
+                <br/>
+        </div>
+</div>
+{% include 'index.html' %} {% endblock %}
+

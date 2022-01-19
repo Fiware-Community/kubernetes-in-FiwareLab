@@ -1,0 +1,119 @@
+{% block content %}
+
+<head>
+
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='css/cluster.css') }} ">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+
+<script charset="utf-8" type="text/javascript">
+   function getCategories(data){
+       console.log("aaa aaaa   ",$('#cluster_type_abc').val());
+       if($('#cluster_type_abc').val() == 'baremetal'){
+           $('#node_count_abc').prop('disabled',true);
+       }else{
+           $('#node_count_abc').prop('disabled',false);
+       }
+   }
+    $('#cluster_type_abc').on('change', function() {
+            console.log("aaa aaaa");
+    });
+</script>
+
+
+ <form action="" method="post" novalidate >
+            {{ form.hidden_tag() }}
+<div class="mainSection">
+    <div class="pageHeading"> Create Cluster</div>
+<div class="cardView">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.cluster_name.label() }} <span style="color:red;font-weight:bold">*</span></div>
+                <div class="col-sm-6 details"> {{ form.cluster_name(style="width: 200px;", placeholder="Name") }} </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6"> {{ form.node_count.label()  }}<span style="color:red;font-weight:bold">*</span>  </div>
+                <div class="col-md-6 details"> {{ form.node_count(style="width: 200px;" , placeholder="Node Count") }} </div>
+            </div>
+        </div>
+    </div>
+  <div class="row">
+       <div class="col-sm-6">
+            <div class="row">
+           <div class="col-sm-6"> </div>
+               <div class="col-sm-6 details">  
+			 {% for error in form.cluster_name.errors %}
+             <span style="color: red;font-weight:bold; font-size: 10px; ">[{{ error }}]</span>
+             {% endfor %}  </div>
+        </div> </div>
+                 <div class="col-sm-6">
+                  <div class="row"> 
+		 <div class="col-sm-6"> 
+				
+				</div>	
+			<div class="col-sm-6 details">  {% for error in form.node_count.errors %}
+              <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+              {% endfor %} </div>
+           
+            </div>
+        </div>
+</div>
+    <br/>
+	<div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.cluster_type.label() }} </div>
+                <div class="col-sm-6 details">{{ form.cluster_type(style="width:200px; border: 1px solid #ddd;",**{"onchange":"getCategories(form.cluster_type.data)"}) }} </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.cluster_os.label() }}  </div>
+                <div class="col-sm-6 details">{{ form.cluster_os(style="width:200px; border: 1px solid #ddd;") }} </div>
+            </div>
+        </div>
+    </div>
+<br/>
+<div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6"> {{ form.description.label() }} </div>
+                <div class="col-sm-6 details"> {{ form.description(style="width:200px;", rows= "1" ,placeholder="Enter Description") }} </div>
+			</div>
+			</div>
+
+</div>
+<div class="row">
+       <div class="col-sm-6">
+            <div class="row">
+           <div class="col-sm-6"> </div>
+               <div class="col-sm-6 details">
+		 {% for error in form.description.errors %}
+             <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %} 
+                          </div>
+        </div> 
+        </div>
+      </div>
+	
+<br/>
+<br/>
+<br/>
+<br/>
+{{ form.submit(class="button float-right") }}
+<br/>
+
+<br/>
+</div>
+</div>
+</form>
+{% include 'index.html' %}
+
+
+
+{% endblock %}

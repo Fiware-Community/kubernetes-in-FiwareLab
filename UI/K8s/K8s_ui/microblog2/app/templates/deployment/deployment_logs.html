@@ -1,0 +1,117 @@
+ {% block content %}
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/deployment_logs.css') }}">
+</head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    if ('{{deployment_id}}' != 0) {
+      ajaxd();
+      setInterval("ajaxd()", 5000);
+    } // call every 1 seconds
+  });
+
+  function ajaxd() {
+    $("#sysStatus").find('p').remove();
+    $.get("/deployment/deployment_log_spec_id/" + '{{deployment_id }}', function (data) {
+      data = JSON.parse(data)
+      $.each(data, function (i, item) {
+        $('<p>').append(
+          $('<span>').css({ color: (item.log_type === "ERROR") ? 'red' : 'black' }).text(item.timestamp).append(" &mdash; "),
+          $('<span>').css({ color: (item.log_type === "ERROR") ? 'red' : 'black' }).text(item.task)).appendTo('#sysStatus');
+      });
+    });
+  }
+
+  function dropdownChange() {
+    var selectedID = ($('#cluster_dropdown option:selected').val());
+    console.log("aaa ", selectedID)
+    $.get("/deployment/deployment_list_cluster_id/" + selectedID, function (data) {
+      data = JSON.parse(data)
+      $('#dep_dropdwon').find('option').remove();
+      $("#dep-data").find('p').remove();
+      var first_option = '<option value="">' + "Select Deployment ......" + '</option>'
+      $('#dep_dropdwon').append(first_option);
+      $.each(data, function (key, val) {
+        var option_item = '<option value="' + val.id + '">' + "id: " + val.id + "- Timestamp: " + val.timestamp + '</option>'
+        $('#dep_dropdwon').append(option_item);
+      });
+    });
+  }
+
+  function depDropdownChange() {
+    var selectedDepID = ($('#dep_dropdwon option:selected').val());
+    console.log("change id " + selectedDepID);
+    $("#dep-data").find('p').remove();
+    $.get("/deployment/deployment_log_spec_id/" + selectedDepID, function (data) {
+      console.log("----- ", data)
+      data = JSON.parse(data)
+      $.each(data, function (i, item) {
+        $('<p>').append(
+          $('<span>').css({ color: (item.log_type === "ERROR") ? 'red' : 'black' }).text(item.timestamp).append(" &mdash; "),
+          $('<span>').css({ color: (item.log_type === "ERROR") ? 'red' : 'black' }).text(item.task)).appendTo('#dep-data');
+      });
+    });
+  }
+
+  $(function () {
+    $("#cluster_dropdown").change(dropdownChange);
+    dropdownChange();
+  });
+
+  $(function () {
+    $("#dep_dropdwon").change(depDropdownChange);
+    depDropdownChange();
+  });
+
+</script>
+<div class="mainSection">
+
+  <div class="pageHeading">
+    Deployment logs
+  </div>
+  {% if deployment_id == 0 %}
+
+  <div class="cardView">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="dropdownHeading">Cluster List</div>
+        <div class="selectWrapper" style="width:95%">
+            <select id="cluster_dropdown" method="GET" action="/">
+                <option value="" hidden>Select Cluster ......</option>
+                {% for c_list in cluster_list %}
+                <option value="{{c_list.id}}">{{c_list.cluster_name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+<div class="col-sm-6">
+  <div class="dropdownHeading">Deployment list</div>
+  <div class="selectWrapper" style="width:95%">
+<select id="dep_dropdwon" method="GET" action="/">
+ <option value="" hidden>Select Deployment ......</option>
+      </select>
+</div>
+</div>
+</div>
+<h5 class="logHeading">
+  Logs
+</h5>
+<div class="cardView" style="background-color:#00000010" id="dep-data">
+
+</div>
+
+</div>
+
+{% endif %} {% if deployment_id != 0 %}
+<div class="cardView">
+<h5>
+  Deployment logs
+</h5>
+<div class="cardView" style="background-color:#00000010" id="sysStatus"> </div>
+</div>
+
+{% endif %}
+</div>
+{% include "index.html"%} {% endblock %}

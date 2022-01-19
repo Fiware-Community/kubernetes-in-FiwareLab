@@ -1,0 +1,79 @@
+{% block content %}
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+
+
+<script>
+            function myFunction(id) {
+           $.confirm({
+                    title: 'Warning!',
+                    content: 'Are you sure you want to delete?',
+                    buttons: {
+                        confirm: function () {
+                            $.get( "/cluster/cluster/"+id+"/delete", function(data)  {
+                               location.reload();
+                            }).done(function() {
+                            }).fail(function(data, textStatus, xhr) {
+                                $.alert('Something went wrong!');
+                                console.log("error", data.status);
+                                console.log("STATUS: "+xhr);
+                            });
+                            
+                        },
+                        cancel: function () {
+                           
+                        }
+                    }
+                });
+
+            }
+</script>
+
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+</script>
+
+</head>
+
+<div class="mainSection">
+     <div class="pageHeading">Sandbox Cluster's</div>
+ 
+<div class="cardView">
+<div class="container">
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">ID</div>
+        <div class="col col-2">Cluster</div>
+        <div class="col col-3">Type</div>
+        <div class="col col-4">O.S. </div>
+        <div class="col col-5">Nodes</div>
+        <div class="col col-6">Status</div>
+        <div class="col col-7">Created At</div>
+        <div class="col col-8">Description</div>
+      </li>
+      {% for cl in cluster_list %}
+      <li class="table-row">
+        <div class="col col-1" data-label="ID"><a class="details" href="/cluster/cluster/{{ cl.id }}"> {{ cl.id }}</a></div>
+        <div class="col col-2" data-label="Cluster" data-toggle="tooltip" title="{{cl.cluster_name}}">{{ cl.cluster_name[:15] }}</div>
+        <div class="col col-3" data-label="Type">{{ cl.cluster_type }}</div>
+        <div class="col col-4" data-label="O.S.">{{ cl.cluster_os }}</div>
+        <div class="col col-5" data-label="Nodes">{{ cl.node_count }}</div>
+        <div class="col col-6" data-label="Status">{{ cl.status }}</div>
+        <div class="col col-7" data-label="Created At">{{ cl.created_at }}</div>
+        <div class="col col-8" data-label="Description"data-toggle="tooltip" title="{{cl.description}}">{{ cl.description[:5] }}
+        <button class="pull-right" onclick="myFunction({{cl.id}})">X</button></div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+
+</div>
+{% include 'index.html' %}
+
+
+{% endblock %}

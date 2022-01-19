@@ -1,0 +1,210 @@
+{% block content %}
+<head>
+
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='css/add_component.css') }} ">
+<!--===============================================================================================-->
+
+</head>
+<div class="mainSection">
+ <div class="pageHeading"> Add components to Cluster </div>
+        <form action="" method="post" novalidate >
+            {{ form.hidden_tag() }}
+                        <div class="cardView" >
+			<div class="row"><h5>Orion</h5> </div>	
+                             <div class="row">
+                                <div class="col-sm-2">
+                                  <div class="row">
+                                        <p> Enable Orion </p> &nbsp; &nbsp;
+                                      <p class="shiftbottom">  {{ form.enable_orion}}
+                                        </p>
+                                  </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+                                 <p> Orion Version </p> &nbsp; &nbsp;
+                                 {{ form.orion_version(style="width:300px;") }}
+                                   </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+                                 <p> mongodb Version </p> &nbsp; &nbsp;
+                                 {{ form.mongodb_version(style="width:200px;")}}
+                                   </div>
+                                 </div>
+                           </div>
+                        </div>
+                                <br>
+                                <br>
+                        <div class="cardView" >
+                            <div class="row"><h5>STH_Comet </h5></div>
+                           <div class="row">
+                                <div class="col-sm-2">
+                                  <div class="row">
+                                        <p> Enable Sth Comet </p> &nbsp;&nbsp;
+                                        <p class="shiftbottom"> {{ form.enable_sth_comet }} </p>
+                                  </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+                                    <p> Sth Version </p> &nbsp;&nbsp;
+                                    {{ form.sth_version(style="width:300px;") }}
+                                   </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+                                    <p> Sth Mongo Version </p> &nbsp;&nbsp;
+                                    {{ form.sth_mongo_version(style="width:200px;") }}
+                                   </div>
+                                 </div>
+                           </div>
+                        </div>
+                        <br>
+                        <br>
+                         <div class="cardView" >
+                           <div class="row"><h5>Cygnus_STH </h5> </div>
+                           <div class="row">
+                                <div class="col-sm-2">
+                                  <div class="row">
+                                        <p> Enable Cygnus Sth </p> &nbsp;&nbsp;
+                                       <p class="shiftbottom"> {{ form.enable_cygnus_sth }} &nbsp;<p>
+                                  </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+                                        <p> Cygnus Sth Version </p> &nbsp;&nbsp;
+                                     {{ form.cygnus_sth_version(style="width:300px;") }}
+                                  </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+                                   </div>
+                                 </div>
+                           </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="cardView" >
+                           <div class="row"><h5> IoT-Agent </h5></div>
+                           <div class="row">
+                                <div class="col-sm-2">
+                                  <div class="row">
+                                       <p> Enable Iotagent </p> &nbsp;&nbsp;
+                                       <p class="shiftbottom"> {{ form.enable_iotagent }} </p>
+                                  </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+                                 <p> Iot Version </p> &nbsp;&nbsp;
+                                 {{ form.iot_version(style="width:300px;") }}
+                                   </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+
+                                   </div>
+                                 </div>
+                           </div>
+                        </div>
+                        <div class="cardView" >
+                          <div class="row"><h5>Quantum Leap </h5> </div>
+                           <div class="row">
+                                <div class="col-sm-2">
+                                  <div class="row">
+                                        <p> Enable Quantumleap </p> &nbsp;&nbsp;
+                                        <p class="shiftbottom">{{ form.enable_quantumleap }} </p>
+                                  </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+                                 <p> Quantumleap Version </p> &nbsp;&nbsp;
+                                 {{ form.quantumleap_version(style="width:200px;") }}
+                                   </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+                                                <p> Crate Version </p> &nbsp;&nbsp;
+                                                {{  form.crate_version(style="width:300px;") }}
+                                   </div>
+                                 </div>
+                           </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="cardView" >
+                           <div class="row"><h5> Draco </h5> </div>
+                           <div class="row">
+                                <div class="col-sm-2">
+                                  <div class="row">
+                                       <p> Enable Draco </p> &nbsp;&nbsp;
+                                      <p class="shiftbottom"> {{ form.enable_draco }} </p>
+                                  </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+                                        <p> Draco Version </p> &nbsp;&nbsp;
+                                        {{ form.draco_version(style="width:300px;") }}
+                                   </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+
+                                   </div>
+                                 </div>
+                           </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="cardView" >
+                           <div class="row"><h5>Ckan</h5> </div>
+                           <div class="row">
+                                <div class="col-sm-2">
+                                  <div class="row">
+                                      <p> Enable CKAN </p> &nbsp;&nbsp;
+                                     <p class="shiftbottom"> {{ form.enable_ckan }} <p><br>
+                                  </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+
+                                   </div>
+                                 </div>
+                                 <div class="col-sm-5">
+                                   <div class="row">
+
+                                   </div>
+                                 </div>
+                           </div>
+                        </div>
+                        <br>
+                        <br>
+                        {{ form.submit(class="button position-absolute float-right") }}
+                        <br>
+                        <br>
+                        {% for error in form.submit.errors %}
+                        <span style="color: red;font-weight:bold;">[{{ error }}]</span>
+                        {% endfor %}
+                        </form>
+<br>
+</div>
+
+{% include 'index.html' %}
+
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+
+{% endblock %}
+

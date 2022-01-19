@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<head>
+
+
+<!--===============================================================================================-->
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }} "/>
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }} "/>
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font-awesome.min.css') }} ">
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='material-design-iconic-font.min.css') }} ">
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='animate.css')}}">
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='hamburgers.min.css') }} ">
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='animsition.min.css' ) }}">
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='select2.min.css' ) }} ">
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='css/auth.css') }}">
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='util.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='main.css') }} ">
+<!--===============================================================================================-->
+
+
+</head>
+
+{% block content %}
+        <div class="limiter">
+                <div class="container-login100">
+                        <div class="wrap-login100">
+    <form action="" method="post" novalidate>
+    <form class="login100-form validate-form">
+                                               <span class="login100-form-title p-b-40 font-weight-bolder">
+                                         Register
+                                        </span>
+        {{ form.hidden_tag() }}
+           <div class="form-group form-group-sm"> 
+           {{ form.username.label (style="font-weight:bold;") }}<span style="color:red;font-weight:bold;">*</span>
+            <div>
+            {{ form.username(class_="wrap-input100 validate-input") }} 
+            </div>
+            </div>
+            <div>
+            {% for error in form.username.errors %}
+            <span style="color: red;font-weight:bold;font-size: 10px;">[{{ error }}]</span>
+            {% endfor %}
+            </div>
+             <br/>
+
+            <div class="form-group form-group-sm">
+            {{ form.email.label (style="font-weight:bold;") }}<span style="color:red;font-weight:bold;">*</span>
+            
+            <div>
+            {{ form.email(class_="wrap-input100 validate-input") }}
+             </div>
+             </div>
+            <div>
+            {% for error in form.email.errors %}
+            <span style="color: red;font-weight:bold;font-size: 10px;">[{{ error }}]</span>
+            {% endfor %}
+            </div>   <br/>
+            <div class="form-group form-group-sm">
+            {{ form.password.label (style="font-weight:bold;") }}<span style="color:red;font-weight:bold">*</span>
+            <div>
+            {{ form.password(class_="wrap-input100 validate-input") }}
+            </div>
+              </div>
+             <div>
+            {% for error in form.password.errors %}
+            <span style="color: red;font-weight:bold;font-size: 10px;">[{{ error }}]</span>
+            {% endfor %} </div> <br/>
+            <div class="form-group form-group-sm">
+            {{ form.password2.label(style="font-weight:bold;") }}<span style="color:red;font-weight:bold">*</span>
+            <div>
+            {{ form.password2(class_="wrap-input100 validate-input") }}  </div>
+            </div>
+             <div>
+            {% for error in form.password2.errors %}
+            <span style="color: red;font-weight:bold;font-size: 10px;">[{{ error }}]</span>
+            {% endfor %} </div> <br/>
+        <div class="container-login100-form-btn">
+        <div class="wrap-login100-form-btn">
+
+        {{ form.submit(class_="login100-form-btn", style="background-color:blue") }} </div> </div>
+<div class="text-center p-t-33">
+ <label style="font-weight:bold"> Already a member? <label><a class="txt2" href="{{ url_for('auth.login') }}">Sign in</a> </div>
+
+</div>
+</div>
+</div>
+</form>
+ <!--===============================================================================================-->
+        <script src="{{ url_for('static' , filename= 'jquery-3.2.1.min.js') }}"/>
+<!--===============================================================================================-->
+        <script src="{{ url_for('static' , filename='animsition.min.js')}}"/>
+<!--===============================================================================================-->
+        <script src="{{ url_for('static' , filename='popper.js') }} "/>
+        <script src=" {{ url_for('static' , filename='bootstrap.min.js' ) }} ">
+<!--===============================================================================================-->
+        <script src="{{ url_for('static' , filename='select2.min.js') }} " />
+<!--===============================================================================================-->
+        <script src="{{ url_for('static' , filename='moment.min.js') }}"/>
+        <script src="{{ url_for('static' , filename='daterangepicker.js' ) }} "/>
+<!--===============================================================================================-->
+        <script src="{{ url_for('static' , filename='countdowntime.js' ) }} "/>
+<!--===============================================================================================-->
+        <script src="{{ url_for('static' ,  filename='main.js') }} "/>
+
+{% endblock %}
+

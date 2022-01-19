@@ -1,0 +1,40 @@
+{% block content %}
+
+<head>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='css/about.css') }} ">
+
+</head>
+
+<div class="mainSection">
+<div class="mainHeading">About Us</div>
+<div class="cards">
+<div class="row">
+<div class="col-sm-5 logoSection">
+<div class="firstHeading">FIWARE</div>
+<div class="secondHeading">SANDBOX</div>
+</div>
+<div class="col-sm-7 infoSection" >
+<p>Fiware Sandbox provides Platform as a service (PaaS) for Fiware GEs. It orchestrate Fiware GE's on top Kubernetes using key technologies Ansible, Docker, Python Flask etc.  It provides Highly available Fiware GE's cluster with versioning feature.</p>
+
+<p>Key features of Fiware sandbox:</p>
+<ul>
+<li class="lists">
+ High Availability of Fiware GE's.</li>
+<li class="lists">
+ Independence of selecting GE version.</li>
+<li class="lists">Add Fiware GE's/components to existing cluster.</li>
+<li class="lists">Real time log facility of cluster deployment.</li>
+<ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+{% include 'index.html' %}
+{% endblock %}
+
+

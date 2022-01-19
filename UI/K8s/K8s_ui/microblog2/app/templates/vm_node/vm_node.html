@@ -1,0 +1,148 @@
+{% block content %}
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cluster_spec.css') }}">
+ <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='css/add_component.css') }} ">
+​
+</head>
+<!--
+<script type="text/javascript">
+jQuery(document).ready(function() {
+  $("#vm_key_based_auth_abc").change(function() {
+    if(this.vm_key_based_auth_abc) {
+        $('#vm_password_abc').hide();
+    } else {
+      $('#vm_key_path_abc').hide();
+    }
+  });
+});
+</script>
+-->
+<div class="mainSection">
+                <form action="" enctype="multipart/form-data" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                 <div class="pageHeading"> Add Virtual Machines to Cluster </div>
+                    <div class="cardView" >
+                           <div class="row">
+                                         <div class="col-sm-6">
+                                                 <div class="row">
+                                                   <div class="col-sm-4"> VM Username: </div>
+                                                   <div class="col-sm-8 details"> {{ form.vm_username(style="width:80%;", ) }}  </div>
+                                                 </div>
+                                         </div>
+                                        <div class="col-sm-6">
+                                                  <div class="row">
+                                                         <div class="col-sm-4"> Key based authentication: </div>
+                                                         <div class="col-sm-8 details"> {{ form.vm_key_based_auth(style="width:80%;",) }}  </div>
+                                                 </div>
+                                         </div>
+                          </div>
+  <div class="row">
+       <div class="col-sm-8">
+            <div class="row">
+            <div class="col-sm-8"> </div>
+
+               <div class="col-sm-8 details">
+                         {% for error in form.vm_username.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+             </div>
+             </div>
+               <div class="col-sm-8">
+               <div class="row">
+               <div class="col-sm-8"> </div>
+                        <div class="col-sm-8 details">  {% for error in form.vm_key_based_auth.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+              {% endfor %} </div>
+             </div>
+             </div>
+</div>
+                          <br/>
+                          <br/>
+​
+                         <div class="row">
+                                         <div class="col-sm-6">
+                                                 <div class="row">
+                                                   <div class="col-sm-4"> VM IP: </div>
+                                                   <div class="col-sm-8 details"> {{ form.vm_ip(style="width:80%;", rows= "4" ) }}  </div>
+                                                 </div>
+                                         </div>
+                                        <div class="col-sm-6">
+                                                  <div class="row">
+                                                         <div class="col-sm-4"> VM Prefix Name:  </div>
+                                                         <div class="col-sm-8 details"> {{ form.vm_name_prefix(style="width:80%;",) }} </div>
+                                                 </div>
+                                         </div>
+                          </div>
+  <div class="row">
+       <div class="col-sm-8">
+            <div class="row">
+            <div class="col-sm-8"> </div>
+
+               <div class="col-sm-8 details">
+                         {% for error in form.vm_ip.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+             </div>
+             </div>
+               <div class="col-sm-8">
+               <div class="row">
+               <div class="col-sm-8"> </div>
+                        <div class="col-sm-8 details">  {% for error in form.vm_name_prefix.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+              {% endfor %} </div>
+             </div>
+             </div>
+</div>
+                          <br/>
+                          <br/>
+​
+                         <div class="row">
+                                         <div class="col-sm-6">
+                                                 <div class="row">
+                                                   <div class="col-sm-4"> Private Key: </div>
+                                                   <div class="col-sm-8 details"> {{ form.vm_key_path(style="width:200px;") }}  </div>
+                                                 </div>
+                                         </div>
+                                        <div class="col-sm-6">
+                                                  <div class="row">
+                                                         <div class="col-sm-4"> VM Password:  </div>
+                                                         <div class="col-sm-8 details"> {{ form.vm_password(style="width:80%;",) }} </div>
+                                                 </div>
+                                         </div>
+                          </div>
+  <div class="row">
+       <div class="col-sm-8">
+            <div class="row">
+            <div class="col-sm-8"> </div>
+
+               <div class="col-sm-8 details">
+                         {% for error in form.vm_key_path.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+             </div>
+             </div>
+               <div class="col-sm-8">
+               <div class="row">
+               <div class="col-sm-8"> </div>
+                        <div class="col-sm-8 details">  {% for error in form.vm_password.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+              {% endfor %} </div>
+             </div>
+             </div>
+</div>
+                          <br/>
+                        <div  >
+                           
+                        </div>
+                        
+                
+​
+                   </div>
+				<p>{{ form.submit(class="button position-absolute float-right") }}</p>
+                                 &nbsp;&nbsp;
+                   </form>
+</div>
+{% include 'index.html' %}
+​
+​
+{% endblock %}
