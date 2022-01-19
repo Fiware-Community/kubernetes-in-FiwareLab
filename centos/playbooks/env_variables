@@ -1,5 +1,5 @@
 #Enter your master node advertise ip address.
-ad_addr: 195.134.187.9
+ad_addr: <internal IP of the VM>
 #Don't Edit below values, these are mandatory to configure cidr range for the pods.
 cidr_v: 10.244.0.0/16
 
