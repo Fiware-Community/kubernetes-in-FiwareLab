@@ -1,0 +1,3 @@
+192.168.100.180    ansible_ssh_user=centos  ansible_become=True    ansible_private_key_file=/tmp/sandbox.pem
+#ansible_become_method=sudo
+
