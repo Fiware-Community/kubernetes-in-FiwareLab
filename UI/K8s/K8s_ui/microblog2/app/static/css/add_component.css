@@ -1,0 +1,23 @@
+p{
+    margin: 0;
+    padding-top: 10px;
+}
+
+.shiftbottom{
+padding-top : 16px;
+margin-bottom : 0px
+}
+
+.button{
+    background-color: darkturquoise;
+    border-radius: 200px !important;
+    border-style: none;
+    padding: 10px 5px;
+    color: white;
+    right: 2.5%;
+}
+.disableSection{
+pointer-events: none; 
+background-color:#00000008;
+color:cadetblue;
+}
