@@ -1,0 +1,16 @@
+- hosts: localhost
+  tasks:
+  - name: add_host to run time inventory for master group
+    add_host: name=localhost
+              groups=master
+              ansible_ssh_user=necuser
+              ansible_ssh_paasword=q
+              ansible_become=True
+              ansible_become_password=q
+- hosts: master
+  tasks:
+  - name: ensure tcpdump is at the latest version
+    apt:
+      name: tcpdump2
+      state: present
+    #when: ansible_os_family == 'RedHat'
