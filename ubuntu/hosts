@@ -1,5 +1,5 @@
 [kubernetes-master-nodes]
-red-2 ansible_host=195.134.187.22
+red-2 ansible_host=<internal IP of the master VM>
 
 [kubernetes-worker-nodes]
-red-1 ansible_host=195.134.187.73
+red-1 ansible_host=<internal IP of the worker VM>
