@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /usr/local/bin/kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  namespace: {{ k8s_namespace }}
+  labels:
+    io.kompose.service: ckan
+  name: ckan
+spec:
+  selector:
+    matchLabels:
+      io.kompose.service: ckan
+  replicas: 5
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: ckan
+    spec:
+      containers:
+      - env:
+        - name: CKAN_DATAPUSHER_URL
+          value: http://datapusher-service.{{ k8s_namespace }}.svc.cluster.local:8800
+        - name: CKAN_DATASTORE_READ_URL
+          value: postgresql://datastore_ro:datastore@postgres.{{ k8s_namespace }}.svc.cluster.local/datastore
+#,postgres-replica.default.svc.cluster.local/datastore
+          #value: postgresql://datastore_ro:datastore@11.0.0.23/datastore
+        - name: CKAN_DATASTORE_WRITE_URL
+          value: postgresql://ckan:ckan@postgres.{{ k8s_namespace }}.svc.cluster.local/datastore
+          #value: postgresql://ckan:ckan@11.0.0.23/datastore
+        - name: CKAN_REDIS_URL
+          value: redis://redis-cluster.{{ k8s_namespace }}.svc.cluster.local:6379/0
+          #value: redis://11.0.0.23:6379/0
+        - name: CKAN_SITE_URL
+        - name: CKAN_SOLR_URL
+          value: http://solr-service.{{ k8s_namespace }}.svc.cluster.local:8983/solr/ckan
+          #value: http://11.0.0.23:8983/solr/ckan
+        - name: CKAN_SQLALCHEMY_URL
+          value: postgresql://ckan:ckan@postgres.{{ k8s_namespace }}.svc.cluster.local/ckan
+#,postgres-replica.default.svc.cluster.local/ckan
+#          value: postgresql://ckan:ckan@11.0.0.23/ckan
+        - name: DS_RO_PASS
+          value: datastore
+        - name: POSTGRES_PASSWORD
+          value: ckan
+#        image: rhcayadav/ckan:v3.2
+#        image: rhcayadav/ckan:101519_latest_updated_v3
+#        image: rhcayadav/ckan:101119_latest_updated
+        image: rhcayadav/ckan:102119_latest
+        name: ckan
+        ports:
+        - containerPort: 5000
+        resources: {}
+        volumeMounts:
+        - mountPath: /etc/ckan
+          name: ckanconfig
+        - mountPath: /var/lib/ckan
+          name: ckandata
+      volumes:
+      - name: ckanconfig
+        persistentVolumeClaim:
+          claimName: ckanconfig
+      - name: ckandata
+        persistentVolumeClaim:
+          claimName: ckandata

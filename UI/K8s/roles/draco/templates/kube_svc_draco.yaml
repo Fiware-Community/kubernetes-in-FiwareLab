@@ -1,0 +1,20 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: draco
+  namespace: {{ k8s_namespace }}
+spec:
+  type: NodePort
+  ports:
+#    - port: 9090
+    - port: 9091
+      targetPort: 9090
+      name: gui
+    - port: 5051
+      targetPort: 5050
+      name: notify
+  selector:
+    app: draco
+  externalIPs:
+  - {{ ansible_default_ipv4.address }}
+

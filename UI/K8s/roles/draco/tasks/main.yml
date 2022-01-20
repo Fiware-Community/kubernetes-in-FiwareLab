@@ -1,0 +1,129 @@
+---
+# tasks file for draco
+- name: Create a k8s namespace
+  k8s:
+    name: "{{ k8s_namespace }}"
+    api_version: v1
+    kind: Namespace
+    state: present
+    wait: yes
+
+- name: Create a directory if it does not exist
+  file:
+    path: "{{item}}"
+    state: directory
+    mode: '0755'
+  with_items:
+    - /opt/draco/galera-0/datadir
+    - /opt/draco/galera-1/datadir
+    - /opt/draco/galera-2/datadir
+
+- name: check exports line
+  lineinfile:
+    path: /etc/exports
+    line: '/opt/draco *(rw,sync,no_root_squash,no_all_squash)'
+
+
+- name: restart and enable nfs-server services
+  systemd:
+    name: "{{ item }}"
+    state: reloaded
+    enabled: yes
+  with_items:
+    - nfs-server
+  when: ansible_os_family == 'RedHat'
+
+- name: restart and enable nfs-kernel-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - nfs-kernel-server
+  when: ansible_os_family == 'Debian'
+
+- name: Read definition file from the Ansible controller file system after Jinja templating
+  k8s:
+    state: present
+    definition: "{{ lookup('template', item) }}"
+    wait: yes
+    apply: yes
+  with_items:
+    - templates/volume1.yaml
+    - templates/volume2.yaml
+    - templates/volume3.yaml
+
+
+- name: create k8 sql_etcd services
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/kube_sql_etc_svc.yaml') }}"
+    wait: yes
+    apply: yes
+
+- name: create k8 sql_etcd pods
+  k8s:
+    state: present
+    definition: "{{ lookup('template', item) }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 300
+    wait_condition:
+      type: Ready
+      status: True
+  with_items:
+    - templates/kube_sql_etcd0.yaml 
+    - templates/kube_sql_etcd1.yaml
+    - templates/kube_sql_etcd2.yaml
+
+
+- name: create k8 mysql statefulset
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/sql-statefulset.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 100
+
+- name: retry for get  mysql Statefulset Status replicas until it is 3
+  k8s_facts:
+    name: galera-ss
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: galera_ss_sts
+  until: galera_ss_sts.resources[0].status.replicas == 3
+  retries: 90
+  delay: 5
+  ignore_errors: yes
+
+- name: pausing for 30 seconds
+  pause:
+    seconds: 30
+  
+- name: retry for get  mysql  Statefulset  Status readyReplicas until it is 3
+  k8s_facts:
+    name: galera-ss
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: galera_ss_sts
+  until: galera_ss_sts.resources[0].status.readyReplicas == 3
+  retries: 100
+  delay: 10
+
+- name: create k8 draco service
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/kube_svc_draco.yaml') }}"
+    wait: yes
+    apply: yes
+
+- name: create k8 draco deployment
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/kube_draco_deployment.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 800
+    wait_condition:
+      type: Available
+      status: True

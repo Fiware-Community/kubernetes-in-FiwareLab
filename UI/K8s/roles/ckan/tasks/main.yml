@@ -1,0 +1,3 @@
+- include: ckan.yml
+  when:
+    - enable_ckan  | bool

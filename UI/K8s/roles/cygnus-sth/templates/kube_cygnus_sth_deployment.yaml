@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ k8s_namespace }}
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: cygnus-sth
+    app: cygnus-sth
+  name: cygnus-sth
+spec:
+  selector:
+    matchLabels:
+      app: cygnus-sth
+  replicas: 4
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: cygnus-sth
+        app: cygnus-sth
+    spec:
+      containers:
+      - image: "fiware/cygnus-ngsi:{{cygnus_sth_version}}"
+#rhcayadav/cygnus_custom-comet_with_entrypoint:v2.004
+        name: cygnus-sth
+        env:
+        - name: CYGNUS_MONGO_HOSTS
+          value: mongo2.{{ k8s_namespace }}.svc.cluster.local:27017
+        - name: CYGNUS_MONGO_USER
+          value:
+        - name: CYGNUS_MONGO_PASS
+          value:
+        ports:
+        - containerPort: 5080
+        - containerPort: 8081
+        resources: {}
+      restartPolicy: Always
+status: {}

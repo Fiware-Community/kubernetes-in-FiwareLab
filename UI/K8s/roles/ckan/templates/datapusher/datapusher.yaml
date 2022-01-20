@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datapusher-deployment
+  namespace: {{ k8s_namespace }}
+  labels:
+    app: datapusher
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: datapusher
+  template:
+    metadata:
+      labels:
+        app: datapusher
+    spec:
+      containers:
+      - name: datapusher
+        image: clementmouchet/datapusher
+        ports:
+        - containerPort: 8800
+

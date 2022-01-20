@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: datapusher-service
+  namespace: {{ k8s_namespace }}
+  labels:
+    app: datapusher
+spec:
+  ports:
+  - protocol: TCP
+    port: 8800
+    targetPort: 8800
+  selector:
+    app: datapusher
+

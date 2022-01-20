@@ -1,0 +1,31 @@
+---
+# tasks file for cygnus-sth
+- name: Create a k8s namespace
+  k8s:
+    name: "{{ k8s_namespace }}"
+    api_version: v1
+    kind: Namespace
+    state: present
+    wait: yes
+
+
+- name: create k8 cygnus-sth service 
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/kube_svc_cygnus_sth.yaml') }}"
+    wait: yes
+    apply: yes
+
+
+- name: create k8 cygnus-sth deployment
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/kube_cygnus_sth_deployment.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 300
+    wait_condition:
+      type: Available
+      status: True
+
+

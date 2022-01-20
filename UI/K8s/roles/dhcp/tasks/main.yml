@@ -1,0 +1,104 @@
+# roles/dhcp/tasks/main.yml
+---
+- name: Create a ifcfg file  if it does not exist
+  file:
+    path: /etc/sysconfig/network-scripts/ifcfg-{{dhcp_interface}}
+    state: touch
+    mode: 0755
+
+- name: Insert/Update dhcp_inetrface  configuration in /etc/sysconfig/network-scripts/ifcfg-{{dhcp_interface}}
+  blockinfile:
+    path: /etc/sysconfig/network-scripts/ifcfg-{{ dhcp_interface }}
+    block: |
+      TYPE=Ethernet
+      BOOTPROTO=static
+      DEFROUTE=yes
+      IPV4_FAILURE_FATAL=no
+      NAME={{ dhcp_interface }}
+      DEVICE={{ dhcp_interface }}
+      ONBOOT=yes
+      IPV6_PRIVACY=no
+      IPADDR={{ dhcp_interface_ip }}
+      NETMASK={{ dhcp_interface_netmask }}
+
+- name: make interface {{ dhcp_interface }} up.
+  command: ifup {{ dhcp_interface }}
+
+- name: Load distro-specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}.yml"
+    - "{{ ansible_os_family }}.yml"
+    - "{{ default }}.yml"
+  tags: dhcp
+
+- name: Install packages
+  package:
+    name: "{{ dhcp_packages }}"
+    state: "{{ dhcp_packages_state }}"
+  tags: dhcp
+
+- include_tasks: apparmor-fix.yml
+  when: ansible_os_family == 'Debian' and dhcp_apparmor_fix|bool
+  tags: dhcp
+
+- include_tasks: default-fix.yml
+  when: ansible_os_family == 'Debian'
+  tags: dhcp
+
+- name: Install includes
+  copy:
+    src: "{{ item }}"
+    dest: "{{ dhcp_config_dir }}/{{ item | basename }}"
+  with_items: "{{ dhcp_global_includes }}"
+  when: dhcp_global_includes is defined
+  ignore_errors: "{{ dhcp_global_includes_missing }}"
+  tags: dhcp
+
+- name: Set config directory perms
+  file:
+    path: "{{ dhcp_config | dirname }}"
+    state: directory
+    mode: 0755
+  tags: dhcp
+
+- name: Install config file
+  template:
+    src: etc_dhcp_dhcpd.conf.j2
+    dest: "{{ dhcp_config }}"
+    owner: root
+    group: root
+    mode: 0644
+    validate: 'dhcpd -t -cf %s'
+  notify: restart dhcp
+  tags: dhcp
+
+- name: "Ensure service is {{ dhcp_global_server_state | default('started') }}"
+  service:
+    name: "{{ dhcp_service }}"
+    state: "{{ dhcp_global_server_state | default('started') }}"
+    enabled: true
+  tags: dhcp
+
+- name: Insert/Update "net.ipv4.ip_forward=1" configuration block in /etc/sysctl.conf
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: "net.ipv4.ip_forward=1"
+
+- name: Insert/Update "net.ipv4.ip_forward=1" configuration block in /etc/sysctl.conf
+  blockinfile:
+    path: /etc/rc.local
+    block: |
+      iptables -A FORWARD -j ACCEPT
+      iptables -t nat -A POSTROUTING -o {{ internet_interface }} -j MASQUERADE
+
+- name: iptables_forward rule
+  command: sysctl -w net.ipv4.ip_forward=1
+
+- name: iptables_forward rule
+  command: iptables -A FORWARD -j ACCEPT
+
+- name: iptables_forward rule
+  command: iptables -t nat -A POSTROUTING -o {{ internet_interface }} -j MASQUERADE
+
+

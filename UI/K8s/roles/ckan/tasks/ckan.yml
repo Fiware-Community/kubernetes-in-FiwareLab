@@ -1,0 +1,407 @@
+---
+# tasks file for ckan
+- name: Create a k8s namespace
+  k8s:
+    name: "{{ k8s_namespace }}"
+    api_version: v1
+    kind: Namespace
+    state: present
+    wait: yes
+
+- name: Create a directory if it does not exist
+  file:
+    path: "{{item}}"
+    state: directory
+    mode: '0777'
+  with_items:
+    - /opt/ckan
+    - /opt/ckan/ckanconfig
+    - /opt/ckan/postgres
+    - /opt/ckan/solr/vol/0
+    - /opt/ckan/solr/vol/1
+    - /opt/ckan/solr/vol/2
+    - /opt/ckan/redis/vol/0
+    - /opt/ckan/redis/vol/1
+    - /opt/ckan/redis/vol/2
+    - /opt/ckan/redis/vol/3
+    - /opt/ckan/redis/vol/4
+    - /opt/ckan/redis/vol/5
+    - /opt/ckan/ckandata
+    - /opt/ckan/postgres/postgres-pv01
+    - /opt/ckan/postgres-replica/postgres-replica-pv01
+
+- name: copying  who.ini  package directory to file with owner and permissions
+  copy:
+    src: templates/ckan/ckanconfig/who.ini
+    dest: /opt/ckan/ckanconfig
+    owner: root
+    group: root
+    mode: 0777
+
+- name: Create a production.ini file from a template
+  template:
+    src: templates/ckan/ckanconfig/production.ini.j2
+    dest: /opt/ckan/ckanconfig/production.ini
+    newline_sequence: '\r\n'
+
+- name: copying postgres perm-data directory  with owner and permissions
+  copy:
+    src: templates/postgress/perm-data
+    dest: /opt/ckan/postgres/
+    owner: root
+    group: root
+    mode: 0777
+
+- name: check exports line
+  lineinfile:
+    path: /etc/exports
+    line: "{{ item }}"
+  with_items:
+    - '/opt/ckan *(rw,sync,no_root_squash,no_all_squash)'
+
+- name: restart and enable nfs-server services
+  systemd:
+    name: "{{ item }}"
+    state: reloaded
+    enabled: yes
+  with_items:
+    - nfs-server
+  when: ansible_os_family == 'RedHat'
+
+- name: restart and enable nfs-kernel-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - nfs-kernel-server
+  when: ansible_os_family == 'Debian'
+
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/ckan
+    state: directory
+    mode: '0755'
+
+- name: copying ckan package directory to file with owner and permissions
+  copy:
+    src: templates/postgress
+    dest: /tmp/ckan/
+    owner: root
+    group: root
+    mode: 0777
+
+- name:   ckan set site_url in production.ini
+  command: sed -i  's,ckan.site_url = http://localhost:5000,ckan.site_url = http://{{groups['master'][0]}}:5000,g' /opt/ckan/ckanconfig/production.ini
+  register: siteurl_change_output
+
+- name:  create configmap 
+  command: kubectl create configmap  --namespace {{k8s_namespace}}  postgres  --from-file=/tmp/ckan/postgress/config/postgres.conf --from-file=/tmp/ckan/postgress/config/master.conf --from-file=/tmp/ckan/postgress/config/replica.conf --from-file=/tmp/ckan/postgress/config/pg_hba.conf --from-file=/tmp/ckan/postgress/config/create-replica-user.sh
+  ignore_errors: yes
+
+- name: create postgres volume
+  k8s:
+    state: present
+    definition: "{{ lookup('template', item) }}"
+    wait: yes
+    apply: yes
+  with_items:
+    - templates/postgress/postgres_vol/pg_replica_vol.yaml
+    - templates/postgress/postgres_vol/pg_master_vol.yaml
+    - templates/postgress/postgres_vol/pg_master_perm_data_vol.yaml
+
+- name: create k8 postgres service & secret
+  k8s:
+    state: present
+    definition: "{{ lookup('template', item) }}"
+    wait: yes
+    apply: yes
+  with_items:
+    - templates/postgress/service/service.yaml
+    - templates/postgress/secret/secret.yml
+
+
+- name: create k8 postgres master statefulset
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/postgress/statefulset/statefulset-master.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 400
+
+- name: check pod postgres-0 is ready
+  k8s:
+    state: present
+    name: postgres-0
+    kind: Pod
+    namespace: "{{ k8s_namespace }}"
+    wait: yes
+    wait_timeout: 600
+    wait_condition:
+      type: Ready
+      status: True
+
+- name: retry for get postgres master Statefulset  Status replicas until it is 1
+  k8s_facts:
+    name: postgres
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: postgres_sts
+  until: postgres_sts.resources[0].status.replicas == 1
+  retries: 40
+  delay: 5
+
+#- pause:
+#    minutes: 1
+
+- name: retry for get postgres master Statefulset  Status readyReplicas until it is 1
+  k8s_facts:
+    name: postgres
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: postgres_sts
+  until: postgres_sts.resources[0].status.readyReplicas == 1
+  retries: 40
+  delay: 3
+
+- name: create k8 postgres replica statefulset
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/postgress/statefulset/postgres-replica.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 400
+
+
+- name: check pod postgres-replica-0 is ready
+  k8s:
+    state: present
+    name: postgres-replica-0
+    kind: Pod
+    namespace: "{{ k8s_namespace }}"
+    wait: yes
+    wait_timeout: 600
+    wait_condition:
+      type: Ready
+      status: True
+
+- name: retry for get postgres replica Statefulset  Status replicas until it is 1
+  k8s_facts:
+    name: postgres-replica
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: postgres_replica_sts
+  until: postgres_replica_sts.resources[0].status.replicas == 1
+  retries: 40
+  delay: 5
+  ignore_errors: yes
+
+
+- name: retry for get postgres replica Statefulset  Status readyReplicas until it is 1
+  k8s_facts:
+    name: postgres-replica
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: postgres_replica_sts
+  until: postgres_replica_sts.resources[0].status.readyReplicas == 1
+  retries: 40
+  delay: 3
+
+- name:  run 00_create_datastore.sh in postgres-0 for HA 
+  command: kubectl exec  --namespace {{k8s_namespace}} -it postgres-0 bash /opt/data/00_create_datastore.sh
+  register: postgres_command
+  ignore_errors: yes
+
+- name:  run perm1.sh in postgres-0 for HA
+  command: kubectl exec  --namespace {{k8s_namespace}} -it postgres-0 bash  /opt/data/perm1.sh
+  register: postgres1_command
+  ignore_errors: yes
+
+- name: create k8 datapusher deployment
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/datapusher/datapusher-svc.yaml') }}"
+    wait: yes
+    apply: yes
+
+- name: create k8 datapusher deployment
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/datapusher/datapusher.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 300
+    wait_condition:
+      reason: MinimumReplicasAvailable
+      type: Available
+      status: True
+
+- name: create k8 solr service
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/solr/service/service-solr-cluster.yml') }}"
+    wait: yes
+    apply: yes
+
+- name: create solr volume
+  k8s:
+    state: present
+    definition: "{{ lookup('template', item) }}"
+    wait: yes
+    apply: yes
+  with_items:
+    - templates/solr/solr_vol/solr-vol1
+    - templates/solr/solr_vol/solr-vol2
+    - templates/solr/solr_vol/solr-vol3
+    
+    
+
+- name: create k8 solr statefulset
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/solr/statfulset/statefulset-solr-cluster.yml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 400
+
+- name: retry for get solr Statefulset  Status replicas until it is 3
+  k8s_facts:
+    name: solr
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: solr_sts
+  until: solr_sts.resources[0].status.replicas == 3
+  retries: 100
+  delay: 5
+  ignore_errors: yes
+
+- name: retry for get  solr Statefulset  Status readyReplicas until it is 3
+  k8s_facts:
+    name: solr
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: solr_sts
+  until: solr_sts.resources[0].status.readyReplicas == 3
+  retries: 100
+  delay: 5
+
+
+- name: create k8 redis service
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/redis/redis-svc.yaml') }}"
+    wait: yes
+    apply: yes
+
+
+- name: create redis volume
+  k8s:
+    state: present
+    definition: "{{ lookup('template', item) }}"
+    wait: yes
+    apply: yes
+  with_items:
+    - templates/redis/redis-vol/redis-vol1.yaml
+    - templates/redis/redis-vol/redis-vol2.yaml
+    - templates/redis/redis-vol/redis-vol3.yaml
+    - templates/redis/redis-vol/redis-vol4.yaml
+    - templates/redis/redis-vol/redis-vol5.yaml
+    - templates/redis/redis-vol/redis-vol6.yaml
+
+
+- name: create k8 redis statefulset
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/redis/redis-sts.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 400
+
+- name: retry for get  redis Statefulset  Status replicas until it is 6
+  k8s_facts:
+    name: redis-cluster
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: redis_cluster_sts
+  until: redis_cluster_sts.resources[0].status.replicas == 6
+  retries: 100
+  delay: 5
+  ignore_errors: yes
+
+- name: retry for get  redis Statefulset  Status readyReplicas until it is 6
+  k8s_facts:
+    name: redis-cluster
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: redis_cluster_sts
+  until: redis_cluster_sts.resources[0].status.readyReplicas == 6
+  retries: 100
+  delay: 5
+
+- name:  run redis-cluster for HA 
+  command: "echo 'yes'| kubectl exec  --namespace {{k8s_namespace}} -it redis-cluster-0 -- redis-cli --cluster create --cluster-replicas 1 $(kubectl get  --namespace {{k8s_namespace}} pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379 ')"
+  register: result_command
+  ignore_errors: yes
+
+- name: create ckan volume
+  k8s:
+    state: present
+    definition: "{{ lookup('template', item) }}"
+    wait: yes
+    apply: yes
+  with_items:
+    - templates/ckan/ckan-vol.yaml
+    - templates/ckan/ckan-vol-data.yaml
+    
+- name: create k8 ckan service
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/ckan/ckan-service.yaml') }}"
+    wait: yes
+    apply: yes
+
+- name: create k8 ckan deployment
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/ckan/ckan-deployment.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 600
+    wait_condition:
+      reason: MinimumReplicasAvailable
+      type: Available
+      status: True
+
+- name: find ckan pods
+  command: kubectl get  --namespace {{k8s_namespace}} pods --selector=io.kompose.service=ckan
+  register: ckanpodname
+
+- set_fact:
+            ckan_pod_name: "{{ ckanpodname.stdout_lines[1].split(' ')[0] }}"
+
+- name: create /tmp/ckanuser.sh file
+  file:
+    path: /tmp/ckanuser.sh
+    state: touch
+    mode: 0755
+
+
+- name: add ckan useradd commands to ckanuser file.
+  blockinfile:
+    path: /tmp/ckanuser.sh
+    content: |
+      kubectl exec {{ ckan_pod_name }}  --namespace {{k8s_namespace}} -it --tty=false --  /usr/local/bin/ckan-paster --plugin=ckan user add ckanuser password=abc@1234 email=ravinder.kumar@india.nec.com  --config=/etc/ckan/production.ini
+      kubectl exec {{ ckan_pod_name }}  --namespace {{k8s_namespace}} -it --tty=false -- /usr/local/bin/ckan-paster --plugin=ckan sysadmin add ckanuser   --config=/etc/ckan/production.ini
+
+
+- name: pausing for 200 seconds
+  pause:
+    seconds: 200
+
+- name:  run /tmp/ckanuser.sh shell script to set ckan user permissions
+  command: /bin/bash /tmp/ckanuser.sh
+  register: ckanusersh
+  ignore_errors: yes
+
+#- debug:
+#    msg: "ckan is running on     http://{{groups['master'][0]}}:5000
