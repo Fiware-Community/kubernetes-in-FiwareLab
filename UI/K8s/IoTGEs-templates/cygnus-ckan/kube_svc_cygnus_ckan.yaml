@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: cygnus-ckan-new 
+spec:
+  ports:
+  - name: "5051"
+    port: 5051
+    targetPort: 5050
+  selector:
+    app: cygnus-ckan-new
+  externalIPs:

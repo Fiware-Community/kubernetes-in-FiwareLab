@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: cygnus-ckan-new
+    app: cygnus-ckan-new
+  name: cygnus-ckan-new
+spec:
+  replicas: 2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: cygnus-ckan-new
+        app: cygnus-ckan-new
+    spec:
+      containers:      
+      - image: rhcayadav/cygnus_custom-ckan_with_entrypoint:v2.23
+        name: cygnus-ckan-new
+        ports:
+        - containerPort: 5050
+        - containerPort: 8081
+        resources: {}
+      restartPolicy: Always

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: draco
+  name: draco
+spec:
+  selector:
+    matchLabels:
+      app: draco
+  replicas: 3
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: draco
+        app: draco
+    spec:
+      containers:
+      - image: ging/fiware-draco
+        name: draco
+        env:
+        - name: NIFI_WEB_HTTP_PORT
+          value: "9090"
+        - name: MYSQL_ROOT_PASSWORD
+          value: myrootpassword
+        - name: MYSQL_ROOT_HOST
+          value: galera-ss-0.galera-ss.default.svc.cluster.local:3306,galera-ss-1.galera-ss.default.svc.cluster.local:3306,galera-ss-2.galera-ss.default.svc.cluster.local:3306
+        ports:
+        - containerPort: 9090
+        - containerPort: 5050
+        resources: {}
+      restartPolicy: Always
+status: {}

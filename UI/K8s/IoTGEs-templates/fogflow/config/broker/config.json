@@ -1,0 +1,19 @@
+{
+    "discovery_port": 444,
+    "broker_port": 8082,
+    "master_agent_port": 1060,
+    "rabbitmq_port": 5672,
+    "logging":{
+        "info":"stdout",
+        "error":"stderr",
+            "protocol": "stdout",
+            "debug": "discard"
+    },
+    "discovery": {
+        "port": 443
+        }, 
+    "broker": {
+        "port": 8080,
+        "websocket": 8090        
+    }   
+}

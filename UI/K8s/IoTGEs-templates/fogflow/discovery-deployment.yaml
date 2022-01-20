@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: discovery
+  name: discovery
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: discovery
+    spec:
+      containers:
+      - image: rhcayadav/discovery:2.1
+        name: discovery
+        ports:
+        - containerPort: 443
+#        command: ["ln -s  /opt/config.json /config.json"]
+        resources: {}
+        volumeMounts:
+        - mountPath: /config.json
+          subPath: config.json
+          name: discovery-configmap
+      restartPolicy: Always
+      volumes:
+      - name: discovery-configmap
+        configMap:
+          name: discovery-configmap
+          defaultMode: 0777
+status: {}

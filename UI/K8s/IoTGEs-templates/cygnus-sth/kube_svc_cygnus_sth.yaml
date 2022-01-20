@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: cygnus-sth
+spec:
+  ports:
+  - name: "5050"
+    port: 5050
+    targetPort: 5050
+  - name: "8081"
+    port: 8081
+    targetPort: 8081
+  selector:
+    app: cygnus-sth
+  externalIPs:

@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: solr
+spec:
+  selector:
+    matchLabels:
+      app: solr-app # has to match .spec.template.metadata.labels
+  serviceName: "solrcluster"
+  replicas: 3 # by default is 1
+  template:
+    metadata:
+      labels:
+        app: solr-app # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      restartPolicy: Always
+      containers:
+      - name: solr
+#        image: rhcayadav/ckan_docker_solr:vckanlatestsolr811
+#        image: rhcayadav/ckan_docker_solr:vckanlatestsolr
+        image: rhcayadav/ckan_docker_solr:vckanlatestsolr665
+        imagePullPolicy: IfNotPresent
+        readinessProbe:
+          tcpSocket:
+            port: 8983
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8983
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        volumeMounts:
+        - name: volsolr
+          mountPath: /store
+        ports:
+        - name: solrport
+          containerPort: 8983
+        env:
+          - name: MY_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: MY_POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: MY_POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+#          - name: SOLR_HOME
+#            valueFrom:
+#              configMapKeyRef:
+#                name: solr-cluster-config
+#                key: solrHome
+#          - name: ZK_HOST
+#            valueFrom:
+#              configMapKeyRef:
+#                name: solr-cluster-config
+#                key: zkHost
+          - name: POD_HOST_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: SOLR_HOST
+            value: "$(POD_HOST_NAME).solrcluster"
+#          - name: SOLR_HEAP
+#            valueFrom:
+#              configMapKeyRef:
+#                name: solr-cluster-config
+#                key: solrHeap
+  volumeClaimTemplates:
+  - metadata:
+      name: volsolr
+    spec:
+#      storageClassName: store-solrcluster
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 2Gi

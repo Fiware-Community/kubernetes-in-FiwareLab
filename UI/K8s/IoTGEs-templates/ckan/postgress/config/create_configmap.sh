@@ -1,0 +1,1 @@
+kubectl create configmap postgres  --from-file=postgress/config/postgres.conf --from-file=postgress/config/master.conf --from-file=postgress/config/replica.conf --from-file=postgress/config/pg_hba.conf --from-file=postgress/config/create-replica-user.sh

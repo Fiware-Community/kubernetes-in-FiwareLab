@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: draco
+spec:
+  ports:
+  - name: "9090"
+    port: 9090
+    targetPort: 9090
+  - name: "5050"
+    port: 5050
+    targetPort: 5050
+  selector:
+    app: draco
+  externalIPs:
+

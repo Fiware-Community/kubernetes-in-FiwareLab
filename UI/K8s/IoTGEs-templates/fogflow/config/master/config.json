@@ -1,0 +1,28 @@
+{
+    "discovery_port": 444,
+    "broker_port": 8082,
+    "master_agent_port": 1060,
+    "rabbitmq_port": 5672,
+    "logging":{
+        "info":"stdout",
+        "debug": "stdout"
+    },
+    "discovery": {
+        "port": 443
+    },
+    "broker": {
+        "port": 8080
+    },
+    "master": {
+        "ngsi_agent_port": 1060
+    },
+    "rabbitmq": {
+        "port": 5672,
+        "username": "admin",
+        "password":"mypass"
+    },
+    "designer": {
+        "webSrvPort": 80,
+        "agentPort": 1030
+    }
+}
