@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sth22
+  name: fiware-sth-comet2
+spec:
+  ports:
+  - name: "8666"
+    port: 8666
+    targetPort: 8666
+  selector:
+    app: sth22
+  externalIPs:

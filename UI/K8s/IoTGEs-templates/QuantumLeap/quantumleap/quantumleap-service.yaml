@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml
+    kompose.version: 1.19.0 (f63a961c)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: quantumleap
+  name: quantumleap
+spec:
+  ports:
+  - name: "8668"
+    port: 8668
+    targetPort: 8668
+  selector:
+    io.kompose.service: quantumleap
+  externalIPs:

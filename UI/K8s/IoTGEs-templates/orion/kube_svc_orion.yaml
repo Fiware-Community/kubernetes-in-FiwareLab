@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: orion
+spec:
+  ports:
+  - name: "1026"
+    port: 1026
+    targetPort: 1026
+  selector:
+    app: orion
+  externalIPs:

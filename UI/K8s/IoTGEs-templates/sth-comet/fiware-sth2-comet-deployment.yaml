@@ -1,0 +1,40 @@
+#apiVersion: extensions/v1beta1
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: fiware-sth-comet2
+    app: sth22
+  name: fiware-sth-comet2
+spec:
+  selector:
+    matchLabels:
+      app: sth22
+  replicas: 4
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: fiware-sth-comet2
+        app: sth22
+    spec:
+      containers:
+      - env:
+        - name: DB_URI
+          value: mongo2-0.mongo2.default.svc.cluster.local:27017,mongo2-1.mongo2.default.svc.cluster.local:27017,mongo2-2.mongo2.default.svc.cluster.local:27017
+        - name: REPLICA_SET
+          value: rs0
+        - name: STH_HOST
+          value: 0.0.0.0
+        image: telefonicaiot/fiware-sth-comet
+        name: fiware-sth-comet
+        ports:
+        - containerPort: 8666
+        resources: {}
+      restartPolicy: Always
+status: {}

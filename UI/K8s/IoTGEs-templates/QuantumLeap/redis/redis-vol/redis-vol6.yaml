@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: redis-cluster2-pv5
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
+  claimRef:
+    namespace: default
+    name: data-redis-cluster2-5
+  nfs:
+    path: /opt/redis/vol/5
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: data-redis-cluster2-5
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

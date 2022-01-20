@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: crate-1
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
+  claimRef:
+    namespace: default
+    name: data-crate-1
+  nfs:
+    path: /opt/cratedb/vol/1
+    server: 11.0.0.23
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: data-crate-1
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi

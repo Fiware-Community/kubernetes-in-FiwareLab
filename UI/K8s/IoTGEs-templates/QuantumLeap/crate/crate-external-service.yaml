@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: crate-external-service
+  labels:
+    app: crate
+spec:
+  ports:
+  - port: 4200
+    name: crate-web
+  - port: 5432
+    name: postgres
+  selector:
+    app: crate
+  externalIPs:
