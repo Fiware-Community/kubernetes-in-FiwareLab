@@ -1,0 +1,73 @@
+kind: StatefulSet
+apiVersion: "apps/v1"
+metadata:
+  name: crate
+  namespace: {{ k8s_namespace }}
+spec:
+  serviceName: "crate-set"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: crate
+  template:
+    metadata:
+      labels:
+        app: crate
+    spec:
+      initContainers:
+      - name: init-sysctl
+        image: busybox
+        imagePullPolicy: IfNotPresent
+        command: ["sysctl", "-w", "vm.max_map_count=262144"]
+        securityContext:
+          privileged: true
+      containers:
+      - name: crate
+        image: "crate:{{crate_version}}"
+        command:
+          - /docker-entrypoint.sh
+          - -Ccluster.name=${CLUSTER_NAME}
+          - -Cdiscovery.zen.minimum_master_nodes=2
+          - -Cdiscovery.zen.hosts_provider=srv
+          - -Cdiscovery.srv.query=_crate-internal._tcp.crate-internal-service.${NAMESPACE}.svc.cluster.local
+          - -Cgateway.recover_after_nodes=2
+          - -Cgateway.expected_nodes=${EXPECTED_NODES}
+          - -Cpath.data=/opt/cratedb/data
+          - -Clicense.enterprise=false
+          - -Cauth.host_based.enabled=false
+          - -Chttp.cors.enabled=true
+          - -Chttp.cors.allow-origin="*"
+
+        volumeMounts:
+            - mountPath: /opt/cratedb/data
+              name: data
+        resources:
+          limits:
+            memory: 512Mi
+        ports:
+        - containerPort: 4300
+          name: crate-internal
+        - containerPort: 4200
+          name: crate-web
+        - containerPort: 5432
+          name: postgres
+        env:
+        - name: CRATE_HEAP_SIZE
+          value: "256m"
+        - name: EXPECTED_NODES
+          value: "3"
+        - name: CLUSTER_NAME
+          value: "my-crate"
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi

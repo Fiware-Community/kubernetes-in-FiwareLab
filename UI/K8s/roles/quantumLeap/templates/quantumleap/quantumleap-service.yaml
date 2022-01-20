@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{ k8s_namespace }}
+  labels:
+    io.kompose.service: quantumleap
+  name: quantumleap
+spec:
+  ports:
+  - name: "8668"
+    port: 8668
+    targetPort: 8668
+  selector:
+    io.kompose.service: quantumleap
+  externalIPs:
+  - {{ ansible_default_ipv4.address }}

@@ -1,0 +1,65 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo2
+  namespace: {{ k8s_namespace }}
+  labels:
+    name: mongo2
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  clusterIP: None
+  selector:
+    role: mongo2
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo2
+  namespace: {{ k8s_namespace }}
+spec:
+  serviceName: "mongo2"
+  selector:
+    matchLabels:
+      role: mongo2 # has to match .spec.template.metadat
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        role: mongo2
+        environment: test
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mongo2
+          image: "mongo:{{sth_mongo_version}}"
+          ports:
+            - containerPort: 27017
+          command:
+            - mongod
+            - "--replSet"
+            - rs0
+            - "--bind_ip"
+            - 0.0.0.0
+            - "--smallfiles"
+            - "--noprealloc"
+          volumeMounts:
+            - name: db
+              mountPath: /data/db
+            - name: sthmongo2
+              mountPath: /opt
+      volumes:
+      - name: sthmongo2
+        configMap:
+          name: sthmongo2configmap 
+          defaultMode: 0777
+  volumeClaimTemplates:
+  - metadata:
+      name: db
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi

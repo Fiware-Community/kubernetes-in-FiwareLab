@@ -1,0 +1,4 @@
+---
+# defaults file for worker
+user_data: "{{ lookup('file', '/tmp/mydata' ) }}"
+count : "{{ op_count }}"

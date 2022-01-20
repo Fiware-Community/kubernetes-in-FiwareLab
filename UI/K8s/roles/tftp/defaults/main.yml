@@ -1,0 +1,24 @@
+# roles/tftp/defaults/main.yml
+---
+
+# Root directory of shared files
+tftp_root_directory: /var/lib/tftpboot
+
+# See tftp(8) man page for details on how to set the server arguments
+# http://linux.die.net/man/8/tftpd
+tftp_server_args: "--secure"
+
+# Default SELinux context. Set this to ‘public_content_t’ or
+# ‘public_content_rw_t’ to serve these files through other services (web,
+# ftp, ...). See man tftpd_selinux(8) for details
+tftp_setype: tftpdir_rw_t
+
+tftp_anon_write: false
+tftp_home_dir: false
+
+tftp_user: "root"
+tftp_group: "root"
+tftp_mode: "0755"
+
+# Enable Foreman support by creating suitable tftpd.map
+tftp_server_foreman_support: false

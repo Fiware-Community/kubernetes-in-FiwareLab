@@ -1,0 +1,219 @@
+---
+# tasks file for Quantumleap
+- name: Create a k8s namespace
+  k8s:
+    name: "{{ k8s_namespace }}"
+    api_version: v1
+    kind: Namespace
+    state: present
+    wait: yes
+
+- name: Create a directory if it does not exist
+  file:
+    path: "{{item}}"
+    state: directory
+    mode: '0755'
+  with_items:
+    - /opt/cratedb/data
+    - /opt/cratedb/vol/0
+    - /opt/cratedb/vol/1
+    - /opt/cratedb/vol/2
+    - /opt/qp/redis/vol/0
+    - /opt/qp/redis/vol/1
+    - /opt/qp/redis/vol/2
+    - /opt/qp/redis/vol/3
+    - /opt/qp/redis/vol/4
+    - /opt/qp/redis/vol/5
+    - /opt/quantumleap
+    - /opt/grafana
+
+- name: set permission for cratedb 777
+  command: "chmod -R 777  {{item}}"
+  with_items:
+    - /opt/cratedb
+    - /opt/cratedb/data
+
+- name: check exports line
+  lineinfile:
+    path: /etc/exports
+    line: "{{ item }}"
+  with_items:
+    - '/opt/cratedb *(rw,sync,no_root_squash,no_all_squash)'
+    - '/opt/quantumleap *(rw,sync,no_root_squash,no_all_squash)'
+    - '/opt/grafana *(rw,sync,no_root_squash,no_all_squash)'
+    - '/opt/qp/redis *(rw,sync,no_root_squash,no_all_squash)'
+
+
+- name: restart and enable nfs-server services
+  systemd:
+    name: "{{ item }}"
+    state: reloaded
+    enabled: yes
+  with_items:
+    - nfs-server
+  when: ansible_os_family == 'RedHat'
+
+- name: restart and enable nfs-kernel-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - nfs-kernel-server
+  when: ansible_os_family == 'Debian'
+
+
+- name: create cratedb volume
+  k8s:
+    state: present
+    definition: "{{ lookup('template', item) }}"
+    wait: yes
+    apply: yes
+  with_items:
+    - templates/crate/vol1.yaml
+    - templates/crate/vol2.yaml
+    - templates/crate/vol3.yaml
+
+- name: create k8 cratedb service
+  k8s:
+    state: present
+    definition: "{{ lookup('template', item) }}"
+    wait: yes
+    apply: yes
+  with_items:
+    - templates/crate/crate-internal-service.yaml
+    - templates/crate/crate-external-service.yaml
+
+
+- name: create k8 cratedb statefulset
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/crate/crate-controller.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 400
+
+- name: retry for get  crate Statefulset  Status replicas until it is 3
+  k8s_facts:
+    name: crate
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: crate_sts
+  until: crate_sts.resources[0].status.replicas == 3
+  retries: 40
+  delay: 5
+  ignore_errors: yes
+
+- name: pausing 30 seconds
+  pause:
+   seconds: 30
+
+- name: retry for get  crate Statefulset  Status readyReplicas until it is 3
+  k8s_facts:
+    name: crate
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: crate_sts
+  until: crate_sts.resources[0].status.readyReplicas == 3
+  retries: 100
+  delay: 10
+
+
+- name: create k8 redis service
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/redis/redis-svc.yaml') }}"
+    wait: yes
+    apply: yes
+
+
+- name: create redis volume
+  k8s:
+    state: present
+    definition: "{{ lookup('template', item) }}"
+    wait: yes
+    apply: yes
+  with_items:
+    - templates/redis/redis-vol/redis-vol1.yaml
+    - templates/redis/redis-vol/redis-vol2.yaml
+    - templates/redis/redis-vol/redis-vol3.yaml
+    - templates/redis/redis-vol/redis-vol4.yaml
+    - templates/redis/redis-vol/redis-vol5.yaml
+    - templates/redis/redis-vol/redis-vol6.yaml
+
+
+- name: create k8 redis statefulset
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/redis/redis-sts.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 400
+#- pause:
+#    minutes: 1
+
+- name: retry for get  redis Statefulset  Status replicas until it is 6
+  k8s_facts:
+    name: redis-cluster2
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: rediscluster2_sts
+  until: rediscluster2_sts.resources[0].status.replicas == 6
+  retries: 40
+  delay: 5
+  
+
+- name: pausing for 30 seconds
+  pause:
+   seconds: 30
+
+- name: retry for get  redis Statefulset  Status readyReplicas until it is 6
+  k8s_facts:
+    name: redis-cluster2
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: rediscluster2_sts
+  until: rediscluster2_sts.resources[0].status.readyReplicas == 6
+  retries: 20
+  delay: 3
+
+- name:  run redis-cluster for HA 
+  command: echo 'yes'| kubectl exec --namespace {{k8s_namespace}} -it redis-cluster-0 -- redis-cli --cluster create --cluster-replicas 1 $(kubectl get --namespace {{k8s_namespace}} pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379 ')
+  register: result_command
+
+- name: create k8 quantumleap service
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/quantumleap/quantumleap-service.yaml') }}"
+    wait: yes
+    apply: yes
+
+- name: create k8 quantumleap deployment
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates//quantumleap/quantumleap-deployment.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 300
+    wait_condition:
+      type: Available
+      status: True
+
+- name: create k8 grafana service
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/grafana/grafana-service.yaml') }}"
+    wait: yes
+    apply: yes
+
+- name: create k8 grafana deployment
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/grafana/grafana-deployment.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 300
+    wait_condition:
+      type: Available
+      status: True
+

@@ -1,0 +1,17 @@
+- name: Deploy an instance assuming image, network(public/private), flavor and  key are already present in cloud.
+  os_server:
+    state: present
+    name: "{{op_vm_name_prefix}}{{ item }}"
+    key_name: "{{ op_key_name}}"
+    image: "{{ op_image}}"
+    wait: no
+    flavor: "{{ op_flavor}}"
+    network: "{{ op_private_network}}"
+    security_groups: "{{ op_security_groups}}"
+    boot_from_volume: yes
+    terminate_volume: yes
+    meta:
+      hostname: "{{op_vm_name_prefix}}{{ item }}"
+  register: openstackvmcreate
+  with_sequence:
+    count={{ op_count }}

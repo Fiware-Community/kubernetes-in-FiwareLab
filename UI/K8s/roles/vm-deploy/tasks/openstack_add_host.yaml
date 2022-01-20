@@ -1,0 +1,109 @@
+- name: add_host to run time inventory for master group
+  add_host: name={{ item.server.public_v4 }}
+            groups=master
+            instance_name={{ item.server.name }}
+            ansible_ssh_user=centos
+            ansible_become=True
+            ansible_private_key_file={{ op_key_path}}
+  with_items: "{{ openstackvmcreate.results[:1] }}"
+  when:
+    - op_count > 1
+    - cluster_os == 'centos'
+
+- name: add_host to run time inventory for kubernetes group
+  add_host: name={{ item.server.public_v4 }}
+            groups=kubernetes
+            instance_name={{ item.server.name }}
+            ansible_ssh_user=centos
+            ansible_become=True
+            ansible_private_key_file={{ op_key_path}}
+  with_items: "{{ openstackvmcreate.results }}"
+  when:
+    - op_count > 1
+    - cluster_os == 'centos'
+
+
+- name: add_host to run time inventory for worker group
+  add_host: name={{ item.server.public_v4 }}
+            groups=worker
+            instance_name={{ item.server.name }}
+            ansible_ssh_user=centos
+            ansible_become=True
+            ansible_private_key_file={{ op_key_path}}
+  with_items: "{{ openstackvmcreate.results[1:] }}"
+  when:
+    - op_count > 1
+    - cluster_os == 'centos'
+
+
+- name: if count is 1 than add that host to all groups
+  add_host:
+    name: "{{ item.server.public_v4 }}"
+    groups:
+      - kubernetes
+      - master
+    instance_name: "{{ item.server.name }}"
+    ansible_ssh_user: centos
+    ansible_become: True
+    ansible_private_key_file: "{{ op_key_path}}"
+  with_items: "{{ openstackvmcreate.results }}"
+  when:
+    - op_count == 1
+    - cluster_os == 'centos'
+
+- name: add_host to run time inventory for master group
+  add_host: name={{ item.server.public_v4 }}
+            groups=master
+            instance_name={{ item.server.name }}
+            ansible_ssh_user=ubuntu
+            ansible_become=True
+            ansible_python_interpreter=/usr/bin/python3
+            ansible_private_key_file={{ op_key_path}}
+  with_items: "{{ openstackvmcreate.results[:1] }}"
+  when:
+    - op_count > 1
+    - cluster_os == 'ubuntu'
+
+- name: add_host to run time inventory for kubernetes group
+  add_host: name={{ item.server.public_v4 }}
+            groups=kubernetes
+            instance_name={{ item.server.name }}
+            ansible_ssh_user=ubuntu
+            ansible_become=True
+            ansible_python_interpreter=/usr/bin/python3
+            ansible_private_key_file={{ op_key_path}}
+  with_items: "{{ openstackvmcreate.results }}"
+  when:
+    - op_count > 1
+    - cluster_os == 'ubuntu'
+
+
+- name: add_host to run time inventory for worker group
+  add_host: name={{ item.server.public_v4 }}
+            groups=worker
+            instance_name={{ item.server.name }}
+            ansible_ssh_user=ubuntu
+            ansible_become=True
+            ansible_python_interpreter=/usr/bin/python3
+            ansible_private_key_file={{ op_key_path}}
+  with_items: "{{ openstackvmcreate.results[1:] }}"
+  when:
+    - op_count > 1
+    - cluster_os == 'ubuntu'
+
+
+- name: if count is 1 than add that host to all groups
+  add_host:
+    name: "{{ item.server.public_v4 }}"
+    groups:
+      - kubernetes
+      - master
+    instance_name: "{{ item.server.name }}"
+    ansible_ssh_user: ubuntu
+    ansible_become: True
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_private_key_file: "{{ op_key_path}}"
+  with_items: "{{ openstackvmcreate.results }}"
+  when:
+    - op_count == 1
+    - cluster_os == 'ubuntu'

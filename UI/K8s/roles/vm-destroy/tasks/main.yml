@@ -1,0 +1,8 @@
+---
+# tasks file for vm-destroy
+- name: Destroy an instance assuming vm name already present in cloud.
+  os_server:
+          name: "{{ item }}"
+          state: absent
+  with_items:
+    - kube1

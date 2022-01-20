@@ -1,0 +1,18 @@
+---
+# tasks file for vm-deploy
+#- name: Prepair localhost for running os_server module or creating vm on openstack using ansible
+#  command: pip install shade
+- name: Refresh inventory to ensure new instaces exist in inventory
+  meta: refresh_inventory
+
+- include: openstack_main.yaml
+  when:
+    - infra_type == 'openstack'
+
+- include: aws_main.yaml
+  when:
+    - infra_type == 'AWS'
+
+- include: baremetal_add_host.yaml
+  when:
+    - infra_type == 'baremetal'

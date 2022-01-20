@@ -1,0 +1,28 @@
+---
+# tasks file for worker
+- name: example copying file with owner and permissions
+  copy:
+    src: /tmp/mydata
+    dest: /tmp/mydata
+    owner: root
+    group: root
+    mode: 0755
+  register: fatching_mydata_file
+
+- name: Set last_worker_hostname
+  set_fact:
+    last_worker_hostname: "{{op_vm_name_prefix}}{{ op_count }}"
+
+- name: set before_existing_nodes_stdout
+  set_fact:
+    before_existing_nodes_stdout: "{{hostvars[groups['master'][-1]]['before_existing_nodes']['stdout'] }}"
+
+- name:  run kubeadm join to add workers in cluster
+  command: "{{ user_data }}"
+  register: kubejointoken1
+  ignore_errors: yes
+  when:
+  - last_worker_hostname  not in before_existing_nodes_stdout
+
+#- debug:
+#    msg: "{{ kubejointoken1 }}"

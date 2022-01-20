@@ -1,0 +1,4 @@
+---
+# defaults file for sth-comet
+sth_version: 2.7.0
+sth_mongo_version: 3.6

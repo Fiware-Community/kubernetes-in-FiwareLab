@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ k8s_namespace }}
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml
+    kompose.version: 1.19.0 (f63a961c)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: quantumleap
+  name: quantumleap
+spec:
+  selector:
+    matchLabels:
+      app: quantumleap
+  replicas: 3
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yaml
+        kompose.version: 1.19.0 (f63a961c)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: quantumleap
+        app: quantumleap
+    spec:
+      containers:
+      - env:
+        - name: CRATE_HOST
+          value: crate-external-service.{{ k8s_namespace }}.svc.cluster.local
+        - name: REDIS_HOST
+          value: redis-cluster2.{{ k8s_namespace }}.svc.cluster.local
+        - name: REDIS_PORT
+          value: "6379"
+        - name: USE_GEOCODING
+          value: "True"
+        image: "smartsdk/quantumleap:{{ quantumleap_version }}"
+        name: quantumleap
+        ports: 
+        - containerPort: 8668
+        resources: {}
+      restartPolicy: Always
+status: {}

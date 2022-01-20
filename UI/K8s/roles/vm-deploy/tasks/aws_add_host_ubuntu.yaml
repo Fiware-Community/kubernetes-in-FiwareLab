@@ -1,0 +1,62 @@
+- name: Add new instance to host group
+  add_host:
+    hostname: "{{ item.public_ip }}"
+    groupname: master
+    ansible_ssh_user: ubuntu
+    ansible_become: True
+    ansible_become_user: root
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_private_key_file: "{{ aws_key_path }}"
+  loop: "{{ ec2_vms.instances[:1] }}"
+  when:
+    - aws_count > 1
+    - cluster_os == 'ubuntu'
+    - infra_type == 'AWS'
+
+- name: Add new instance to host group
+  add_host:
+    hostname: "{{ item.public_ip }}"
+    groupname: kubernetes
+    ansible_ssh_user: ubuntu
+    ansible_become: True
+    ansible_become_user: root
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_private_key_file: "{{ aws_key_path }}"
+  loop: "{{ ec2_vms.instances }}"
+  when:
+    - aws_count > 1
+    - cluster_os == 'ubuntu'
+    - infra_type == 'AWS'
+
+- name: Add new instance to host group
+  add_host:
+    hostname: "{{ item.public_ip }}"
+    groupname: worker
+    ansible_ssh_user: ubuntu
+    ansible_become: True
+    ansible_become_user: root
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_private_key_file: "{{ aws_key_path }}"
+  loop: "{{ ec2_vms.instances[1:] }}"
+  when:
+    - aws_count > 1
+    - cluster_os == 'ubuntu'
+    - infra_type == 'AWS'
+
+- name: if count is 1 than add that host to all groups
+  add_host:
+    hostname: "{{ item.public_ip }}"
+    groups:
+      - kubernetes
+      - master
+    ansible_ssh_user: ubuntu
+    ansible_become: True
+    ansible_become_user: root
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_private_key_file: "{{ aws_key_path }}"
+  loop: "{{ ec2_vms.instances }}"
+  when:
+    - aws_count == 1
+    - cluster_os == 'ubuntu'
+    - infra_type == 'AWS'
+

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: redis-cluster2-pv4
+  namespace: {{ k8s_namespace }}
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
+  claimRef:
+    namespace: {{ k8s_namespace }}
+    name: data-redis-cluster2-4
+  nfs:
+    path: /opt/qp/redis/vol/4
+    server: {{ ansible_default_ipv4.address }}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: data-redis-cluster2-4
+  namespace: {{ k8s_namespace }}
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

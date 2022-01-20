@@ -1,0 +1,117 @@
+---
+# tasks file for vm-deploy
+#- name: Prepair localhost for running os_server module or creating vm on openstack using ansible
+#  command: pip install shade
+
+- include: openstack_vm_create.yaml
+  when:
+    - infra_type == 'openstack'
+
+- os_floating_ip:
+    state: present
+    reuse: yes
+    server: "{{op_vm_name_prefix}}{{ item }}"
+    network: "{{ op_external_network}}"
+    wait: True
+  with_sequence:
+    count={{ op_count }}
+  register: openstackfip
+  when:
+    - infra_type == 'openstack'
+
+- name: Wait for SSH on the Instance
+  command: >
+    ssh -oBatchMode=yes -oStrictHostKeyChecking=no -i {{ op_key_path }}
+    ubuntu@{{item.floating_ip.floating_ip_address}} true
+  with_items: "{{ openstackfip.results }}"
+  register: result
+  until: result is succeeded
+  retries: 100
+  delay: 2
+  when:
+    - cluster_os == 'ubuntu'
+    - infra_type == 'openstack'
+
+- name: Wait for SSH on the Instance
+  command: >
+    ssh -oBatchMode=yes -oStrictHostKeyChecking=no -i {{ op_key_path }}
+    centos@{{item.floating_ip.floating_ip_address}} true
+  with_items: "{{ openstackfip.results }}"
+  register: result
+  until: result is succeeded
+  retries: 100
+  delay: 2
+  when:
+    - cluster_os == 'centos'
+    - infra_type == 'openstack'
+
+- include: openstack_vm_create.yaml
+  when:
+    - infra_type == 'openstack'
+
+- include: openstack_add_host.yaml
+  when:
+    - infra_type == 'openstack'
+
+- include: aws-vm-create.yaml
+  when:
+    - infra_type == 'AWS'
+
+- include: aws_add_host_centos.yaml
+  when:
+    - infra_type == 'AWS'
+    - cluster_os == 'centos'
+
+- include: aws_add_host_ubuntu.yaml
+  when:
+    - infra_type == 'AWS'
+    - cluster_os == 'ubuntu'
+
+- name: Wait for SSH on the Instance
+  command: >
+    ssh -oBatchMode=yes -oStrictHostKeyChecking=no -i {{ op_key_path }}
+    centos@{{groups['kubernetes'][-1]}} true
+  register: result
+  until: result is succeeded
+  retries: 100
+  delay: 3
+  when:
+    - cluster_os == 'centos'
+    - infra_type == 'openstack'
+
+- name: Wait for SSH on the Instance
+  command: >
+    ssh -oBatchMode=yes -oStrictHostKeyChecking=no -i {{ op_key_path }}
+    ubuntu@{{groups['kubernetes'][-1]}} true
+  register: result
+  until: result is succeeded
+  retries: 100
+  delay: 3
+  when:
+    - cluster_os == 'ubuntu'
+    - infra_type == 'openstack'
+
+
+- name: Wait for SSH on the Instance
+  command: >
+    ssh -oBatchMode=yes -oStrictHostKeyChecking=no -i {{ aws_key_path }}
+    centos@{{groups['kubernetes'][-1]}} true
+  register: result
+  until: result is succeeded
+  retries: 100
+  delay: 3
+  when:
+    - cluster_os == 'centos'
+    - infra_type == 'AWS'
+
+- name: Wait for SSH on the Instance
+  command: >
+    ssh -oBatchMode=yes -oStrictHostKeyChecking=no -i {{ aws_key_path }}
+    ubuntu@{{groups['kubernetes'][-1]}} true
+  register: result
+  until: result is succeeded
+  retries: 100
+  delay: 3
+  when:
+    - cluster_os == 'ubuntu'
+    - infra_type == 'AWS'

@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Bert Van Vreckem
+  description: Installs and configures a TFTP (Trivial File Transfer Protocol) server on RHEL/CentOS 7
+  license: BSD
+  min_ansible_version: 2.2
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Fedora
+      versions:
+        - 28
+  galaxy_tags:
+    - networking
+dependencies: []

@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: crate-internal-service
+  namespace: {{ k8s_namespace }}
+  labels:
+    app: crate
+spec:
+  type: ClusterIP
+  ports:
+  - port: 4300
+    name: crate-internal
+  selector:
+    app: crate
