@@ -1,0 +1,48 @@
+---
+# tasks file for ngb-vm-deploy
+- include: vm_create.yaml
+
+- os_floating_ip:
+    state: present
+    reuse: yes
+    server: "{{stuff.NGB.vm_name_prefix}}{{ item }}"
+    network: "{{ stuff.NGB.external_network}}"
+    wait: True
+  with_sequence:
+    count={{ stuff.NGB.count }}
+  register: NGBfip
+
+- name: Wait for SSH on the Instance
+  command: >
+    ssh -oBatchMode=yes -oStrictHostKeyChecking=no -i {{ stuff.NGB.key_path }}
+    ubuntu@{{item.floating_ip.floating_ip_address}} true
+  with_items: "{{ NGBfip.results }}"
+  register: result
+  until: result|success
+  retries: 100
+  delay: 2
+
+- include: vm_create.yaml
+
+- name: if count is 1 than add that host to all groups
+  add_host:
+    name: "{{ item.server.public_v4 }}"
+    groups:
+      - NGB
+    instance_name: "{{ item.server.name }}"
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_ssh_user: ubuntu
+    ansible_become: True
+    ansible_become_user: root
+    ansible_private_key_file: "{{ stuff.NGB.key_path}}"
+  with_items: "{{ NGBvmcreate.results }}"
+  when: stuff.NGB.count == 1
+
+- name: Wait for SSH on the Instance
+  command: >
+    ssh -oBatchMode=yes -oStrictHostKeyChecking=no -i {{ stuff.NGB.key_path }}
+    ubuntu@{{groups['NGB'][-1]}} true
+  register: result
+  until: result|success
+  retries: 100
+  delay: 3

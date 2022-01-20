@@ -1,0 +1,45 @@
+---
+# tasks file for IotGEs
+- include: orion.yaml
+  when:
+    - stuff.enable_orion | bool
+
+- include: sth-comet.yaml
+  when:
+    - stuff.enable_sth_comet | bool
+
+- include: cygnus-sth.yaml
+  when:
+    - stuff.enable_cygnus_sth | bool
+    - stuff.enable_sth_comet | bool
+
+- include: cepheus.yaml
+  when:
+    - stuff.enable_cepheus | bool
+
+- include: cygnus-ckan.yaml
+  when:
+    - stuff.enable_cygnus_ckan | bool
+    - stuff.enable_ckan | bool
+
+- include: ckan.yaml
+  when:
+    - stuff.enable_ckan | bool
+
+- include: fogflow.yaml
+  when:
+    - stuff.enable_fogflow | bool
+                                  
+- include: iotagent.yaml
+  when:
+    - stuff.enable_iotagent | bool
+
+
+- include: quantumleap.yaml
+  when:
+    - stuff.enable_quantumleap | bool
+
+
+- include: draco.yaml
+  when:
+    - stuff.enable_draco | bool

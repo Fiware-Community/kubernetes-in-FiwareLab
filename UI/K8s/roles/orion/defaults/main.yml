@@ -1,0 +1,4 @@
+---
+# defaults file for orion
+orion_version: 2.1.0                #this value is default for orion
+mongodb_version: 3.4

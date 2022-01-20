@@ -1,0 +1,65 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  namespace: {{ k8s_namespace }}
+  labels:
+    name: mongo
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  clusterIP: None
+  selector:
+    role: mongo
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo
+  namespace: {{ k8s_namespace }}
+spec:
+  serviceName: "mongo"
+  selector:
+    matchLabels:
+      role: mongo # has to match .spec.template.metadat
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        role: mongo
+        environment: test
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mongo
+          image: "mongo:{{ mongodb_version }}"
+          ports:
+            - containerPort: 27017
+          command:
+            - mongod
+            - "--replSet"
+            - rs0
+            - "--bind_ip"
+            - 0.0.0.0
+            - "--smallfiles"
+            - "--noprealloc"
+          volumeMounts:
+            - name: db
+              mountPath: /data/db
+            - name: orionmongo
+              mountPath: /opt
+      volumes:
+      - name: orionmongo
+        configMap:
+          name: orionmongoconfigmap 
+          defaultMode: 0777
+  volumeClaimTemplates:
+  - metadata:
+      name: db
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi

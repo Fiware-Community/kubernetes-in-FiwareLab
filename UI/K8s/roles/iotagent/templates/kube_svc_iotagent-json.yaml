@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: iotagent-json
+  namespace: {{ k8s_namespace }}
+spec:
+  ports:
+  - name: "4041"
+    port: 4041
+    targetPort: 4041
+  - name: "7896"
+    port: 7896
+    targetPort: 7896
+  selector:
+    app: iotagent-json
+  externalIPs:
+  - {{ ansible_default_ipv4.address }}

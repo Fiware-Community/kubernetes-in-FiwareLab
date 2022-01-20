@@ -1,0 +1,127 @@
+---
+# tasks file for kubernetes-post-deploy
+- name:  check all namespace services are running
+  command: kubectl get pods --all-namespaces
+  register: kubectlgetpods
+
+#- debug:
+#    msg: "{{ kubectlgetpods }}"
+#  changed_when: False
+
+- name:  list kubernetes nodes
+  command: kubectl get nodes
+  register: kubectlnodes1
+  until: kubectlnodes1.stdout.find(" Ready") != -1
+  retries: 100
+  delay: 3
+
+#- debug:
+#    msg: "{{ kubectlnodes1 }}"
+
+- name: copying  admin-service-account.yaml
+  copy:
+    src: ./platform-templates/admin-service-account.yaml
+    dest: /tmp/
+    owner: root
+    group: root
+    mode: 0755
+  changed_when: False
+  register: copy_user_role_yaml
+
+
+- name: create admin account user and role
+  command: kubectl create -f /tmp/admin-service-account.yaml
+  register: create_admin_account
+  failed_when:
+    - create_admin_account.rc != 0
+  changed_when: False
+  ignore_errors: yes
+
+- name: copying admin-secret.sh
+  copy:
+    src: ./platform-templates/admin-secret.sh
+    dest: /tmp/
+    owner: root
+    group: root
+    mode: 0755
+
+- name:  run admin-secret.sh on kubernetes master
+  shell: ./admin-secret.sh
+  args:
+    chdir: /tmp/
+  register: admindetails
+  failed_when:
+    - admindetails.rc != 0
+
+- set_fact:
+    admin_token: "{{ admindetails.stdout_lines | last }}"
+  changed_when: True
+
+#- name:  list kube svc and grep dashboard svc
+#  command:  kubectl describe  svc kubernetes-dashboard --namespace kube-system
+#  register: dashboardport
+#  failed_when:
+#    - dashboardport.rc != 0
+
+#- debug:
+#    msg: "{{ dashboardport }}"
+
+#- set_fact:
+#    dashboard_port: "{{ dashboardport.stdout_lines[10].split(' ')[::-1][0].split('/')[0] }}"
+#    dashboard_port: "{{ dashboardport.stdout_lines[10].split(':')[1].split(' ')[::-1][0].split('/')[0] }}"
+
+- name: create dashboard_rc.txt file
+  file:
+    path: /tmp/dashboard_rc.txt
+    state: touch
+    mode: 0755
+  register: dashboard_rc
+  changed_when: True
+
+- name: fill user dashboard details to a text file.
+  blockinfile:
+    path: /tmp/dashboard_rc.txt
+    marker: "<!-- {mark} ANSIBLE GENRATED dashboard details file -->"
+    content: |
+      ---------------------------
+      ---------------------------
+      kubernetes dashboard is on  https://{{groups['master'][0]}}:443  
+      and token is given below, please use token to login.
+      ---------------------------
+      ---------------------------
+      {{ admin_token }}
+      ---------------------------
+      ---------------------------
+  register: dashboard_details_to_file
+  changed_when: True
+
+- name: copy master IP address into master_ip.txt
+  copy:
+    content: "{{groups['master'][0]}}"
+    dest: /tmp/master_ip.txt
+
+- name: copy admin token into admin_token.txt
+  copy:
+    content: "{{ admin_token }}"
+    dest: /tmp/admin_token.txt
+
+- name: fetch dashboard_rc
+  fetch:
+    src: /tmp/dashboard_rc.txt
+    dest: ./dashboard_rc.txt
+    flat: true
+  changed_when: True
+
+- name: fatch master_ip
+  fetch:
+    src: /tmp/master_ip.txt
+    dest: ./imp_files/{{cluster_name}}_master_ip.txt
+    flat: true
+  changed_when: True
+
+- name: fatch admin_token
+  fetch:
+    src: /tmp/admin_token.txt
+    dest: ./imp_files/{{cluster_name}}_admin_token.txt
+    flat: true
+  changed_when: True

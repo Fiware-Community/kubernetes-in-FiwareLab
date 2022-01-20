@@ -1,0 +1,137 @@
+---
+# tasks file for orion
+- name: Create a k8s namespace
+  k8s:
+    name: "{{ k8s_namespace }}"
+    api_version: v1
+    kind: Namespace
+    state: present
+    wait: yes
+
+- name: Create a directory if it does not exist
+  file:
+    path: "{{item}}"
+    state: directory
+    mode: '0755'
+  with_items:
+    - /opt/orion/data/vol/0
+    - /opt/orion/data/vol/1
+    - /opt/orion/data/vol/2
+    - /opt/orion/data/vol/3
+    - /opt/orion/data/vol/4
+
+- name: check exports line
+  lineinfile:
+    path: /etc/exports
+    line: '/opt/orion *(rw,sync,no_root_squash,no_all_squash)'
+
+
+- name: restart and enable nfs-server services
+  systemd:
+    name: "{{ item }}"
+    state: reloaded
+    enabled: yes
+  with_items:
+    - nfs-server
+  when: ansible_os_family == 'RedHat'
+
+- name: restart and enable nfs-kernel-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - nfs-kernel-server
+  when: ansible_os_family == 'Debian'
+
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/orion
+    state: directory
+    mode: '0755'
+
+- name: copying ckan package directory to file with owner and permissions
+  template:
+    src: templates/kube-mongo-statefulset.sh
+    dest: /tmp/orion/
+    owner: root
+    group: root
+    mode: 0777
+
+- name:  create configmap 
+  command: kubectl create  configmap --namespace {{k8s_namespace}}  orionmongoconfigmap --from-file=/tmp/orion/kube-mongo-statefulset.sh
+  ignore_errors: yes
+#templates/kube-mongo-statefulset.sh
+
+- name: Read definition file from the Ansible controller file system after Jinja templating
+  k8s:
+    state: present
+    definition: "{{ lookup('template', item) }}"
+    wait: yes
+    apply: yes
+  with_items:
+    - templates/volume1.yaml
+    - templates/volume2.yaml
+    - templates/volume3.yaml
+    - templates/volume4.yaml
+    - templates/volume5.yaml
+
+- name: create k8 orion service 
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/kube_svc_orion.yaml') }}"
+    wait: yes
+    apply: yes
+
+- name: create k8 mongo statefulset
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/mongo-statefulset.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 400
+
+- name: retry for get  Mongo Statefulset  Status replicas until it is 5
+  k8s_facts:
+    name: mongo
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: mongo_sts
+  until: mongo_sts.resources[0].status.replicas == 5
+  retries: 100
+  delay: 5
+  ignore_errors: yes
+
+- name: pausing for 30 seconds
+  pause:
+    seconds: 30
+
+- name: retry for get  Mongo Statefulset  Status readyReplicas until it is 5
+  k8s_facts:
+    name: mongo
+    kind: StatefulSet
+    namespace: "{{ k8s_namespace }}"
+  register: mongo_sts
+  until: mongo_sts.resources[0].status.readyReplicas == 5
+  retries: 100
+  delay: 10
+
+- name:  run kube-mongo-statefulset.sh in mongo-0 for HA 
+  command: kubectl exec --namespace {{k8s_namespace}} -it mongo-0 /opt/kube-mongo-statefulset.sh
+  register: result_command
+#  until: result_command is succeeded
+#  retries: 100
+#  delay: 3
+
+- name: create k8 orion deployment
+  k8s:
+    state: present
+    definition: "{{ lookup('template', 'templates/kube_orion_depoyment.yaml') }}"
+    wait: yes
+    apply: yes
+    wait_timeout: 300
+    wait_condition:
+      type: Available
+      status: True
+
+

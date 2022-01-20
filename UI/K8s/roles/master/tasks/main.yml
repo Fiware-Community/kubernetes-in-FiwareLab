@@ -1,0 +1,165 @@
+---
+#- name: create myip.sh file
+#  file:
+#    path: /etc/profile.d/myip.sh
+#    state: touch
+#    mode: 0777
+
+#- lineinfile:
+#   path: /etc/profile.d/myip.sh
+#    line: 'export master_ip="{{ ansible_default_ipv4.address }}"'
+#    owner: root
+#    group: root
+#    mode: 0777
+- name:  list kubernetes nodes
+  command: kubectl get nodes
+  register: before_existing_nodes
+  ignore_errors: yes
+
+#vars:
+#  before_existing_nodes_var: "{{before_existing_nodes}}"
+
+
+- name: start creating kubernetes cluster
+#  command: "kubeadm init --pod-network-cidr={{ k8s_flannel_cidr }}"
+  command: kubeadm init --pod-network-cidr=10.244.0.0/16
+  register: kubeadm_init_output
+  changed_when: False
+  failed_when:
+    - kubeadm_init_output.rc != 0
+  when:
+  - "' Ready' not in before_existing_nodes.stdout"
+  - "'NotReady' not in before_existing_nodes.stdout"
+  ignore_errors: yes
+#- debug:
+#    msg: "{{ kubeadm_init_output }}"
+#  changed_when: False
+
+- name: create /root/.kube directory
+  file:
+    path: /root/.kube
+    state: directory
+    mode: 0755
+
+
+- name: create config file
+  file:
+    path: /root/.kube/config
+    state: touch
+    mode: 0755
+
+
+- name: copy admin.conf to root/.kube/config
+  command: cp -rvf /etc/kubernetes/admin.conf /root/.kube/config
+  register: copy_admin_conf
+  failed_when:
+    - copy_admin_conf.rc != 0
+
+- name: set root as owner and group of file /root/.kube/config
+  file:
+    path: /root/.kube/config
+    owner: root
+    group: root
+  changed_when: False
+
+- name:  install the Flannel network
+  command: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+  register: kube_fannel_setup
+  changed_when: False
+  failed_when:
+    - kube_fannel_setup.rc != 0
+  when:
+  - "' Ready' not in before_existing_nodes.stdout"
+  - "'NotReady' not in before_existing_nodes.stdout"
+
+
+#- debug:
+#    msg: "{{ kubeadm_init_output }}"
+#  when: inventory_hostname in groups['master']
+
+- name:  Remove Taint of master node for Scheduling pods on master node when cluster vm count is one
+  command: kubectl taint nodes --all node-role.kubernetes.io/master-
+  when:  op_count == 1
+  changed_when: False
+  register: remove_taint
+  failed_when:
+    - remove_taint.rc != 0
+
+
+- name:  kubeadm join output
+  command: kubeadm token create --print-join-command
+  register: kubejointoken
+  failed_when:
+    - kubejointoken.rc != 0
+  when: op_count > 1
+ 
+#- debug:
+#    msg: "{{ kubejointoken }}"
+#  when:
+#  - op_count > 1
+
+- name: create mydata file
+  file:
+    path: /tmp/mydata
+    state: touch
+    mode: 0755
+  register: create_mydata
+  when:
+  - op_count > 1
+  - kubejointoken.changed
+
+- name: copy var kubejointoken output to a file
+  copy:
+    content: "{{ kubejointoken.stdout }}\n\r"
+    dest: "/tmp/mydata"
+    mode: "0755"
+  register: copy_kubejointoken_to_file
+  when:
+  - op_count > 1
+
+
+- fetch:
+    src: /tmp/mydata
+    dest: /tmp/mydata
+    flat: true
+  when:
+  - op_count > 1
+
+- name: Download file kubernetes-dashboard.yaml from kubernetes offical link
+  get_url:
+    url: https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta4/aio/deploy/recommended.yaml
+    #https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
+    dest: /tmp/kubernetes-dashboard.yaml
+  register: kubernetes_dashboard_yaml
+  when:
+  - "' Ready' not in before_existing_nodes.stdout"
+  - "'NotReady' not in before_existing_nodes.stdout"
+
+- name: add externalIPs keyword to kubernetes-dashboard.yaml for accesing dashboard
+  lineinfile:
+    path: /tmp/kubernetes-dashboard.yaml
+    insertafter: 'targetPort: 8443'
+    line: '  externalIPs:'
+  register: kubernetes_dashboard_yaml_addnodeport
+
+- set_fact:
+    master_ip: "{{groups['master'][0]}}"
+
+- set_fact:
+    master_internal_ip: "{{ ansible_default_ipv4.address }}"
+
+- name: add IP of master to externalIPs keyword to kubernetes-dashboard.yaml for accesing dashboard
+  lineinfile:
+    path: /tmp/kubernetes-dashboard.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+  register: kubernetes_dashboard_yaml_addnodeport
+
+- name:  install kubernetes-dashboard 
+  command: kubectl apply -f /tmp/kubernetes-dashboard.yaml
+  register: kube_dashboard_install
+  failed_when:
+    - kube_dashboard_install.rc != 0
+  when:
+  - "' Ready' not in before_existing_nodes.stdout"
+  - "'NotReady' not in before_existing_nodes.stdout"

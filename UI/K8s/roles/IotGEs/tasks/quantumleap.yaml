@@ -1,0 +1,119 @@
+---
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/IotGEs
+    state: directory
+    mode: '0755'
+# tasks file
+- name: copying qp package directory to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/QuantumLeap
+    dest: /tmp/IotGEs/
+    owner: root
+    group: root
+    mode: 0777
+
+- name: restart and enable nfs-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - rpcbind
+    - nfs-server
+  when: ansible_os_family == 'RedHat'
+
+- name: restart and enable nfs-kernel-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - nfs-kernel-server
+  when: ansible_os_family == 'Debian'
+
+
+- name: add nfs server ip to crate/vol1.yaml
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/crate/vol1.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to crate/vol2.yaml
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/crate/vol2.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to crate/vol3.yaml
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/crate/vol3.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+
+- name: add nfs server ip to redis-vol1
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/redis/redis-vol/redis-vol1.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to redis-vol2
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/redis/redis-vol/redis-vol2.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to redis-vol3
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/redis/redis-vol/redis-vol3.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+- name: add nfs server ip to redis-vol4
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/redis/redis-vol/redis-vol4.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to redis-vol5
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/redis/redis-vol/redis-vol5.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to redis-vol6
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/redis/redis-vol/redis-vol6.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+
+- name: add IP of master to externalIPs in crate service template
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/crate/crate-external-service.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+
+- name: add IP of master to externalIPs in grafana  service template
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/grafana/grafana-service.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+
+- name: add IP of master to externalIPs in qp service template
+  lineinfile:
+    path: /tmp/IotGEs/QuantumLeap/quantumleap/quantumleap-service.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+
+- name: find crate-0  pod
+  command: kubectl get pods --selector=app=crate
+  register: cratepodname_before
+  ignore_errors: yes
+
+- name:  install qp GE and component
+  shell: ./quantumleap_oneclick.sh
+  args:
+    chdir: /tmp/IotGEs/QuantumLeap
+  changed_when: False
+  when: "'Running' not in cratepodname_before "

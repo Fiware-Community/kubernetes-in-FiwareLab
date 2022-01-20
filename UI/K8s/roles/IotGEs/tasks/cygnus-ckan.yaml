@@ -1,0 +1,21 @@
+---
+# tasks file
+- name: copying cygnus-ckan package directory to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/cygnus-ckan
+    dest: /tmp/IotGEs/
+    owner: root
+    group: root
+    mode: 0755
+
+- name: add IP of master to externalIPs
+  lineinfile:
+    path: /tmp/IotGEs/cygnus-ckan/kube_svc_cygnus_ckan.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+
+- name:  install cygnus_ckan GE
+  shell: ./cygnus_ckan_oneclick.sh
+  args:
+    chdir: /tmp/IotGEs/cygnus-ckan
+  changed_when: False

@@ -1,0 +1,21 @@
+---
+# tasks file
+- name: copying iotagent package directory to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/iotagent
+    dest: /tmp/IotGEs/
+    owner: root
+    group: root
+    mode: 0755
+
+- name: add IP of master to externalIPs
+  lineinfile:
+    path: /tmp/IotGEs/iotagent/kube_svc_iotagent-json.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+
+- name:  install iotagent GE
+  shell: ./iotagent_one_click.sh
+  args:
+    chdir: /tmp/IotGEs/iotagent
+  changed_when: False

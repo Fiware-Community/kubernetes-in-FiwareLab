@@ -1,0 +1,250 @@
+---
+- name: Create a directory if it does not exist
+  file:
+    path: /opt/IotGEs
+    state: directory
+    mode: '0755'
+# tasks file
+- name: copying ckan package directory to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/ckan
+    dest: /tmp/IotGEs/
+    owner: root
+    group: root
+    mode: 0777
+
+- name: Create a directory if it does not exist
+  file:
+    path: /opt/ckan
+    state: directory
+    mode: '0755'
+
+- name: Create a directory if it does not exist
+  file:
+    path: /opt/ckan/postgres
+    state: directory
+    mode: '0755'
+
+# tasks file
+- name: copying production.ini and who.ini  package directory to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/ckan/ckan/ckanconfig
+    dest: /opt/ckan/
+    owner: root
+    group: root
+    mode: 0777
+
+- name: copying postgres perm-data directory  with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/ckan/postgress/perm-data
+    dest: /opt/ckan/postgres/
+    owner: root
+    group: root
+    mode: 0777
+
+#- name:  run nfs-server on kubernetes master
+#  shell: ./nfs-master.sh
+#  args:
+#    chdir: /tmp/IotGEs/ckan
+#  changed_when: True
+
+- name: restart and enable nfs-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - rpcbind
+    - nfs-server
+  when: ansible_os_family == 'RedHat'
+
+- name: restart and enable nfs-kernel-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - nfs-kernel-server
+  when: ansible_os_family == 'Debian'
+
+- name:   ckan set site_url in production.ini
+  command: sed -i  's,ckan.site_url = http://localhost:5000,ckan.site_url = http://{{groups['master'][0]}}:5000,g' /opt/ckan/ckanconfig/production.ini
+  register: siteurl_change_output
+
+- name: add nfs server ip to pg_master_perm_data_vol
+  lineinfile:
+    path: /tmp/IotGEs/ckan/postgress/postgres_vol/pg_master_perm_data_vol.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to pg_master_vol
+  lineinfile:
+    path: /tmp/IotGEs/ckan/postgress/postgres_vol/pg_master_vol.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to /pg_replica_vol
+  lineinfile:
+    path: /tmp/IotGEs/ckan/postgress/postgres_vol/pg_replica_vol.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to ckan solr-vol1
+  lineinfile:
+    path: /tmp/IotGEs/ckan/solr/solr_vol/solr-vol1
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to ckan solr-vol2
+  lineinfile:
+    path: /tmp/IotGEs/ckan/solr/solr_vol/solr-vol2
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to ckan solr-vol3
+  lineinfile:
+    path: /tmp/IotGEs/ckan/solr/solr_vol/solr-vol3
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to redis-vol1
+  lineinfile:
+    path: /tmp/IotGEs/ckan/redis/redis-vol/redis-vol1.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to redis-vol2
+  lineinfile:
+    path: /tmp/IotGEs/ckan/redis/redis-vol/redis-vol2.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to redis-vol3
+  lineinfile:
+    path: /tmp/IotGEs/ckan/redis/redis-vol/redis-vol3.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+- name: add nfs server ip to redis-vol4
+  lineinfile:
+    path: /tmp/IotGEs/ckan/redis/redis-vol/redis-vol4.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to redis-vol5
+  lineinfile:
+    path: /tmp/IotGEs/ckan/redis/redis-vol/redis-vol5.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to redis-vol6
+  lineinfile:
+    path: /tmp/IotGEs/ckan/redis/redis-vol/redis-vol6.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to ckan-vol
+  lineinfile:
+    path: /tmp/IotGEs/ckan/ckan/ckan-vol.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to ckan ckan-vol-data
+  lineinfile:
+    path: /tmp/IotGEs/ckan/ckan/ckan-vol-data.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+
+- name: add IP of master to externalIPs in solr service template
+  lineinfile:
+    path: /tmp/IotGEs/ckan/solr/service/service-solr-cluster.yml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+
+- name: add IP of master to externalIPs in ckan  service template
+  lineinfile:
+    path: /tmp/IotGEs/ckan/ckan/ckan-service.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+
+- name:  insert ckan_site_url to ckan-deployment.yaml
+  lineinfile:
+    path: /tmp/IotGEs/ckan/ckan/ckan-deployment.yaml
+    insertafter: '- name: CKAN_SITE_URL'
+    line: "          value: http://{{groups['master'][0]}}:5000"
+
+- name: find postgres-0  pod
+  command: kubectl get pods --selector=io.kompose.service=ckan
+  register: ckanpodname_before
+  ignore_errors: yes
+
+- name:  install ckan GE and component
+  shell: ./ckan_oneclick.sh
+  args:
+    chdir: /tmp/IotGEs/ckan
+  changed_when: False
+  when: "'Running' not in ckanpodname_before "
+
+- name: find postgres db pods
+  command: kubectl get pods --selector=app=postgres
+  register: dbpodname
+
+- set_fact:
+            db_pod_name: "{{ dbpodname.stdout_lines[1].split(' ')[0] }}"
+
+- name: find ckan pods
+  command: kubectl get pods --selector=io.kompose.service=ckan
+  register: ckanpodname
+
+- set_fact:
+            ckan_pod_name: "{{ ckanpodname.stdout_lines[1].split(' ')[0] }}"
+
+#- name: create /tmp/dbperm.sh file
+#  file:
+#    path: /tmp/dbperm.sh
+#    state: touch
+#    mode: 0755
+
+- name: create /tmp/ckanuser.sh file
+  file:
+    path: /tmp/ckanuser.sh
+    state: touch
+    mode: 0755
+
+- name: create /tmp/ckanuser1.sh file
+  file:
+    path: /tmp/ckanuser1.sh
+    state: touch
+    mode: 0755
+
+#- name: add db permissions commands to dbperm.sh file.
+#  blockinfile:
+#    path: /tmp/dbperm.sh
+#    content: |
+#      kubectl exec -it {{ db_pod_name }} bash --tty=false  <<'EOF'
+#      /opt/perm1.sh
+#      EOF
+
+- name: add ckan useradd commands to ckanuser file.
+  blockinfile:
+    path: /tmp/ckanuser.sh
+    content: |
+      kubectl exec {{ ckan_pod_name }}  -it --  /usr/local/bin/ckan-paster --plugin=ckan user add ckanuser password=abc@1234 email=ravinder.kumar@india.nec.com  --config=/etc/ckan/production.ini
+
+- name: add ckan useradd commands to ckanuser1 file.
+  blockinfile:
+    path: /tmp/ckanuser1.sh
+    content: |
+      kubectl exec {{ ckan_pod_name }}  -it -- /usr/local/bin/ckan-paster --plugin=ckan sysadmin add ckanuser   --config=/etc/ckan/production.ini
+  
+- name:  run /tmp/ckanuser.sh shell script to set ckan user permissions
+  command: /bin/bash /tmp/ckanuser.sh
+  register: ckanusersh
+  
+  
+- name:  run /tmp/ckanuser1.sh shell script to set systemadmin role permissions
+  command: /bin/bash /tmp/ckanuser1.sh
+  register: ckanuser1sh
+
+- debug:
+    msg: "ckan is running on     http://{{groups['master'][0]}}:5000            "

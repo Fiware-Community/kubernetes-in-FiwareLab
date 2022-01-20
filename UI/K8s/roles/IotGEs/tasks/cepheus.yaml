@@ -1,0 +1,21 @@
+---
+# tasks file
+- name: copying cepheus package directory to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/cepheus
+    dest: /tmp/IotGEs/
+    owner: root
+    group: root
+    mode: 0755
+
+- name: add IP of master to externalIPs
+  lineinfile:
+    path: /tmp/IotGEs/cepheus/cepheus_svc.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+
+- name:  install cepheus GE
+  shell: ./cepheus_oneclick.sh
+  args:
+    chdir: /tmp/IotGEs/cepheus
+  changed_when: False

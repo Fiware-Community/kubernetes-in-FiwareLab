@@ -1,0 +1,252 @@
+---
+- name: Grant centos user passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    line: 'centos ALL=(ALL) NOPASSWD: ALL'
+  #become: yes
+  #become_method: "sudo"
+  #changed_when: False
+  when: ansible_os_family == 'RedHat'
+
+- name: Grant ubuntu user passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    line: 'ubuntu ALL=(ALL) NOPASSWD: ALL'
+  #changed_when: False
+  when: ansible_os_family == 'Debian'
+
+- hostname: 
+    name: "{{ vm_hostname }}"
+  when: infra_type == 'baremetal'
+
+- name: Re-gather facts
+  action: setup
+  when: infra_type == 'baremetal'
+
+- name: ensure a list of kubernetes packages installed
+  yum:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - epel-release
+    - vim-enhanced
+    - wget
+    - libselinux-python
+    - net-tools
+    - telnet
+    - nfs-utils
+    - rpcbind
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
+  when: ansible_os_family == 'RedHat'
+
+- name: create config file
+  file:
+    path: /etc/yum.repos.d/kubernetes.repo
+    state: touch
+    mode: 0755
+
+
+- name: Adding repository details in Kubernetes repo file.
+  blockinfile:
+   path: /etc/yum.repos.d/kubernetes.repo
+   block: |
+    [kubernetes]
+    name=Kubernetes
+    baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+    enabled=1
+    gpgcheck=1
+    repo_gpgcheck=1
+    gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+      https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+  register: copying_packages
+  when: ansible_os_family == 'RedHat'
+
+#- name: Copying kubernetes.repo file to dest nodes 
+#  copy:
+#    src: files/kubernetes.repo
+#    dest: /etc/yum.repos.d/kubernetes.repo
+#    owner: root
+#    group: root
+#    mode: 0644
+#  register: copying_packages
+#  when: ansible_os_family == 'RedHat'
+
+#- name: Copying docker.repo file to dest nodes 
+#  copy:
+#    src: files/docker.repo
+#    dest: /etc/yum.repos.d/docker.repo
+#    owner: root
+#    group: root
+#    mode: 0644
+#  register: install_docker_packages
+#  when: ansible_os_family == 'RedHat'
+
+- name: Installing Docker repo
+  shell: |
+   yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  register: install_docker_packages
+  when: ansible_os_family == 'RedHat'
+
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  when: ansible_os_family == 'Debian'
+
+- name: Stop and disable firewalld.
+  service:
+     name: firewalld
+     state: stopped
+     enabled: False
+  when:
+        - infra_type == 'baremetal'
+  ignore_errors: yes
+
+- name: Install initial packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apt-transport-https
+    - curl
+    - wget
+    - vim
+    - net-tools
+    - telnet
+    - nfs-kernel-server
+    - python-pip
+  when: ansible_os_family == 'Debian'
+
+- name: Add an Apt signing key for kubernetes packages, uses whichever key is at the URL
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+  register: debain_kube_gpgkey_add
+  when: ansible_os_family == 'Debian'
+
+- name: create kubernetes.list file
+  file:
+    path: /etc/apt/sources.list.d/kubernetes.list
+    state: touch
+    mode: 0755
+  when: ansible_os_family == 'Debian'
+
+- name: add content to kubernetes.list file
+  blockinfile:
+    path: /etc/apt/sources.list.d/kubernetes.list
+    content: |
+      deb https://apt.kubernetes.io/ kubernetes-{{ ansible_distribution_release | lower }} main
+  when: ansible_os_family == 'Debian'
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  when: ansible_os_family == 'Debian'
+
+- name: ensure a list of kubernetes and dockert  packages installed
+  yum:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - docker
+    - kubeadm
+  when: ansible_os_family == 'RedHat'
+
+- name: Install kubernetes packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - kubelet
+    - kubeadm
+    - kubectl
+    - docker.io
+  when: ansible_os_family == 'Debian'
+
+
+- meta: clear_host_errors
+
+- name: Disable selinux
+  selinux: state=disabled
+  changed_when: False
+  when: ansible_os_family == 'RedHat'
+
+- name: Swap swap
+  command: swapoff -a
+  changed_when: False
+  register: disable_swap
+  failed_when:
+    - disable_swap.rc != 0
+  when: ansible_os_family == 'RedHat'
+
+#- name: disable Swap in fstab
+#  command: sed -i \'/ swap /d\' /etc/fstab
+#  changed_when: False
+#  register: disable_swap2
+#  failed_when:
+#    - disable_swap2.rc != 0
+#  when: ansible_os_family == 'RedHat'
+
+- name: stop SELinux 
+  command: setenforce 0
+  changed_when: False
+  register: stop_selinux
+  #  failed_when:
+  #  - stop_selinux.rc != 0
+  when: ansible_os_family == 'RedHat'
+  ignore_errors: yes
+
+- name: Gather facts
+  setup:
+
+- name: Generate /etc/hosts for all of the nodes
+  blockinfile:
+    dest: /etc/hosts
+    marker: "# {mark} ANSIBLE GENERATED HOSTS"
+    block: |
+        {% for host in groups['kubernetes'] %}
+        {{ hostvars[host]['ansible_default_ipv4']['address'] }} {{ hostvars[host]['ansible_hostname']+".novalocal " + hostvars[host]['ansible_hostname'] }}
+        {% endfor %}
+  register: etc_hosts_entry
+  changed_when: False
+
+- name: Add the below entries in the conf file to change the Linux host bridge values.
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: "{{ item }}"
+  register: add_lines_to_sysctl
+  with_items:
+    - "net.bridge.bridge-nf-call-iptables = 1"
+    - "net.bridge.bridge-nf-call-ip6tables = 1"
+  changed_when: False
+
+- name: iptables_forward rule
+  command: iptables -A FORWARD -j ACCEPT
+  changed_when: False
+  register: iptables_forward
+
+#- name: sysctl net bridge nf call iptables 
+#  command: sysctl net.bridge.bridge-nf-call-iptables=1
+#  changed_when: False
+#  register: sysctl_iptables
+
+#- name: sysctl net bridge nf call ip6tables 
+#  command: sysctl net.bridge.bridge-nf-call-ip6tables=1
+#  changed_when: False
+#  register: sysctl_ip6tables
+  
+- name: start and enable kubernetes services
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: True
+  with_items:
+    - docker
+    - kubelet
+  when: ansible_os_family == 'RedHat'

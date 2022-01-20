@@ -1,0 +1,77 @@
+---
+# tasks file
+- name: copying orion package directory to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/orion
+    dest: /tmp/IotGEs/
+    owner: root
+    group: root
+    mode: 0755
+
+- name: add nfs server ip to pv
+  lineinfile:
+    path: /tmp/IotGEs/orion/volume1.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to pv
+  lineinfile:
+    path: /tmp/IotGEs/orion/volume2.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to pv
+  lineinfile:
+    path: /tmp/IotGEs/orion/volume3.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+
+- name: add nfs server ip to pv
+  lineinfile:
+    path: /tmp/IotGEs/orion/volume4.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+ 
+- name: add nfs server ip to pv
+  lineinfile:
+    path: /tmp/IotGEs/orion/volume5.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name:  run nfs-server on kubernetes master
+  shell: ./nfs-master.sh
+  args:
+    chdir: /tmp/IotGEs/orion
+  changed_when: True
+
+- name: restart and enable nfs-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - rpcbind
+    - nfs-server
+  when: ansible_os_family == 'RedHat'
+
+- name: restart and enable nfs-kernel-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - nfs-kernel-server
+  when: ansible_os_family == 'Debian'
+
+- name: add IP of master to externalIPs
+  lineinfile:
+    path: /tmp/IotGEs/orion/kube_svc_orion.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+
+- name:  install orion GE
+  shell: ./orion_one_click.sh
+  args:
+    chdir: /tmp/IotGEs/orion
+  changed_when: False

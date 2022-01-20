@@ -1,0 +1,15 @@
+- name: Deploy an instance assuming image, network(public/private), flavor and  key are already present in cloud.
+  os_server:
+    state: present
+    name: "{{stuff.NGB.vm_name_prefix}}{{ item }}"
+    key_name: "{{ stuff.NGB.key_name}}"
+    image: "{{ stuff.NGB.image}}"
+    wait: no
+    flavor: "{{ stuff.NGB.flavor}}"
+    network: "{{ stuff.NGB.private_network}}"
+    security_groups: "{{ stuff.NGB.security_groups}}"
+    meta:
+      hostname: "kube0{{ item }}"
+  register: NGBvmcreate
+  with_sequence:
+    count={{ stuff.NGB.count }}

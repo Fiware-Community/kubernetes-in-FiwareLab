@@ -1,0 +1,181 @@
+---
+# tasks file
+- name: copying fogflow template directory to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/fogflow
+    dest: /tmp/IotGEs/
+    owner: root
+    group: root
+    mode: 0755
+
+########################
+
+- name: Set my_worker
+  set_fact:
+    my_master: "{{ groups['master'][0] }}"
+
+########################
+
+- name: adding rabbitmq_ip in configuration file of broker
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/broker/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "rabbitmq_ip": "{{ my_master }}",'
+
+- name: adding discovery_ip in configuration file of broker
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/broker/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "discovery_ip": "{{ my_master }}",'
+
+- name: adding master_ip in configuration file of broker
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/broker/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "master_ip": "{{ my_master }}",'
+
+- name: adding broker_ip in configuration file of broker
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/broker/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "broker_ip": "{{ my_master }}",'
+
+#######################
+
+- name: adding rabbitmq_ip in configuration file of designer
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/designer/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "rabbitmq_ip": "{{ my_master }}",'
+
+- name: adding discovery_ip in configuration file of designer
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/designer/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "discovery_ip": "{{ my_master }}",'
+
+- name: adding broker_ip in configuration file of designer
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/designer/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "broker_ip": "{{ my_master }}",'
+
+- name: adding agent_ip in configuration file of designer
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/designer/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "agent_ip": "{{ my_master }}",'
+
+- name: adding master_ip in configuration file of designer
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/designer/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "master_ip": "{{ my_master }}",'
+
+#######################
+
+- name: adding rabbitmq_ip in configuration file of master
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/master/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "rabbitmq_ip": "{{ my_master }}",'
+
+- name: adding discovery_ip in configuration file of master
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/master/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "discovery_ip": "{{ my_master }}",'
+
+- name: adding broker_ip in configuration file of master
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/master/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "broker_ip": "{{ my_master }}",'
+
+- name: adding master_ip in configuration file of master
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/master/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "master_ip": "{{ my_master }}",'
+
+#######################
+
+- name: adding rabbitmq_ip in configuration file of cloud-worker
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/cloud-worker/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "rabbitmq_ip": "{{ my_master }}",'
+
+- name: adding discovery_ip in configuration file of cloud-worker
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/cloud-worker/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "discovery_ip": "{{ my_master }}",'
+
+- name: adding broker_ip in configuration file of cloud-worker
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/cloud-worker/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "broker_ip": "{{ my_master }}",'
+
+- name: adding master_ip in configuration file of cloud-worker
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/cloud-worker/config.json
+    insertbefore: '    "discovery_port": 444,'
+    line: '    "master_ip": "{{ my_master }}",'
+
+- name: adding discovery.postgresql.host in configuration file of cloud-worker
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/config/cloud-worker/config.json
+    insertbefore: '            "port": 5432,'
+    line: '            "host": "{{ my_master }}",'
+
+################
+
+- name: add IP of master to externalIPs of rabbitmq service
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/rabbitmq-service.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{ master_internal_ip }}'
+
+- name: add IP of master to externalIPs of postgis service
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/postgis-service.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{ master_internal_ip }}'
+
+- name: add IP of master to externalIPs of discovery service
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/discovery-service.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{ master_internal_ip }}'
+
+- name: add IP of master to externalIPs of broker service
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/broker-service.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{ master_internal_ip }}'
+
+- name: add IP of master to externalIPs of designer service
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/designer-service.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{ master_internal_ip }}'
+
+- name: add IP of master to externalIPs of master service
+  lineinfile:
+    path: /tmp/IotGEs/fogflow/master-service.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{ master_internal_ip }}'
+
+################
+
+- name:  installing fogflow
+  shell: ./fogflow_one_click.sh
+  args:
+    chdir: /tmp/IotGEs/fogflow
+  changed_when: True
+
+- name:  displaying fogflow access information
+  debug:
+    msg: "Fogflow has been deployed Successfully. Access the portal at {{ my_master }}:81"

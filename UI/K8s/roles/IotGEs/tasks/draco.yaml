@@ -1,0 +1,73 @@
+---
+- name: Create a directory if it does not exist
+  file:
+    path: /tmp/IotGEs
+    state: directory
+    mode: '0755'
+
+# tasks file
+- name: copying qp package directory to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/draco
+    dest: /tmp/IotGEs/
+    owner: root
+    group: root
+    mode: 0777
+
+- name: restart and enable nfs-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - rpcbind
+    - nfs-server
+  when: ansible_os_family == 'RedHat'
+
+- name: restart and enable nfs-kernel-server services
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - nfs-kernel-server
+  when: ansible_os_family == 'Debian'
+
+
+- name: add nfs server ip to sql/Volume1.yaml
+  lineinfile:
+    path: /tmp/IotGEs/draco/Volume1.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to sql/Volume2.yaml
+  lineinfile:
+    path: /tmp/IotGEs/draco/Volume2.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add nfs server ip to sql/Volume3.yaml
+  lineinfile:
+    path: /tmp/IotGEs/draco/Volume3.yaml
+    insertafter: '  nfs:'
+    line: '    server: {{ ansible_default_ipv4.address }}'
+
+- name: add IP of master to externalIPs in sql service template
+  lineinfile:
+    path: /tmp/IotGEs/draco/sql-statefulset.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+
+
+- name: add IP of master to externalIPs in draco service template
+  lineinfile:
+    path: /tmp/IotGEs/draco/kube_svc_draco.yaml
+    insertafter: 'externalIPs:'
+    line: '  - {{master_internal_ip}}'
+
+
+- name:  install draco GE and component
+  shell: ./draco_one_click.sh
+  args:
+    chdir: /tmp/IotGEs/draco
+  changed_when: False

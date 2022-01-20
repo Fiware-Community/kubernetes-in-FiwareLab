@@ -1,0 +1,38 @@
+---
+# tasks file
+- name: copying ngb installer to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/ngb/ngb-installer.sh
+    dest: /tmp/ngbroker/
+    owner: root
+    group: root
+    mode: 0755
+
+- name: copying ngb installer to file with owner and permissions
+  command: chmod +x /tmp/ngbroker/ngb-installer.sh
+
+- name: copying BinariesForTesting directory to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/ngb/BinariesForTesting
+    dest: /tmp/ngbroker/
+    owner: root
+    group: root
+    mode: 0755
+
+- name: copying kafka2psql directory to file with owner and permissions
+  copy:
+    src: ./IoTGEs-templates/ngb/kafka2psql
+    dest: /tmp/ngbroker/
+    owner: root
+    group: root
+    mode: 0755
+
+- name:  installing NG Broker
+  shell: ./ngb-installer.sh > ./ngb-installer-logs.txt
+  args:
+    chdir: /tmp/ngbroker
+  changed_when: True
+
+- name:  displaying NG Broker access information
+  debug:
+    msg: "NG Broker has been deployed Successfully. Access the portal at {{ inventory_hostname }}:8761"

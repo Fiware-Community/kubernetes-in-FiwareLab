@@ -1,0 +1,44 @@
+#apiVersion: extensions/v1beta1
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ k8s_namespace }}
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: orion
+    app: orion
+  name: orion
+spec:
+  selector:
+    matchLabels:
+      app: orion
+  replicas: 4
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: orion
+        app: orion
+    spec:
+      containers:
+#      - image: fiware/orion
+      - image: "fiware/orion:{{ orion_version }}"
+        name: orion
+        args:
+        - -dbhost
+        - mongo.{{ k8s_namespace }}.svc.cluster.local:27017
+#        - mongo-0.mongo.default.svc.cluster.local:27017,mongo-1.mongo.default.svc.cluster.local:27017,mongo-2.mongo.default.svc.cluster.local:27017,mongo-3.mongo.default.svc.cluster.local:27017,mongo-4.mongo.default.svc.cluster.local:27017
+        - -rplSet
+        - rs0
+#        args:
+#        - -dbhost
+#        - mongo-client.default.svc.cluster.local
+        ports:
+        - containerPort: 1026
+        resources: {}
+      restartPolicy: Always
