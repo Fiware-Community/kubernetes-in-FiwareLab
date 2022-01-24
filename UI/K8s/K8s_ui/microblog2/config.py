@@ -11,9 +11,9 @@ class Config(object):
     SECRET_KEY = 'you-will-never-guess'
     WTF_CSRF_ENABLED = False
     #SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Abc#1234@localhost/db'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Abc@1234@localhost/db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     MYSQL_HOST = 'localhost'
     MYSQL_USER = 'root'
-    MYSQL_PASSWORD = 'Abc#1234'
+    MYSQL_PASSWORD = 'Abc@1234'
     MYSQL_DB = 'db'

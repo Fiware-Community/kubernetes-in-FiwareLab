@@ -43,6 +43,9 @@ def create_app(config_class=Config):
     from app.vm_node import bp as vm_node_bp
     app.register_blueprint(vm_node_bp, url_prefix='/vm_node')
 
+    from app.vm_vm_node import bp as vm_vm_node_bp
+    app.register_blueprint(vm_vm_node_bp, url_prefix='/vm_vm_node')
+
     from app.component import bp as component_bp
     app.register_blueprint(component_bp, url_prefix='/component')
 

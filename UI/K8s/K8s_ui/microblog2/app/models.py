@@ -156,6 +156,20 @@ class Vm_node(db.Model):
     created_at = db.Column(db.DateTime, index=True, default=datetime.now)
     cluster_id = db.Column(db.Integer, db.ForeignKey('cluster.id'), nullable=False)
 
+# GUI DB Model for VM node
+class Vm_vm_node(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    vm_name_prefix = db.Column(db.VARCHAR(30), index=True, unique=True, nullable=False)
+    vm_ip = db.Column(db.TEXT(120), nullable=False)
+    vm_username = db.Column(db.VARCHAR(30), nullable=False)
+    vm_key_based_auth = db.Column(db.Boolean(), nullable=False)
+    vm_password = db.Column(db.VARCHAR(30))
+    vm_key_path = db.Column(db.VARCHAR(400))
+#    status = db.Column(db.String(30))
+    created_at = db.Column(db.DateTime, index=True, default=datetime.now)
+    cluster_id = db.Column(db.Integer, db.ForeignKey('cluster.id'), nullable=False)
+
+
 #   def __repr__(self):
 #        return '<vm_name_prefix {}>'.format(self.vm_name_prefix)
 

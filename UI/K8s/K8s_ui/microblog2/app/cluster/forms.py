@@ -11,7 +11,7 @@ class ClusterCreationForm(Form):
                            Regexp('^\w+$', message="Username must contain only letters numbers or underscore")
         ])
     description = TextAreaField(u'Description', [validators.optional(), validators.length(max=30)])
-    cluster_type = SelectField(u'Cluster Type', choices=[('openstack', 'openstack'), ('AWS', 'AWS'), ('baremetal', 'baremetal')],id='cluster_type_abc')
+    cluster_type = SelectField(u'Cluster Type', choices=[('openstack', 'openstack'), ('AWS', 'AWS'), ('baremetal', 'baremetal'), ('VM', 'VM')],id='cluster_type_abc')
     cluster_os = SelectField(u'OS Type', choices=[('centos', 'centos'), ('ubuntu', 'ubuntu')])
     node_count = IntegerField('Node Count', default=4, id = 'node_count_abc')
         #FormField(NumberRange(min=1, max=100, message="value must be integer between 1 to 100"))
