@@ -1,0 +1,25 @@
+heat_template_version: 2017-09-01
+parameters:
+  net:
+    description: name of network used to launch instance.
+    type: string
+    default: Network1
+resources:
+  inst1:
+    type: OS::Nova::Server
+    properties:
+      flavor: m1.small
+      image: cirros
+      networks:
+        - network: {get_param: net}
+
+  floating_ip:
+    type: OS::Neutron::FloatingIP
+    properties:
+      floating_network: Public Network
+
+  association:
+    type: OS::Neutron::FloatingIPAssociation
+    properties:
+      floatingip_id: { get_resource: floating_ip }
+      port_id: {get_attr: [inst1, addresses, {get_param: net}, 0, port]}
