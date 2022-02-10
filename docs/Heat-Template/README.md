@@ -1,7 +1,7 @@
 # Openstack Heat:
 Heat provides an AWS CloudFormation implementation for OpenStack that orchestrates an AWS CloudFormation template describing a cloud application by executing appropriate OpenStack API calls to generate running cloud applications.
 The software integrates other core components of OpenStack into a one-file template system. The templates allow creation of most OpenStack resource types (such as instances, floating IPs, volumes, security groups and users), as well as some more advanced functionality such as instance high availability, instance autoscaling, and nested stacks. By providing very tight integration with other OpenStack core projects.
-# 1.Openstack Heat Architecture:
+# Openstack Heat Architecture:
 
  
 ## heat
@@ -17,7 +17,7 @@ The heat-api-cfn component provides an AWS Query API that is compatible with AWS
 ## heat-engine
 The heat-engine’s main responsibility is to orchestrate the launching of templates and provide events back to the API consumer.
 
-# 2.Template structure
+# Template structure
 HOT templates are defined in YAML and follow the structure outlined below.
 
 ###### heat_template_version: 2016-10-14
@@ -49,19 +49,20 @@ This section allows for specifying output parameters available to users once the
 ## conditions
 This optional section includes statements which can be used to restrict when a resource is created or when a property is defined. They can be associated with resources and resource properties in the resources section, also can be associated with outputs in the outputs sections of a template.
 
-# 3. what is stack?
+#  what is stack?
  a stack is the collection of objects—or resources—that will be created by Heat. This might include instances (VMs), networks, subnets, routers, ports, router interfaces, security groups, security group rules, auto-scaling rules, etc.
 stack can be created in two ways. One is from CLI, another one is from GUI(Dashboard)
 
 ## creating stack from CLI:
 To create a stack, or template, from an example template file, run the following command:
 
-$ openstack stack create --template server_console.yaml \
+ eg: $ openstack stack create --template server_console.yaml \
   --parameter "image=cirros" MYSTACK
 The --parameter values that you specify depend on the parameters that are defined in the template. If a website hosts the template file, you can also specify the URL with the --template parameter.
 
 The command returns the following output:
 
+eg:
 +---------------------+----------------------------------------------------------------+
 | Field               | Value                                                          |
 +---------------------+----------------------------------------------------------------+
@@ -106,7 +107,7 @@ InstanceType: Specify the flavor for the instance.
 8.Click Launch to create a stack. The Stacks tab shows the stack.
 
 
-# 4. Creating Server from heat template:
+#  Creating Server from heat template:
 Use the OS::Nova::Server resource to create a Compute instance. The flavor property is the only mandatory one, but you need to define a boot source using one of the image or block_device_mapping properties.
 
 You also need to define the networks property to indicate to which networks your instance must connect if multiple networks are available in your tenant.
@@ -138,7 +139,7 @@ resources:
       security_groups:
         - default
 
-# 5. Quota management template :
+#  Quota management template :
 An administrator would like to have the ability to specify a project's nova quota and a project user's nova quota in a HOT template. This blueprint proposes to create a new heat resource type for nova quotas.
 The quota management template is:  
 
@@ -191,7 +192,7 @@ outputs:
   nova_user_quota_id:
     value: {get_resource: nova_user_quota}*
                                                                                      
-# 6. Create and associate a floating IP to an instance:
+#  Create and associate a floating IP to an instance:
 You can use two sets of resources to create and associate floating IPs to instances.
 OS::Nova resources:
 Use the OS::Nova::FloatingIP resource to create a floating IP, and the OS::Nova::FloatingIPAssociation resource to associate the floating IP to an instance.
