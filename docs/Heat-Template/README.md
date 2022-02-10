@@ -113,115 +113,21 @@ Use the OS::Nova::Server resource to create a Compute instance. The flavor prope
 You also need to define the networks property to indicate to which networks your instance must connect if multiple networks are available in your tenant.
 
 The following example creates a simple instance, booted from an image, and connecting to the private network:
-The server creation template: 
-heat_template_version: 2015-04-30
 
-#creation of multiple instances with diffrent configurations
-resources:
-  instance:
-    type: OS::Nova::Server
-    properties:
-      flavor: m1.tiny
-      image: cirros
-      networks:
-        - network: Network1
-      key_name: mykey
-      security_groups:
-        - default
-  instance1:
-    type: OS::Nova::Server
-    properties:
-      flavor: m1.small
-      image: cirros
-      networks:
-        - network: Network1
-      key_name: mykey
-      security_groups:
-        - default
+**[The server creation template:](docs/Heat-Template/server.yml)**
 
 #  Quota management template :
 An administrator would like to have the ability to specify a project's nova quota and a project user's nova quota in a HOT template. This blueprint proposes to create a new heat resource type for nova quotas.
-The quota management template is:  
+ 
+**[The quota management template](docs/Heat-Template/quota.yml)**
 
-*heat_template_version: 2017-09-01
-#quota management for keystone user
-resources:
-  test_role:
-    type: OS::Keystone::Role
-    properties:
-      name: test_role1
-
-  test_project:
-    type: OS::Keystone::Project
-    properties:
-      name: test_project1
-      enabled: True
-
-  test_user:
-    type: OS::Keystone::User
-    properties:
-      name: test_user1
-      domain: default
-      default_project: {get_resource: test_project}
-      roles:
-        - role: {get_resource: test_role}
-          domain: default
-        - role: {get_resource: test_role}
-          project: {get_resource: test_project}
-
-  nova_user_quota:
-    type: OS::Nova::Quota
-    properties:
-      project: {get_resource: test_project}
-      cores: 5
-      fixed_ips: 5
-      floating_ips: 5
-      instances: 5
-      injected_files: 5
-      injected_file_content_bytes: 5
-      injected_file_path_bytes: 5
-      key_pairs: 5
-      metadata_items: 5
-      ram: 5
-      security_groups: 5
-      security_group_rules: 5
-      server_groups: 5
-      server_group_members: 5
-
-outputs:
-  nova_user_quota_id:
-    value: {get_resource: nova_user_quota}*
                                                                                      
 #  Create and associate a floating IP to an instance:
 You can use two sets of resources to create and associate floating IPs to instances.
 OS::Nova resources:
 Use the OS::Nova::FloatingIP resource to create a floating IP, and the OS::Nova::FloatingIPAssociation resource to associate the floating IP to an instance.
-The floating IP template is:
-heat_template_version: 2017-09-01
-parameters:
-  net:
-    description: name of network used to launch instance.
-    type: string
-    default: Network1
-resources:
-  inst1:
-    type: OS::Nova::Server
-    properties:
-      flavor: m1.small
-      image: cirros
-      networks:
-        - network: {get_param: net}
 
-  floating_ip:
-    type: OS::Neutron::FloatingIP
-    properties:
-      floating_network: Public Network
-
-  association:
-    type: OS::Neutron::FloatingIPAssociation
-    properties:
-      floatingip_id: { get_resource: floating_ip }
-      port_id: {get_attr: [inst1, addresses, {get_param: net}, 0, port]}
+**[The floating IP template](docs/Heat-Template/floatingIP.yml)**
                                                                      
 
 
