@@ -114,7 +114,7 @@ You also need to define the networks property to indicate to which networks your
 
 The following example creates a simple instance, booted from an image, and connecting to the private network:
 
-**[The server creation template:](docs/Heat-Template/server.yml)**
+**[The server creation template:](server.yml)**
 
 #  Quota management template :
 An administrator would like to have the ability to specify a project's nova quota and a project user's nova quota in a HOT template. This blueprint proposes to create a new heat resource type for nova quotas.
@@ -127,7 +127,7 @@ You can use two sets of resources to create and associate floating IPs to instan
 OS::Nova resources:
 Use the OS::Nova::FloatingIP resource to create a floating IP, and the OS::Nova::FloatingIPAssociation resource to associate the floating IP to an instance.
 
-**[The floating IP template](docs/Heat-Template/floatingIP.yml)**
+**[The floating IP template](floatingIP.yml)**
                                                                      
 
 
