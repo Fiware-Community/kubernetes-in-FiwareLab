@@ -1,0 +1,24 @@
+heat_template_version: 2015-04-30
+
+#creation of multiple instances with diffrent configurations
+resources:
+  instance:
+    type: OS::Nova::Server
+    properties:
+      flavor: m1.tiny
+      image:  cirros 
+      networks:
+        - network:  Network1 
+      key_name: mykey 
+      security_groups:
+        - default
+  instance1:
+    type: OS::Nova::Server
+    properties:
+      flavor: m1.small 
+      image: cirros
+      networks
+        - network:  Network1 
+      key_name: mykey 
+      security_groups:
+        - default
