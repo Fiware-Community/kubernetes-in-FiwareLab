@@ -119,7 +119,7 @@ The following example creates a simple instance, booted from an image, and conne
 #  Quota management template :
 An administrator would like to have the ability to specify a project's nova quota and a project user's nova quota in a HOT template. This blueprint proposes to create a new heat resource type for nova quotas.
  
-**[The quota management template](Heat-Template/quota.yml)**
+**[The quota management template](quota.yml)**
 
                                                                                      
 #  Create and associate a floating IP to an instance:
