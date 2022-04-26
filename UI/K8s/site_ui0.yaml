@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+  - name: create cfg
+    shell: |
+     export ANSIBLE_CONFIG=$PWD/ansible.cfg
+

@@ -21,12 +21,8 @@
        }  
        function addNode(){
            console.log('{{cluster_items.cluster_type}}')
-           if('{{cluster_items.cluster_type}}' == 'openstack'){
-            window.location.href="/openstack_node/openstack_node?id={{cluster_items.id}}";
-           }else if('{{cluster_items.cluster_type}}' == 'baremetal'){
+           if('{{cluster_items.cluster_type}}' == 'VM'){
                window.location.href="/vm_node/vm_node?id={{cluster_items.id}}";
-           }else if('{{cluster_items.cluster_type}}' == 'AWS'){
-               window.location.href="/aws_node/aws_node?id={{cluster_items.id}}";
            }
        }   
 </script>

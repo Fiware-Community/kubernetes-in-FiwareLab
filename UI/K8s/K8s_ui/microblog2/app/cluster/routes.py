@@ -279,13 +279,7 @@ def execute_playbook(id):
             final_vm_ip_list= []
             range_list = vm_ip_string.split('\r\n')
             for range in range_list:
-                range_ip_list = range.split(',')
-                range_start = range_ip_list[0]
-                range_end = range_ip_list[1]
-                if range_start.encode('ascii', 'ignore') == range_end.encode('ascii', 'ignore'):
-                    final_vm_ip_list.append(range_start.encode('ascii', 'ignore'))
-                else:
-                    final_vm_ip_list.extend(ip_range(range_start,range_end))
+                final_vm_ip_list.append(range.encode('ascii', 'ignore'))
             return final_vm_ip_list
 
         #listToStr = ','.join(map(str, ip_string_to_list(vm_ip_string)))
@@ -297,7 +291,10 @@ def execute_playbook(id):
     pprint.pprint(extra_varibales)
     #playbook_path = "/home/necuser/sandbox/site_ui.yaml"
     playbook_path = Config.rootdir+"/site_ui.yaml"
-    r1 = ansible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path,extravars=extra_varibales)
+    cfg_path=Config.rootdir+"/ansible.cfg"
+    env = {}
+    env["ANSIBLE_CONFIG"] = cfg_path
+    r1 = ansible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)
     deployment_data = Deployment(name='deployment_name',cluster_id=id)
     db.session.add(deployment_data)
     try:
@@ -336,7 +333,7 @@ def execute_playbook(id):
                             else:
                                 if 'skip' not in each_data['event']:
                                     if 'playbook' not in each_data['event']:
-                                        if 'event_data' in each_data:
+				1nsible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)                                   if 'event_data' in each_data:
                                             yy1 = each_data['event_data']
                                             if 'runner_on_failed' in each_data['event'] and 'ignore_errors' in yy1 and yy1['ignore_errors']==None:
                                                 if 'stdout' in each_data:
@@ -443,13 +440,7 @@ def delete_cluster(id):
             final_vm_ip_list = []
             range_list = vm_ip_string.split('\r\n')
             for range in range_list:
-                range_ip_list = range.split(',')
-                range_start = range_ip_list[0]
-                range_end = range_ip_list[1]
-                if range_start.encode('ascii', 'ignore') == range_end.encode('ascii', 'ignore'):
-                    final_vm_ip_list.append(range_start.encode('ascii', 'ignore'))
-                else:
-                    final_vm_ip_list.extend(ip_range(range_start, range_end))
+                final_vm_ip_list.append(range.encode('ascii', 'ignore'))
             return final_vm_ip_list
 
         extra_varibales['bm_nodeIPs'] = ip_string_to_list(vm_ip_string)

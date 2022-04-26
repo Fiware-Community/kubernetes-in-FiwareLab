@@ -1,0 +1,27 @@
+---
+- name: create hostname
+  hosts: localhost
+  tasks:
+    - replace:
+        path: hosts
+        regexp: '^\[{{ item.category }}\]\s{{ item.name }} (.*)ansible_host(.*)$'
+        replace: '[{{ item.category }}]\n{{ item.name }} ansible_host={{ item.ansible_host }}'
+      with_items:
+        - { category: 'kubernetes-master-nodes', name: 'kubernetes-master', ansible_host: "{{ nodeIPs[0] }}" }
+      vars:
+        nodeIPs: "{{bm_nodeIPs}}"
+    - replace:
+        path: hosts
+        regexp: '^\[{{ item.category }}\]\s{{ item.name }} (.*)ansible_host(.*)$'
+        replace: '[{{ item.category }}]\n{{ item.name }} ansible_host={{ item.ansible_host }}'
+      with_items:
+        - { category: 'kubernetes-worker-nodes', name: 'kubernetes-worker1', ansible_host: "{{ nodeIPs[1] }}" }
+      vars:
+        nodeIPs: "{{bm_nodeIPs}}"
+    - name: Sleep for 0 seconds and timeout
+      tags: sleep0
+      wait_for:
+        delay: 0
+        timeout: 0
+    - meta: refresh_inventory
+

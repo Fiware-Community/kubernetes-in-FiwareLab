@@ -1,0 +1,9 @@
+---
+- hosts: kubernetes-master-nodes
+  tasks:
+  - name: install Fiware GEs (Iot Agent and orion)
+    shell: |
+     sudo /usr/local/bin/helm repo add fiware https://fiware.github.io/helm-charts
+     sudo /usr/local/bin/helm install fiware/iotagent-json --generate-name
+     sudo /usr/local/bin/helm install fiware/orion --generate-name
+

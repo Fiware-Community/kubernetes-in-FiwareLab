@@ -23,7 +23,7 @@ class VmNodeCreationForm(Form):
         node_ip1 = Vm_node.query.filter_by(cluster_id=cluster_id).first()
         if node_ip is not None:
             raise ValidationError('Please use a different node ips.')
-        elif node_ip1 is not None:
+        if node_ip1 is not None:
             raise ValidationError('Only one vm node ip detail can be added in a cluster')
     def validate_vm_name_prefix(self, vm_name_prefix):
         #cluster_id = request.args.get('id')
