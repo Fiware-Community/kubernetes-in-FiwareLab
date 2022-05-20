@@ -18,6 +18,7 @@ This feature of kubernetes is what makes it best among others. If any pod gets d
 When any change is introduced that breaks production, then there should be  a plan to roll back that change. Kubernetes and kubectl offer a simple mechanism to roll back changes to its resources such as Deployments.
 
 Support for Kubernetes will be provided in 3 Phases as:
+
 **PHASE 1:** Fiware VM's K8s User Support through command line using Ansible playbooks
 
 **PHASE 2:** Feature support: 
@@ -40,6 +41,9 @@ K8s cluster would be created over provided Fiware Lab nodes and architecture wou
 
 .. figure:: figures/k8s-architecture.png
    :align: center
+   :width: 100px
+   :height: 100px
+   :scale: 50 %
 
 1. Fiware-Lab user will run the Ansible-playbook by providing IP addresses of the VMs on which K8s cluster (master and Worker Nodes) needs to setup.
 2. Ansible-playbook will automatically deploy docker, kubeadm and kubectl on all the node with required settings
@@ -52,6 +56,9 @@ K8s cluster would be created over provided Fiware Lab nodes and architecture wou
 
 .. figure:: figures/internal-architecture.png
    :align: center
+   :width: 100px
+   :height: 100px
+   :scale: 50 %
 
 By deploying the K8s through Ansible-playbooks, user gets access to all the K8s features such as:
 1. Automated rollouts and rollbacks
@@ -69,6 +76,9 @@ Fi-Lab user can configure the cluster by modifying script file/ansible-playbook 
 
 .. figure:: figures/physical-architecture.png
    :align: center
+   :width: 100px
+   :height: 100px
+   :scale: 50 %
 
 1. Each Fiware component can be deployed as Pod
 2. Individually update and scales Pod
@@ -79,3 +89,6 @@ Fi-Lab user can configure the cluster by modifying script file/ansible-playbook 
 
 .. figure:: figures/schedule-architecture.png
    :align: center
+   :width: 100px
+   :height: 100px
+   :scale: 50 %
