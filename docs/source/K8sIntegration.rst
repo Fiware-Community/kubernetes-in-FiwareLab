@@ -4,7 +4,7 @@ Kubernetes Integration
 
 Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available. Production grade system uses the K8s to attain its functionality benefits. Most of the Fiware GE supports K8s and migrated to it. 
 
-As Noida Fiware Lab provides the VM's for trail & POC usage to the users and groups. To look the popularity of K8s. We are planning to provide some Ansible books to automated deployment of K8s cluster to provided VM's (centos and ubuntu). This has been tested and verified on Centos 7.9 64 bit operating systems with Kernel 5.12.10-1.el7.elrepo.x86_64 and Ubuntu 16.04 64 bit operating systems with Kernel Linux 4.4.0-210-generic.
+As Noida Fiware Lab provides the VM's for trail & POC usage to the users and groups. To look the popularity of K8s. We are planning to provide some Ansible books to automated deployment of K8s cluster to provided VM's (centos and ubuntu). This has been tested and verified on Centos 7.9 64 bit operating systems with Kernel 5.12.10-1.el7.elrepo.x86_64 and Ubuntu 16.04 64 bit operating systems with Kernel Linux4.4.0-210-generic.
 
 Along with cluster following features of K8s are implemented in:
 
@@ -19,22 +19,27 @@ When any change is introduced that breaks production, then there should be  a pl
 
 Support for Kubernetes will be provided in 3 Phases as:
 **PHASE 1:** Fiware VM's K8s User Support through command line using Ansible playbooks
+
 **PHASE 2:** Feature support: 
+
 1. Manual creation & updating GEs
+
 2. Persistent Storage
+
 3. Security Improvements
+
 4. Network configurations options
+
 **PHASE 3:** UI support to create and manage Kubernetes cluster for the user.
 
 
 Architecture of Fiware User VM's K8s Support through CLI
 ----------------------------------------------
-K8s cluster would be created over provided Fiware Lab nodes and architecture would look like 
-below.
+K8s cluster would be created over provided Fiware Lab nodes and architecture would look like below.
 
 
 .. figure:: figures/k8s-architecture.png
-
+   :align: center
 
 1. Fiware-Lab user will run the Ansible-playbook by providing IP addresses of the VMs on which K8s cluster (master and Worker Nodes) needs to setup.
 2. Ansible-playbook will automatically deploy docker, kubeadm and kubectl on all the node with required settings
@@ -46,7 +51,7 @@ below.
 
 
 .. figure:: figures/internal-architecture.png
-
+   :align: center
 
 By deploying the K8s through Ansible-playbooks, user gets access to all the K8s features such as:
 1. Automated rollouts and rollbacks
@@ -59,17 +64,18 @@ By deploying the K8s through Ansible-playbooks, user gets access to all the K8s 
 8. Horizontal scaling
 9. Self-healing
 10. Designed for extensibility
-Fi-Lab user can configure the cluster by modifying script file/ansible-playbook at the time of deployment. After successful deployment of Kubernetes cluster, user can manage it by API server
+Fi-Lab user can configure the cluster by modifying script file/ansible-playbook at the time of deployment. After successful deployment ofKubernetes cluster, user can manage it by API server
 
 
 .. figure:: figures/physical-architecture.png
-
+   :align: center
 
 1. Each Fiware component can be deployed as Pod
 2. Individually update and scales Pod
 3. Use Services for Component Communication
 4. Networking:
-      I. Each Pods get Virtual IPs
-      II. Ports are not shared with other Pods
+   I. Each Pods get Virtual IPs
+   II. Ports are not shared with other Pods
 
 .. figure:: figures/schedule-architecture.png
+   :align: center
