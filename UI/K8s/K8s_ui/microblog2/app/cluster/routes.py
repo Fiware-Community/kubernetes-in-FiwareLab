@@ -333,7 +333,8 @@ def execute_playbook(id):
                             else:
                                 if 'skip' not in each_data['event']:
                                     if 'playbook' not in each_data['event']:
-				1nsible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)                                   if 'event_data' in each_data:
+				        ansible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)
+                                        if 'event_data' in each_data:
                                             yy1 = each_data['event_data']
                                             if 'runner_on_failed' in each_data['event'] and 'ignore_errors' in yy1 and yy1['ignore_errors']==None:
                                                 if 'stdout' in each_data:
