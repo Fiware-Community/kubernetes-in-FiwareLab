@@ -1,8 +1,8 @@
 ************************************
-Feature support (Phase-2)
+Feature support
 ************************************
 
-Below is the list of features supported on kubernetes deployed in Phase-1: 
+Below is the list of features supported on kubernetes deployed previously: 
 
 1. Manual creation & updating GEs
 2. Persistent Storage
@@ -15,4 +15,4 @@ Manual creation & updating GEs: Fiware Lab user will be provided with the manual
 
 **Security Improvements:** Secret and configuration management manuals wills be provided to the user to store and manage sensitive information, such as passwords, OAuth tokens, and SSH keys. User can deploy and update secrets and application configuration without rebuildinghis container images, and without exposing secrets in your stack configuration.
 
-**Network configurations options:** Fiware Lab user will be provided with the option to configure network used in kubernetes through CLI
+**Network configurations options:** Fiware Lab user will be provided with the option to configure network used in kubernetes through CLI.

@@ -1,5 +1,5 @@
 ************************************
-UI support to create and manage Kubernetes cluster for the user (Phase-3)
+UI support to create and manage Kubernetes cluster for the user
 ************************************
 
 Fiware Lab user will be able to create and manage kubernetes cluster through UI. User can also deploy Fiware GEs over kubernetes cluster by selecting the GEs from the catalogue provided in GUI.
@@ -78,10 +78,15 @@ Pages in the GUI:
 **Note:** UI may change to match user requirement.
 
 **Advantages:**
+
 1. Easier to create and manage kubernetes cluster through GUI.
+
 2. User will be provided with option to deploy Fiware GEs through GUI.
+
 3. User can select Fiware GEs from the catalogue and those GEs will be deployed.
 
 **Limitations:**
+
 1. User should be familiar with Python to run the server.
+   
 2. Mysql db is used to store user and cluster details

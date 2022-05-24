@@ -17,23 +17,6 @@ This feature of kubernetes is what makes it best among others. If any pod gets d
 3. **Automated Rollouts & Rollback**: This can be achieved by rolling update. Rolling updates are the default strategy to update the running version of your app. With every new update cycle the previously launched Pod is removed and in its place a  newer Pod with latest updates is launched incrementally. 
 When any change is introduced that breaks production, then there should be  a plan to roll back that change. Kubernetes and kubectl offer a simple mechanism to roll back changes to its resources such as Deployments.
 
-Support for Kubernetes will be provided in 3 Phases as:
-
-**PHASE 1:** Fiware VM's K8s User Support through command line using Ansible playbooks
-
-**PHASE 2:** Feature support: 
-
-1. Manual creation & updating GEs
-
-2. Persistent Storage
-
-3. Security Improvements
-
-4. Network configurations options
-
-**PHASE 3:** UI support to create and manage Kubernetes cluster for the user.
-
-
 Architecture of Fiware User VM's K8s Support through CLI
 ----------------------------------------------
 K8s cluster would be created over provided Fiware Lab nodes and architecture would look like below.
@@ -46,11 +29,17 @@ K8s cluster would be created over provided Fiware Lab nodes and architecture wou
    :scale: 50 %
 
 1. Fiware-Lab user will run the Ansible-playbook by providing IP addresses of the VMs on which K8s cluster (master and Worker Nodes) needs to setup.
+
 2. Ansible-playbook will automatically deploy docker, kubeadm and kubectl on all the node with required settings
+
 3. Helm is automatically deployed on Master Node. Helm charts can be used to deploy Fiware GEs like Orion, IOTAgent, Fogflow, Scropio broker, etc. over the created worker Node. User can also manage the cluster by Kubernetes API server.
+
 4. This automate script will be executed from the Ansible node and all other Fiware VMs (used for Master/Worker Node) should be accessible from this node. 
+
 5. K8s Cluster can be deployed over variable VM's (minimum 3 VM) with user required e.g. 3VM Setup, 4VM Setup etc.
+
 6. Basic networking would be created through flannel.
+
 7. User can create namespace where all GE's would be deployed.
 
 
@@ -61,16 +50,27 @@ K8s cluster would be created over provided Fiware Lab nodes and architecture wou
    :scale: 50 %
 
 By deploying the K8s through Ansible-playbooks, user gets access to all the K8s features such as:
+
 1. Automated rollouts and rollbacks
+
 2. Service discovery and load balancing
+
 3. Storage orchestration
+
 4. Secret and configuration management
+
 5. Automatic bin packing
+
 6. Batch execution
+
 7. IPv4/IPv6 dual-stack
+
 8. Horizontal scaling
+
 9. Self-healing
+
 10. Designed for extensibility
+
 Fi-Lab user can configure the cluster by modifying script file/ansible-playbook at the time of deployment. After successful deployment ofKubernetes cluster, user can manage it by API server
 
 
