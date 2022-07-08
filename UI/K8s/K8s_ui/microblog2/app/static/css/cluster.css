@@ -1,0 +1,8 @@
+.button{
+    background-color: darkturquoise;
+    border-radius: 200px !important;
+    border-style: none;
+    padding: 10px 40px;
+    color: white;
+}
+

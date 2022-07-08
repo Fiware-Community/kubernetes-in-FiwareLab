@@ -1,0 +1,73 @@
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+ 
+ .responsive-table li {
+    border-radius: 3px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .responsive-table .table-header {
+    background-color: #95A5A6;
+    padding:15px;
+    color:#ffffff;
+    font-size: 14px;
+    font-weight:500;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .responsive-table .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    text-align: center;
+    vertical-align: middle;
+  }
+  .responsive-table .col-1 {
+    flex-basis: 4%;
+  }
+  .responsive-table .col-2 {
+    flex-basis: 16%;
+  }
+  .responsive-table .col-3 {
+    flex-basis: 12%;
+  }
+  .responsive-table .col-4 {
+    flex-basis: 11%;
+  }
+  .responsive-table .col-5 {
+      flex-basis: 5%;
+    }
+    .responsive-table .col-6 {
+      flex-basis: 10%;
+    }
+    .responsive-table .col-7 {
+      flex-basis: 12%;
+    }
+    .responsive-table .col-8 {
+      flex-basis: 20%;
+    }
+    ul {
+      display: block;
+      list-style-type: disc;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 0px;
+ }
+
+button{
+background-color:#ff2e63;
+color:white;
+border-style:none;
+border-radius:4000px !important;
+}
