@@ -1,0 +1,13 @@
+
+button{
+    background-color: darkturquoise;
+    border-radius: 200px !important;
+    border-style: none;
+    padding: 5px 5px;
+}
+.buttonName{
+color:white;
+}
+.bottomButton{
+margin-right:3%;
+}

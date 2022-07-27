@@ -1,0 +1,103 @@
+
+
+a {
+  cursor: pointer;
+}
+.headerBar{
+position:fixed;
+top:0;
+left:0;
+padding:10px 0px 10px 10px;
+background-color: #d9d9d9;
+background-image: linear-gradient(315deg, #d9d9d9 0%, #f6f2f2 74%);
+width:100%;
+box-shadow: 0px 4px 5px -5px black;
+z-index:1100;
+}
+.sandboxLogo{
+font-size:1.2rem;
+padding:8px;
+color:#909090;
+}
+.loginSection{
+vertical-align:middle;
+position:fixed;
+right:0;
+top:0;
+padding:13.5px;
+font-size:0.9rem;
+}
+.loginSection a{
+color:white;
+}
+.loginSection a:hover{
+color:#79bac1;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: black;
+    padding-left:2.5rem;
+}
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+    color: #79bac1;
+}
+.mainSection{
+    padding-top: 70px;
+}
+.cardView{
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+padding:20px;
+margin:0% 3%;
+  transition: 0.3s;
+}
+
+.cardView:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.pageHeading{
+text-align:center;
+margin-bottom:15px;
+font-size:1.35rem;
+font-weight:500;
+}
+.pull-right{
+float:right;
+}
+
+.details{
+color:darkturquoise;
+font-weight:500;
+}
+.navbar{
+padding:55px 0px;
+}
+.activeNavSection{
+background-color:rgb(0,0,0,0.1);
+box-shadow:1px 5px 5px -7px black;
+}
+select{
+border:0px;
+outline:none;
+padding:9px 11px;
+width:100%;
+}
+select:focus, select.form-control:focus {
+     box-shadow: inset 0 -2px 0 #ccc;
+}
+.selectWrapper{
+width:50%;
+margin-left:20px;
+margin-bottom:20px;
+  border-radius:36px;
+  display:inline-block;
+  overflow:hidden;
+  background:#cccccc;
+  border:1px solid #ccc;
+}
+.dropdownHeading{
+margin-bottom:1px;
+margin-left:35px;
+color:#695c5c;
+}
+option{
+border-radius:100;
+}
