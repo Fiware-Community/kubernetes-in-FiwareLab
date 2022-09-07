@@ -267,13 +267,13 @@ def execute_playbook(id):
             temp += 1
             ipaddress_list.append(temp.exploded.encode('ascii', 'ignore'))
         return ipaddress_list
-    if extra_varibales['infra_type'] == 'baremetal':
+    if extra_varibales['infra_type'] == 'VM':
         vm_data = Vm_node.query.filter_by(cluster_id=id).first_or_404()
-        extra_varibales['bm_node_prefix'] = vm_data.vm_name_prefix.encode('ascii', 'ignore')
-        extra_varibales['bm_node_username'] = vm_data.vm_username.encode('ascii', 'ignore')
-        extra_varibales['bm_node_password'] = vm_data.vm_password.encode('ascii', 'ignore')
-        extra_varibales['bm_key_path'] = vm_data.vm_key_path.encode('ascii', 'ignore')
-        extra_varibales['bm_key_based_auth'] = vm_data.vm_key_based_auth
+        #extra_varibales['bm_node_prefix'] = vm_data.vm_name_prefix.encode('ascii', 'ignore')
+        #extra_varibales['bm_node_username'] = vm_data.vm_username.encode('ascii', 'ignore')
+        #extra_varibales['bm_node_password'] = vm_data.vm_password.encode('ascii', 'ignore')
+        #extra_varibales['bm_key_path'] = vm_data.vm_key_path.encode('ascii', 'ignore')
+        #extra_varibales['bm_key_based_auth'] = vm_data.vm_key_based_auth
         vm_ip_string = vm_data.vm_ip
         def ip_string_to_list(vm_ip_string):
             final_vm_ip_list= []
@@ -333,7 +333,7 @@ def execute_playbook(id):
                             else:
                                 if 'skip' not in each_data['event']:
                                     if 'playbook' not in each_data['event']:
-				        ansible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)
+				        ansible_runner.run(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)                                   
                                         if 'event_data' in each_data:
                                             yy1 = each_data['event_data']
                                             if 'runner_on_failed' in each_data['event'] and 'ignore_errors' in yy1 and yy1['ignore_errors']==None:
@@ -466,7 +466,11 @@ def delete_cluster(id):
             db.session.commit()
         except:
             db.session.rollback()
-        r1 = ansible_runner.run(private_data_dir=PRIVATE_DIR, playbook=playbook_path, extravars=extra_varibales)
+	cfg_path=Config.rootdir+"/ansible.cfg"
+        env = {}
+        env["ANSIBLE_CONFIG"] = cfg_path
+        playbook_path = Config.rootdir + "/destroy_baremetal_vm_with_vm_ips.yaml"
+        r1 = ansible_runner.run(private_data_dir=PRIVATE_DIR, playbook=playbook_path,envvars=env, extravars=extra_varibales)        
         runner_logs = r1
         with app.app_context():
             cluster_data = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404()

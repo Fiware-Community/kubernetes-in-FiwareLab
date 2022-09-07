@@ -1,13 +1,5 @@
-- name: create baremetal with iPs using cloud-config.yaml
-  gather_facts: true
-  hosts: localhost
-  tasks:
-    - import_role:
-        name: baremetal
-      when: (k8s_enable_kubernetes  | bool) and  (infra_type == 'baremetal')
-
 - name: Destroy VM on OpenStack
-  hosts: kubernetes
+  hosts: all
   gather_facts: true
   tasks:
     - name: kubeadm reset cluster
@@ -19,6 +11,7 @@
       vars:
         packages:
         - docker
+        - docker-ce
         - kubeadm
       when: ansible_os_family == 'RedHat'
     - name: remove kubernetes packages
