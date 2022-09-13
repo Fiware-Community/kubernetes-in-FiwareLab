@@ -110,7 +110,6 @@ def get_cluster(id):
         alertmanager_port= 'Not found'
         prometheus_port = 'Not found'
 
-
     class ItemTable(Table):
         classes = ['table' , 'table td, th' , 'table tr' , ' table th']
         id = Col('ClusterID')
@@ -307,7 +306,7 @@ def execute_playbook(id):
         db.session.commit()
     except:
         db.session.rollback()
-    runner_logs = r1[1]
+    runner_logs = r1
     deployment_id = Deployment.query.filter_by(cluster_id=id).all()[-1]
     #print('========with_deployment_id====', deployment_id)
     #print("=======g.runner_logs=========_cluster=======", runner_logs)
@@ -333,7 +332,7 @@ def execute_playbook(id):
                             else:
                                 if 'skip' not in each_data['event']:
                                     if 'playbook' not in each_data['event']:
-				        ansible_runner.run(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)                                   
+				        ansible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)                                   
                                         if 'event_data' in each_data:
                                             yy1 = each_data['event_data']
                                             if 'runner_on_failed' in each_data['event'] and 'ignore_errors' in yy1 and yy1['ignore_errors']==None:
