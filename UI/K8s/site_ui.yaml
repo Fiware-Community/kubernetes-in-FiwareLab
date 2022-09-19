@@ -5,3 +5,5 @@
 - import_playbook: site_ui4.yaml
 - import_playbook: site_ui5.yaml
 - import_playbook: site_ui6.yaml
+- import_playbook: site_ui7.yaml
+
