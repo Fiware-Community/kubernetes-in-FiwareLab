@@ -72,6 +72,9 @@ def get_cluster(id):
     cl_status = cluster_list.status.encode('ascii', 'ignore')
     print('------------cl_status--------',cl_status)
     master_ip_file_path = Config.rootdir + "/imp_files/"+ cl_name + "_master_ip.txt"
+    orion_ip_file_path= Config.rootdir + "/orion.txt"
+    iotagent_ip_file_path= Config.rootdir + "/iotagent.txt"
+    scorpio_ip_file_path= Config.rootdir + "/scorpio.txt"
     admin_token_file_path = Config.rootdir + "/imp_files/"+ cl_name + "_admin_token.txt"
     grafana_port_file_path = Config.rootdir + "/imp_files/"+ cl_name + "_grafana-port.txt"
     alertmanager_port_file_path = Config.rootdir + "/imp_files/"+ cl_name + "_alertmanager-port.txt"
@@ -95,6 +98,24 @@ def get_cluster(id):
             print("===worker_ip========",worker_ip)
     else:
         worker_ip = '< IP Not found >'
+    if os.path.exists(orion_ip_file_path):
+        with open(orion_ip_file_path) as f5:
+            orion_ip = f5.readline()
+            print("===orion_ip========",orion_ip)
+    else:
+        orion_ip = '<Orion IP Not found>'
+    if os.path.exists(iotagent_ip_file_path):
+        with open(iotagent_ip_file_path) as f6:
+            iotagent_ip = f6.readline()
+            print("===iotagent_ip========",iotagent_ip)
+    else:
+        iotagent_ip = '<iotagent IP Not found>'
+    if os.path.exists(scorpio_ip_file_path):
+        with open(scorpio_ip_file_path) as f6:
+            scorpio_ip = f6.readline()
+            print("===scorpio_ip========",scorpio_ip)
+    else:
+        scorpio_ip = '<scorpio IP Not found>'
     if os.path.exists(grafana_port_file_path) and os.path.exists(alertmanager_port_file_path) and os.path.exists(prometheus_port_file_path) :
         with open(grafana_port_file_path) as f:
             grafana_port = f.readline()
@@ -136,8 +157,9 @@ def get_cluster(id):
                            cygnus_sth_admin_port='8081',iotagent_north_port='4041',
                            iotagent_http_port='7896',quantumleap_port='8668',
                            draco_gui_port='9091',draco_notify_port='5051',
-                           grafana_port=grafana_port,alertmanager_port=alertmanager_port,
-                           prometheus_port=prometheus_port,master_ip=kube_endpoint_ip,worker_ip=worker_ip)
+                           grafana_port=grafana_port,alertmanager_port=alertmanager_port,iotagent_ip=iotagent_ip,
+                           orion_ip=orion_ip,scorpio_ip=scorpio_ip,prometheus_port=prometheus_port,
+                           master_ip=kube_endpoint_ip,worker_ip=worker_ip)
 
 @bp.route('/cluster/<int:id>/deploy', methods=['GET','POST'])
 @login_required

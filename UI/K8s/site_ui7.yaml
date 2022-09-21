@@ -1,0 +1,36 @@
+---
+
+- hosts: kubernetes-master-nodes
+  name: command output
+
+  tasks:
+          - name: kubectl services
+            shell: kubectl get svc $(kubectl get services | awk '{print $1}' | grep -e "orion" | grep -v "mongo") -o yaml | grep "clusterIP" | sed -e 's/.*://'
+            register: orion
+
+          - name: copy output to local file
+            copy:
+               content: "{{orion.stdout}}"
+               dest: "orion.txt"
+            delegate_to: localhost
+
+          - name: kubectl services
+            shell: kubectl get svc $(kubectl get services | awk '{print $1}' | grep -e "iotagent" ) -o yaml | grep "clusterIP" | sed -e 's/.*://'
+            register: iotagent
+
+          - name: copy output to local file
+            copy:
+               content: "{{iotagent.stdout}}"
+               dest: "iotagent.txt"
+            delegate_to: localhost
+
+          - name: kubectl services
+            shell: kubectl get svc $(kubectl get services | awk '{print $1}' | grep -e "scorpio" | grep -e "gateway" | grep -v "gateway-service") -o yaml | grep "clusterIP" | sed -e 's/.*://'
+            register: scorpio
+
+          - name: copy output to local file
+            copy:
+               content: "{{scorpio.stdout}}"
+               dest: "scorpio.txt"
+            delegate_to: localhost
+
