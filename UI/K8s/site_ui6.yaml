@@ -6,6 +6,6 @@
      sudo /usr/local/bin/helm repo add fiware https://fiware.github.io/helm-charts
      sudo /usr/local/bin/helm install fiware/iotagent-json --generate-name
      sudo /usr/local/bin/helm install fiware/orion --generate-name
-     sudo /usr/local/bin/helm install fiware/scorpio-broker --generate-name
+     sudo /usr/local/bin/helm install fiware/scorpiobroker --generate-name
      sudo /usr/local/bin/helm install fiware/scorpio-broker-aaio --generate-name
      
