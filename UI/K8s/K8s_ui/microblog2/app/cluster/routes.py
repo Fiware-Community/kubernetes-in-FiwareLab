@@ -20,9 +20,6 @@ import ipaddress
 import mysql.connector
 from mysql.connector import Error
 
-from app.auth.routes import mysql_auth
-
-
 PRIVATE_DIR = Config.rootdir+"/demo"
 a='6abb3128a7f64d508e0e37ee3131d70a'
 

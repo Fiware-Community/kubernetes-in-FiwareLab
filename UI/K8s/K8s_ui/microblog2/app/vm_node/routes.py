@@ -13,7 +13,7 @@ import os
 import mysql.connector
 from mysql.connector import Error
 from werkzeug.utils import secure_filename
-from app.cluster.routes import r,a
+from app.cluster.routes import userID_exist,a
 
 @bp.route('/vm_node', methods=['GET', 'POST'])
 #@login_required
@@ -66,7 +66,7 @@ def vm_node():
 @bp.route('/vm_nodes/<int:cluster_id>', methods=['GET', 'POST'])
 #@login_required
 def vm_nodes(cluster_id):
-    cluster_list = Cluster.query.filter_by(user_id=r).filter_by(id=cluster_id).all()
+    cluster_list = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=cluster_id).all()
     items =Vm_node.query.filter_by(cluster_id=cluster_id).all()
 
     def ip_range(start_ip,end_ip):
