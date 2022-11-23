@@ -1,0 +1,32 @@
+---
+- hosts: localhost
+  vars_files:
+  - env_variables
+  tasks:
+  - stat:
+      path: "/root/.ssh/id_rsa"
+    register: op
+
+  - name: generate rsa keyfile
+    shell: |
+     ssh-keygen -f /root/.ssh/id_rsa -t rsa -q -N ""
+    when: op.stat.exists == false
+
+  - name: make directory
+    shell: |
+     ssh -i "/root/demo.pem" -o StrictHostKeyChecking=no centos@"{{ item }}" mkdir -p .ssh
+    with_items:
+      - "{{ ssh_ips }}"
+    #default: yes
+
+  - name: copy rsa keyfile
+    shell: |
+     cat /root/.ssh/id_rsa.pub | ssh -i demo.pem centos@"{{ item }}" 'cat >> .ssh/authorized_keys'
+    with_items:
+      - "{{ ssh_ips }}"
+  - name: change permission
+    shell: |
+     ssh -i demo.pem centos@"{{ item }}" "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+    with_items:
+      - "{{ ssh_ips }}"
+

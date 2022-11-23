@@ -194,13 +194,6 @@
                                           [{{ error }}]
                                         </span>
                                         {% endfor %}
-                                         {{ login_form.password(class_="wrap-input100validate-input",placeholder="Password") }}
-                                          {% for error in login_form.password.errors%}
-                                       <span style="color: red; font-weight: bold; font-size: 15px;"  >
-                                        [{{ error }}]
-                                          </span>
-                                        {% endfor %}
-
                                         {{ login_form.login(class_="login100-form-btn", style=" max-width:
                                         150px; width: 100%; background: #444444; color: #f9f9f9; border: none; padding:
                                         10px; text-transform: uppercase; border-radius: 2px; float:right;
@@ -225,28 +218,7 @@
                                 [{{ error }}]
                                 </span>
                                 {% endfor %}
-
-
-                                 {{ register_form.email(class_="wrap-input100 validate-input",placeholder="Email") }}
-                                 {% for error in register_form.email.errors %}
-                                <span style="color: red;font-weight:bold;font-size: 15px;">
-                                [{{ error }}]
-                                </span>
-                                {% endfor %}
-
-                                 {{ register_form.password(class_="wrap-input100 validate-input",placeholder="Password") }}
-                                 {% for error in register_form.password.errors %}
-                                <span style="color: red;font-weight:bold;font-size: 15px;">
-                                [{{ error }}]
-                                </span>
-                                {% endfor %}
-
-                                 {{ register_form.password2(class_="wrap-input100 validate-input",placeholder="Username") }}
-                                 {% for error in register_form.password2.errors %}
-                                <span style="color: red;font-weight:bold;font-size: 15px;">
-                                [{{ error }}]
-                                </span>
-                                {% endfor %}
+                     
 
                                  {{ register_form.register(class_="login100-form-btn", style=" max-width:
                                         150px; width: 100%; background: #444444; color: #f9f9f9; border: none; padding:

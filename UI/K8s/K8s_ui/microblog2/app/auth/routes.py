@@ -5,16 +5,45 @@ from app.auth.forms import LoginForm, RegistrationForm, LoginForm1, Registration
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 from app.auth import bp
+import mysql.connector
+from mysql.connector import Error
+
+@bp.route('/<sub>', methods=['GET', 'POST','DELETE'])
+def userLogin_auth(sub):
+        project_id = str(sub)
+        connection = mysql.connector.connect(host='localhost',
+                                                database='db',
+                                                user='root',
+                                                password='Abc@1234')
+
+        cursor = connection.cursor()
+        sql_select_query = """select username from user where username = (%s) """
+        cursor.execute(sql_select_query,(project_id,))
+        db_user = cursor.fetchone()
+        ip = request.args.get('ip')
+        instance_ip = ''.join(ip)
+        instance_ip.encode('ascii','ignore')
+        if db_user is None:
+                sub1= User(username=project_id,Projectip=instance_ip)
+                db.session.add(sub1)
+                db.session.commit()
+                print(sub1)
+                return redirect(url_for('main.index'))
+
+        else:
+                try:
+                        sql = '''UPDATE user SET Projectip = (%s) WHERE username = (%s) '''
+                        cursor.execute(sql,(instance_ip,project_id))
+                        connection.commit()
+                except:
+                        connection.rollback()
+                finally:
+                        return redirect(url_for('main.index'))
 
 
-# ...
-#@app.route('/')
-#@app.route('/index', methods=['GET', 'POST'])
-#@login_required
-#def index():
-#    return render_template('index.html')
 @bp.route('/login1', methods=['GET', 'POST'])
 def login1():
+
     if current_user.is_authenticated:
         return redirect(url_for('main.index'))
     login_form = LoginForm1()
@@ -23,9 +52,9 @@ def login1():
             #login_form.validate_on_submit():
         #and login_form.login.data:
         user = User.query.filter_by(username=login_form.username.data).first()
-        if user is None or not user.check_password(login_form.password.data):
+        '''if user is None or not user.check_password(login_form.password.data):
             flash('Invalid username or password')
-            return redirect(url_for('auth.login1'))
+            return redirect(url_for('auth.login1'))'''
         login_user(user, remember=login_form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
@@ -35,8 +64,9 @@ def login1():
     elif register_form.register.data and register_form.validate():
             #register_form.validate_on_submit():
             #and register_form.register.data:
-        user = User(username=register_form.username1.data, email=register_form.email.data)
-        user.set_password(register_form.password.data)
+        #user = User(username=register_form.username1.data, email=register_form.email.data)
+        user = User(username=register_form.username1.data )
+        #user.set_password(register_form.password.data)
         print "reg worng"
         db.session.add(user)
         db.session.commit()

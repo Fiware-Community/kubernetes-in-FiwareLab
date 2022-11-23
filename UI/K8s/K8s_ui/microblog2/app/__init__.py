@@ -12,7 +12,7 @@ db = SQLAlchemy()
 # db: SQLAlchemy = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
-login.login_view = 'auth.login1'
+login.login_view = 'auth.userLogin_auth'
 #global runner_logs
 
 def create_app(config_class=Config):

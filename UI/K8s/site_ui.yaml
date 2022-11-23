@@ -1,4 +1,5 @@
 ---
+- import_playbook: ssh.yaml
 - import_playbook: site_ui1.yaml
 - import_playbook: site_ui2.yaml
 - import_playbook: site_ui3.yaml
@@ -6,4 +7,4 @@
 - import_playbook: site_ui5.yaml
 - import_playbook: site_ui6.yaml
 - import_playbook: site_ui7.yaml
-
+- import_playbook: site_ui8.yaml
