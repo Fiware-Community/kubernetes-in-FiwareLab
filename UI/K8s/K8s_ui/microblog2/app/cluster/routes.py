@@ -20,7 +20,7 @@ import mysql.connector
 from mysql.connector import Error
 
 PRIVATE_DIR = Config.rootdir+"/demo"
-a='6abb3128a7f64d508e0e37ee3131d70a'
+project_id='6abb3128a7f64d508e0e37ee3131d70a'
 
 
 connection = mysql.connector.connect(host='localhost',
@@ -29,7 +29,7 @@ connection = mysql.connector.connect(host='localhost',
                                      password='Abc@1234')
 cursor = connection.cursor()
 sql_select_query = """select id from user where username = (%s) """
-cursor.execute(sql_select_query,(a,))
+cursor.execute(sql_select_query,(project_id,))
 userID_exist = cursor.fetchone()
 
 @bp.route('/cluster', methods=['GET', 'POST'])
