@@ -14,4 +14,4 @@ This repository has set of ansible playbooks created to setup a kubernetes clust
 
 # Limitations
 1. Ansible script would deploy bare minimum K8s. User can configure K8s like persistent storage etc.
-2. At least three VMs are required for K8s deployment. 
+2. At least two FIWARE Lab VMs are required for K8s deployment. 
