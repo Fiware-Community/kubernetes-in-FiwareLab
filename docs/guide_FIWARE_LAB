@@ -1,0 +1,12 @@
+# Prerequisites
+1.	At least two VMs are required for K8s deployment.
+2.	Servers required:
+
+    b. Master Node
+    
+    c. Worker Nodes
+
+# How to use K8s deployment
+1.	Make servers ready (one master node and multiple worker nodes) by creating new VMs on Fiware-Lab.
+2.  Go to "Overview" section of FIWARE Lab account.
+3.  Click on "Kubernetes" button.
