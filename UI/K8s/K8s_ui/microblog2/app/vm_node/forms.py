@@ -6,7 +6,7 @@ from wtforms.validators import ValidationError, DataRequired, Length, EqualTo, R
 from app.models import Vm_node, User
 import mysql.connector
 from mysql.connector import Error
-from app.cluster.routes import a
+from app.cluster.routes import project_id
 
 #for vm_node
 connection1 = mysql.connector.connect(host='localhost',
@@ -15,7 +15,7 @@ connection1 = mysql.connector.connect(host='localhost',
                                       password='Abc@1234')
 cursor1 = connection1.cursor()
 sql_select_query1 = """select Projectip from user where username = (%s) """
-cursor1.execute(sql_select_query1,(a,))
+cursor1.execute(sql_select_query1,(project_id,))
 get_ip = cursor1.fetchone()
 if get_ip is None:
 	get_ip1 = User(Projectip=get_ip)
