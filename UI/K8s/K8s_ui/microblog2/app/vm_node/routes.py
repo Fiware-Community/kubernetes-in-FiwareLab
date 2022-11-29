@@ -13,7 +13,7 @@ import os
 import mysql.connector
 from mysql.connector import Error
 from werkzeug.utils import secure_filename
-from app.cluster.routes import userID_exist,a
+from app.cluster.routes import userID_exist, project_id
 
 @bp.route('/vm_node', methods=['GET', 'POST'])
 #@login_required
@@ -108,4 +108,3 @@ def vm_nodes(cluster_id):
                            title='vm_nodes',
                            cluster_list=cluster_list,
                           table2=table2,items=items, vm_master_ip_list=vm_master_ip_list, list_obj = li_obj)
-
