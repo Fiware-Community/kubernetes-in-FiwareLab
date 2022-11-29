@@ -406,14 +406,14 @@ def execute_playbook(id):
                                                                 db.session.commit()
                                                             except:
                                                                 db.session.rollback()
-                                                            cluster_data = Cluster.query.filter_by(user_id=r.id).filter_by(id=id).first_or_404()
+                                                            cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
                                                             cluster_data.status = runner_logs.status
                                                             try:
                                                                 db.session.commit()
                                                             except:
                                                                 db.session.rollback()
                 except StopIteration:
-                    cluster_data = Cluster.query.filter_by(user_id=r.id).filter_by(id=id).first_or_404()
+                    cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
                     cluster_data.status = runner_logs.status
                     try:
                         db.session.commit()
