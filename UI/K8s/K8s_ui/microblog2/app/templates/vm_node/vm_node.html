@@ -2,7 +2,7 @@
 <head>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/cluster_spec.css') }}">
  <link rel="stylesheet" type="text/css" href="{{ url_for('static' , filename='css/add_component.css') }} ">
-​
+
 </head>
 <!--
 <script type="text/javascript">
@@ -58,15 +58,21 @@ jQuery(document).ready(function() {
 </div>
                           <br/>
                           <br/>
-​
+
                          <div class="row">
-                                         <div class="col-sm-6">
+                                         <div class="col-sm-4">
                                                  <div class="row">
-                                                   <div class="col-sm-4"> VM IP: </div>
-                                                   <div class="col-sm-8 details"> {{ form.vm_ip(style="width:80%;", rows= "4" ) }}  </div>
+                                                   <div class="col-sm-4"> VM Master IP: </div>
+                                                   <div class="col-sm-8 details"> {{ form.vm_master_ip(style="width:80%;", rows= "4" ) }}  </div>
                                                  </div>
                                          </div>
-                                        <div class="col-sm-6">
+                                           <div class="col-sm-4">
+                                                 <div class="row">
+                                                   <div class="col-sm-4"> VM Worker IP: </div>
+                                                   <div class="col-sm-8 details"> {{ form.vm_worker_ip(style="width:80%;", rows= "4" ) }}  </div>
+                                                 </div>
+                                         </div>
+                                        <div class="col-sm-4">
                                                   <div class="row">
                                                          <div class="col-sm-4"> VM Prefix Name:  </div>
                                                          <div class="col-sm-8 details"> {{ form.vm_name_prefix(style="width:80%;",) }} </div>
@@ -79,7 +85,11 @@ jQuery(document).ready(function() {
             <div class="col-sm-8"> </div>
 
                <div class="col-sm-8 details">
-                         {% for error in form.vm_ip.errors %}
+                         {% for error in form.vm_master_ip.errors %}
+            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
+             {% endfor %}  </div>
+                <div class="col-sm-8 details">
+                         {% for error in form.vm_worker_ip.errors %}
             <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
              {% endfor %}  </div>
              </div>
@@ -95,7 +105,7 @@ jQuery(document).ready(function() {
 </div>
                           <br/>
                           <br/>
-​
+
                          <div class="row">
                                          <div class="col-sm-6">
                                                  <div class="row">
@@ -132,17 +142,18 @@ jQuery(document).ready(function() {
 </div>
                           <br/>
                         <div  >
-                           
+
                         </div>
-                        
-                
-​
+
+
+
                    </div>
-				<p>{{ form.submit(class="button position-absolute float-right") }}</p>
+                                <p>{{ form.submit(class="button position-absolute float-right") }}</p>
                                  &nbsp;&nbsp;
                    </form>
 </div>
 {% include 'index.html' %}
-​
-​
+
+
 {% endblock %}
+

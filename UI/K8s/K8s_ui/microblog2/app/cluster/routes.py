@@ -1,5 +1,4 @@
 import os
-
 from flask import render_template, flash, redirect, url_for, request, current_app, copy_current_request_context
 from app import db
 from app.cluster.forms import ClusterCreationForm
@@ -17,10 +16,24 @@ from config import Config
 import pprint
 import ipaddress
 
+import mysql.connector
+from mysql.connector import Error
+
 PRIVATE_DIR = Config.rootdir+"/demo"
+project_id='6abb3128a7f64d508e0e37ee3131d70a'
+
+
+connection = mysql.connector.connect(host='localhost',
+                                     database='db',
+                                     user='root',
+                                     password='Abc@1234')
+cursor = connection.cursor()
+sql_select_query = """select id from user where username = (%s) """
+cursor.execute(sql_select_query,(project_id,))
+userID_exist = cursor.fetchone()
 
 @bp.route('/cluster', methods=['GET', 'POST'])
-@login_required
+#@login_required
 def cluster():
     #print ("--------------- <=> ",Config.rootdir)
     form = ClusterCreationForm()
@@ -31,7 +44,7 @@ def cluster():
                           cluster_os=form.cluster_os.data,
                           status='Pending',
                           node_count=form.node_count.data,
-                          user_id=current_user.id)
+                          user_id=userID_exist)
         db.session.add(cluster)
         try:
             db.session.commit()
@@ -41,15 +54,13 @@ def cluster():
     return render_template('cluster/cluster.html', title='cluster', form=form)
 
 @bp.route('/clusters', methods=['GET'])
-@login_required
+#@login_required
 def clusters():
-
-    cluster_list = Cluster.query.filter_by(user_id=current_user.id).all()
-
+    cluster_list = Cluster.query.filter_by(user_id=userID_exist).all()
     class ItemTable(Table):
         #id = Col('ID')
         classes = ['table' , 'table td, th' , 'table tr' , ' table th']
-        id = LinkCol('Cluster ID', 'cluster.get_cluster', url_kwargs=dict(id='id'), attr='id')
+        #id = LinkCol('Cluster ID', 'cluster.get_cluster', url_kwargs=dict(id='id'), attr='id')
         cluster_name = Col('Cluster Name')
         description = Col('Description')
         cluster_type = Col('Cluster Type')
@@ -58,13 +69,13 @@ def clusters():
         status = Col('Status')
         created_at = Col('Created At')
 
-    items = Cluster.query.filter_by(user_id=current_user.id).all()
+    items = Cluster.query.filter_by(user_id=userID_exist).all()
     table = ItemTable(items)
     return render_template('cluster/clusters.html', title='clusters', cluster_list=cluster_list, table=table)
 
 
 @bp.route('/cluster/<int:id>', methods=['GET', 'POST','DELETE'])
-@login_required
+#@login_required
 def get_cluster(id):
 
     cluster_list = Cluster.query.filter_by(id=id).first_or_404()
@@ -145,7 +156,7 @@ def get_cluster(id):
         node1 = LinkCol('ComponentsDetails', 'component.add_component', url_kwargs=dict(id='id'))
         deploy_cluster = ButtonCol('ClusterDeploy', "cluster.execute_playbook", url_kwargs=dict(id='id'))
         delete_cluster1 = ButtonCol('Delete', "cluster.delete_cluster", url_kwargs=dict(id='id'))
-    cluster_items = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).all()
+    cluster_items = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).all()
     table = ItemTable(cluster_items)
     table.border = True
     #return render_template('cluster/clusters.html', cluster_list=cluster_list, )
@@ -162,12 +173,12 @@ def get_cluster(id):
                            master_ip=kube_endpoint_ip,worker_ip=worker_ip)
 
 @bp.route('/cluster/<int:id>/deploy', methods=['GET','POST'])
-@login_required
+#@login_required
 def execute_playbook(id):
-    op_count = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404().node_count
-    cluster_os = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404().cluster_os
-    infra_type = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404().cluster_type
-    cluster_name = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404().cluster_name
+    op_count = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().node_count
+    cluster_os = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().cluster_os
+    infra_type = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().cluster_type
+    cluster_name = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().cluster_name
 
     enable_orion = Component.query.filter_by(cluster_id=id).first_or_404().enable_orion
     orion_version = Component.query.filter_by(cluster_id=id).first_or_404().orion_version
@@ -263,7 +274,7 @@ def execute_playbook(id):
         aws_vpc_subnet_id = Aws_node.query.filter_by(cluster_id=id).first_or_404().vpc_subnet_id
         aws_key_path = Aws_node.query.filter_by(cluster_id=id).first_or_404().key_path
         aws_key_name = Aws_node.query.filter_by(cluster_id=id).first_or_404().keypair_name
-        aws_node_count = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404().node_count
+        aws_node_count = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().node_count
         extra_varibales['ACCESS_KEY_ID'] = ACCESS_KEY_ID.encode('ascii', 'ignore')
         extra_varibales['SECRET_ACCESS_KEY'] = SECRET_ACCESS_KEY.encode('ascii', 'ignore')
         extra_varibales['REGION'] = REGION.encode('ascii', 'ignore')
@@ -290,13 +301,21 @@ def execute_playbook(id):
         return ipaddress_list
     if extra_varibales['infra_type'] == 'VM':
         vm_data = Vm_node.query.filter_by(cluster_id=id).first_or_404()
+	vm_master_ip_string = vm_data.vm_master_ip
+        vm_worker_ip_string = vm_data.vm_worker_ip
+        def ip_string_to_list(vm_master_ip_string,vm_worker_ip_string):
+                final_vm_ip_list= []
+                final_vm_ip_list.append(vm_master_ip_string)
+                final_vm_ip_list.append(vm_worker_ip_string)
+                return final_vm_ip_list
+        extra_varibales['bm_nodeIPs'] = ip_string_to_list(vm_master_ip_string,vm_worker_ip_string)
         #extra_varibales['bm_node_prefix'] = vm_data.vm_name_prefix.encode('ascii', 'ignore')
         #extra_varibales['bm_node_username'] = vm_data.vm_username.encode('ascii', 'ignore')
         #extra_varibales['bm_node_password'] = vm_data.vm_password.encode('ascii', 'ignore')
         #extra_varibales['bm_key_path'] = vm_data.vm_key_path.encode('ascii', 'ignore')
         #extra_varibales['bm_key_based_auth'] = vm_data.vm_key_based_auth
-        vm_ip_string = vm_data.vm_ip
-        def ip_string_to_list(vm_ip_string):
+        #vm_ip_string = vm_data.vm_ip
+        '''def ip_string_to_list(vm_ip_string):
             final_vm_ip_list= []
             range_list = vm_ip_string.split('\r\n')
             for range in range_list:
@@ -306,7 +325,7 @@ def execute_playbook(id):
         #listToStr = ','.join(map(str, ip_string_to_list(vm_ip_string)))
         extra_varibales['bm_nodeIPs'] = ip_string_to_list(vm_ip_string)
         #extra_varibales['bm_nodeIPs'] = listToStr
-        #extra_varibales['bm_node_count'] = len(extra_varibales['bm_nodeIPs'])
+        #extra_varibales['bm_node_count'] = len(extra_varibales['bm_nodeIPs'])'''
     else:
         extra_varibales['bm_nodeIPs'] = ['192.168.122.1','192.168.122.2']
     pprint.pprint(extra_varibales)
@@ -322,7 +341,7 @@ def execute_playbook(id):
         db.session.commit()
     except:
         db.session.rollback()
-    cluster_data = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404()
+    cluster_data = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404()
     cluster_data.status = "started"
     try:
         db.session.commit()
@@ -387,14 +406,14 @@ def execute_playbook(id):
                                                                 db.session.commit()
                                                             except:
                                                                 db.session.rollback()
-                                                            cluster_data = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404()
+                                                            cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
                                                             cluster_data.status = runner_logs.status
                                                             try:
                                                                 db.session.commit()
                                                             except:
                                                                 db.session.rollback()
                 except StopIteration:
-                    cluster_data = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404()
+                    cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
                     cluster_data.status = runner_logs.status
                     try:
                         db.session.commit()
@@ -415,9 +434,9 @@ def execute_playbook(id):
 @login_required
 def delete_cluster(id):
     extra_varibales = dict()
-    cluster_os = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404().cluster_os
+    cluster_os = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().cluster_os
     extra_varibales['cluster_os'] = cluster_os.encode('ascii', 'ignore')
-    infra_type = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404().cluster_type
+    infra_type = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().cluster_type
     extra_varibales['infra_type'] = infra_type.encode('ascii', 'ignore')
     if extra_varibales['infra_type'] == 'openstack':
         op_OS_AUTH_URL = Openstack_node.query.filter_by(cluster_id=id).first_or_404().auth_url
@@ -428,7 +447,7 @@ def delete_cluster(id):
         op_OS_PROJECT_DOMAIN_NAME = Openstack_node.query.filter_by(cluster_id=id).first_or_404().project_domain_name
         op_OS_REGION_NAME = Openstack_node.query.filter_by(cluster_id=id).first_or_404().region_name
         op_vm_name_prefix = Openstack_node.query.filter_by(cluster_id=id).first_or_404().node_name
-        op_count = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404().node_count
+        op_count = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().node_count
         extra_varibales['op_count'] = op_count
         extra_varibales['op_OS_AUTH_URL'] = op_OS_AUTH_URL.encode('ascii', 'ignore')
         extra_varibales['op_OS_USERNAME'] = op_OS_USERNAME.encode('ascii', 'ignore')
@@ -457,7 +476,16 @@ def delete_cluster(id):
         extra_varibales['bm_node_password'] = vm_data.vm_password.encode('ascii', 'ignore')
         extra_varibales['bm_key_path'] = vm_data.vm_key_path.encode('ascii', 'ignore')
         extra_varibales['bm_key_based_auth'] = vm_data.vm_key_based_auth
-        vm_ip_string = vm_data.vm_ip
+	vm_master_ip_string = vm_data.vm_master_ip
+        vm_worker_ip_string = vm_data.vm_worker_ip
+        def ip_string_to_list(vm_master_ip_string,vm_worker_ip_string):
+                final_vm_ip_list= []
+                final_vm_ip_list.append(vm_master_ip_string)
+                final_vm_ip_list.append(vm_worker_ip_string)
+                return final_vm_ip_list
+        extra_varibales['bm_nodeIPs'] = ip_string_to_list(vm_master_ip_string,vm_worker_ip_string)
+
+        '''vm_ip_string = vm_data.vm_ip
         def ip_string_to_list(vm_ip_string):
             final_vm_ip_list = []
             range_list = vm_ip_string.split('\r\n')
@@ -465,7 +493,7 @@ def delete_cluster(id):
                 final_vm_ip_list.append(range.encode('ascii', 'ignore'))
             return final_vm_ip_list
 
-        extra_varibales['bm_nodeIPs'] = ip_string_to_list(vm_ip_string)
+        extra_varibales['bm_nodeIPs'] = ip_string_to_list(vm_ip_string)'''
         extra_varibales['k8s_enable_kubernetes'] = 'yes'
         playbook_path = Config.rootdir + "/destroy_baremetal_vm_with_vm_ips.yaml"
     if extra_varibales['infra_type'] == 'AWS':
@@ -494,7 +522,7 @@ def delete_cluster(id):
         r1 = ansible_runner.run(private_data_dir=PRIVATE_DIR, playbook=playbook_path,envvars=env, extravars=extra_varibales)        
         runner_logs = r1
         with app.app_context():
-            cluster_data = Cluster.query.filter_by(user_id=current_user.id).filter_by(id=id).first_or_404()
+            cluster_data = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404()
             if runner_logs.rc == 0 and runner_logs.status == 'successful':
                 cluster_data.status = "deleted"
                 try:

@@ -8,9 +8,9 @@ from app.models import Cluster
 from flask_login import current_user
 from flask_table import Table, Col
 from flask import jsonify
-
+from app.cluster.routes import userID_exist
 @bp.route('/component', methods=['GET', 'POST'])
-@login_required
+#@login_required
 def add_component():
     cluster_id = request.args.get('id')
     form = ComponentAdditionForm()
@@ -43,7 +43,7 @@ def add_component():
     return render_template('component/add_component.html', title='add_component', form=form)
 
 @bp.route('/edit_component/<cluster_id>', methods=['GET', 'POST'])
-@login_required
+#@login_required
 def edit_component(cluster_id):
     component_data = Component.query.filter_by(cluster_id=cluster_id).first_or_404()
     form = ComponentEditForm()
@@ -137,7 +137,7 @@ def edit_component(cluster_id):
 
 
 @bp.route('/component_list/<int:cluster_id>', methods=['GET', 'POST'])
-@login_required
+#@login_required
 def component_list(cluster_id):
     items = Component.query.filter_by(cluster_id=cluster_id).all()
     class ItemTable2(Table):
@@ -157,9 +157,9 @@ def component_list(cluster_id):
                            table2=table2)
 
 @bp.route('/component_all_list', methods=['GET', 'POST'])
-@login_required
+#@login_required
 def component_all_list():
-    cluster_list = Cluster.query.filter_by(user_id=current_user.id).all()
+    cluster_list = Cluster.query.filter_by(user_id=userID_exist).all()
     
     return render_template('component/all_component_list.html',
                            title='component_list',
@@ -167,7 +167,7 @@ def component_all_list():
 
 
 @bp.route('/component_list_api/<int:cluster_id>', methods=['GET', 'POST'])
-@login_required
+#@login_required
 def component_list_api(cluster_id):
     items_li = Component.query.filter_by(cluster_id=cluster_id).all()
     data=[]    

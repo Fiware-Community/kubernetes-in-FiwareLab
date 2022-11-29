@@ -36,43 +36,14 @@ class PaginatedAPIMixin(object):
 class User(PaginatedAPIMixin, UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True, nullable=False)
-    email = db.Column(db.String(120), index=True, unique=True, nullable=False)
-    password_hash = db.Column(db.String(128))
-    #    posts = db.relationship('Post', backref='author', lazy='dynamic')
+    #ProjectID = db.Column(db.String(100), index=True, unique=True, nullable=False)
     clusters = db.relationship('Cluster', backref='user', lazy=True)
-
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
+    Projectip = db.Column(db.TEXT(120))
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
     # cli API
-    def from_dict(self, data, new_user=False):
-        for field in ['username', 'email']:
-            if field in data:
-                setattr(self, field, data[field])
-        if new_user and 'password' in data:
-            self.set_password(data['password'])
-
-    def to_dict(self, include_email=False):
-        data = {
-            'id': self.id,
-            'username': self.username,
-            # 'post_count': self.clusters.count(),
-            '_links': {
-                'self': url_for('api.get_user', id=self.id)
-                # 'followers': url_for('api.get_', id=self.id),
-            }
-        }
-        if include_email:
-            data['email'] = self.email
-        return data
-
-
 # quit()
 
 # GUI DB Model for Cluster
@@ -147,7 +118,8 @@ class Aws_node(db.Model):
 class Vm_node(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     vm_name_prefix = db.Column(db.VARCHAR(30), index=True, unique=True, nullable=False)
-    vm_ip = db.Column(db.TEXT(120), nullable=False)
+    vm_master_ip = db.Column(db.TEXT(120), nullable=False)
+    vm_worker_ip = db.Column(db.TEXT(120), nullable=False)
     vm_username = db.Column(db.VARCHAR(30), nullable=False)
     vm_key_based_auth = db.Column(db.Boolean(), nullable=False)
     vm_password = db.Column(db.VARCHAR(30))
@@ -160,7 +132,7 @@ class Vm_node(db.Model):
 class Vm_vm_node(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     vm_name_prefix = db.Column(db.VARCHAR(30), index=True, unique=True, nullable=False)
-    vm_ip = db.Column(db.TEXT(120), nullable=False)
+    #vm_ip = db.Column(db.TEXT(120), nullable=False)
     vm_username = db.Column(db.VARCHAR(30), nullable=False)
     vm_key_based_auth = db.Column(db.Boolean(), nullable=False)
     vm_password = db.Column(db.VARCHAR(30))

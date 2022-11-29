@@ -50,14 +50,14 @@
             {% endfor %}
             </div>
              <br/>
-
+            <!--
             <div class="form-group form-group-sm">
             {{ form.email.label (style="font-weight:bold;") }}<span style="color:red;font-weight:bold;">*</span>
             
             <div>
             {{ form.email(class_="wrap-input100 validate-input") }}
              </div>
-             </div>
+             </div> -->
             <div>
             {% for error in form.email.errors %}
             <span style="color: red;font-weight:bold;font-size: 10px;">[{{ error }}]</span>
