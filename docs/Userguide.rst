@@ -18,7 +18,8 @@ Pages in the FIWARE Lab GUI:
    :height: 100px
    :scale: 50 %
 
-**Instances:** User have to create two instances in instances tab of FIWARE Lab dashboard with configuration as follows:
+**Instances:** User have to create two instances in instances tab of FIWARE Lab dashboard with configuration as follows: 
+
 Flavor: medium or large
 OS: Centos
 
