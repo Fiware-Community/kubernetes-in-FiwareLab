@@ -21,6 +21,7 @@ Pages in the FIWARE Lab GUI:
 **Instances:** User have to create two instances in instances tab of FIWARE Lab dashboard with configuration as follows: 
 
 Flavor: medium or large
+
 OS: Centos
 
 .. figure:: source/figures/instances-page.png
