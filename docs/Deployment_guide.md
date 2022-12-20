@@ -9,7 +9,7 @@ The path for the file is :- /horizon/openstack_dashboard/dashboards/project/over
 
 **Code Block:**
 
-'''
+```
 from openstack_dashboard.dashboards.project.api_access.views \
     import _get_openrc_credentials as get_pid
 
@@ -36,7 +36,7 @@ def kubernetes(request):
     a = ','.join(instanceIP)
     url = "http://180.179.214.158:5000/auth/"+str(pid)+"?ip="+str(a)
     return redirect(url)
-'''
+```
 
 **Step 2:** For redirect we have to do changes in urls.py so that user should be redirected to kubernetes support GUI and button should be functional. 
 
@@ -44,13 +44,13 @@ The path for the file is :- /horizon/openstack_dashboard/dashboards/project/over
 
 **Code Block:**
 
-'''
+```
 urlpatterns = [
     re_path(r'^$', views.ProjectOverview.as_view(), name='index'),
     re_path(r'^warning$', views.WarningView.as_view(), name='warning'),
     re_path(r'^kubernetes$', views.kubernetes, name='kubernetes_test'),
 ]
-'''
+```
 
 **Step 3:** To show kubernetes button in horizon dashboard of FIWARE Lab GUI we have to do changes in usage.html file.
 
@@ -58,7 +58,7 @@ The path for the file is :- /horizon/openstack_dashboard/dashboards/project/over
 
 **Code Block:**
 
-'''
+```
 {% block main %}
      <button onclick="location.href='{% url 'horizon:project:overview:kubernetes_test' %}'">Kubernetes</button>
      {% include "horizon/common/_limit_summary.html" %}
@@ -68,4 +68,4 @@ The path for the file is :- /horizon/openstack_dashboard/dashboards/project/over
       {{ table.render }}
     {% endif %}
   {% endblock %}
-'''
+```
