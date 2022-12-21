@@ -1,6 +1,6 @@
-Introduction:
+Introduction
 ----------------------------------------------
-This Document provide step by step guide user to do changes in code of FIWARE Lab GUI and provide a button in Overview tab of FIWARE LAB GUI to redirect to kubernetes support GUI.
+This Document provide step by step guide for the users to do changes in code of FIWARE Lab GUI and provide a button in Overview tab of FIWARE LAB GUI to redirect to kubernetes support GUI.
 
 **Step 1:** For deployment we have to do change in Horizon code so that we can get Project ID and Instance IP for all the instances on which user want to deploy kubernetes cluster.
 To do so we have to do changes in views.py. 
