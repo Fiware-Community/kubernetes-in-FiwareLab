@@ -36,7 +36,7 @@ Steps to deploy Fiware GE using kubernetes support in UI
 
 **Add Node:** User can add node details in "Add Node" option after clicking on the ID shown in the Dashboard. User need to provide details such as VM username (centos/ubuntu), VM IP (internal IP), pem file to access the VM and after submitting the information, VM details will be added to the cluster.
 
-.. figure:: source/figures/add-note.png
+.. figure:: source/figures/add-node.png
    :align: center
    :width: 100px
    :height: 100px
