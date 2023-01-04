@@ -20,7 +20,7 @@ import mysql.connector
 from mysql.connector import Error
 
 PRIVATE_DIR = Config.rootdir+"/demo"
-project_id='6abb3128a7f64d508e0e37ee3131d70a'
+project_id='3a42abd9aeef4c38886b909830125169'
 
 
 connection = mysql.connector.connect(host='localhost',
@@ -170,7 +170,7 @@ def get_cluster(id):
                            draco_gui_port='9091',draco_notify_port='5051',
                            grafana_port=grafana_port,alertmanager_port=alertmanager_port,iotagent_ip=iotagent_ip,
                            orion_ip=orion_ip,scorpio_ip=scorpio_ip,prometheus_port=prometheus_port,
-                           master_ip=kube_endpoint_ip,worker_ip=worker_ip)
+			   master_ip=kube_endpoint_ip,worker_ip=worker_ip)
 
 @bp.route('/cluster/<int:id>/deploy', methods=['GET','POST'])
 #@login_required
@@ -274,7 +274,7 @@ def execute_playbook(id):
         aws_vpc_subnet_id = Aws_node.query.filter_by(cluster_id=id).first_or_404().vpc_subnet_id
         aws_key_path = Aws_node.query.filter_by(cluster_id=id).first_or_404().key_path
         aws_key_name = Aws_node.query.filter_by(cluster_id=id).first_or_404().keypair_name
-        aws_node_count = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().node_count
+        aws_node_count = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().node_count
         extra_varibales['ACCESS_KEY_ID'] = ACCESS_KEY_ID.encode('ascii', 'ignore')
         extra_varibales['SECRET_ACCESS_KEY'] = SECRET_ACCESS_KEY.encode('ascii', 'ignore')
         extra_varibales['REGION'] = REGION.encode('ascii', 'ignore')
@@ -308,8 +308,8 @@ def execute_playbook(id):
                 final_vm_ip_list.append(vm_master_ip_string)
                 final_vm_ip_list.append(vm_worker_ip_string)
                 return final_vm_ip_list
-        extra_varibales['bm_nodeIPs'] = ip_string_to_list(vm_master_ip_string,vm_worker_ip_string)
-        #extra_varibales['bm_node_prefix'] = vm_data.vm_name_prefix.encode('ascii', 'ignore')
+        extra_varibales['bm_nodeIPs'] = ip_string_to_list(vm_master_ip_string,vm_worker_ip_string)     
+	#extra_varibales['bm_node_prefix'] = vm_data.vm_name_prefix.encode('ascii', 'ignore')
         #extra_varibales['bm_node_username'] = vm_data.vm_username.encode('ascii', 'ignore')
         #extra_varibales['bm_node_password'] = vm_data.vm_password.encode('ascii', 'ignore')
         #extra_varibales['bm_key_path'] = vm_data.vm_key_path.encode('ascii', 'ignore')
@@ -341,13 +341,13 @@ def execute_playbook(id):
         db.session.commit()
     except:
         db.session.rollback()
-    cluster_data = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404()
+    cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
     cluster_data.status = "started"
     try:
         db.session.commit()
     except:
         db.session.rollback()
-    runner_logs = r1
+    runner_logs = r1[1]
     deployment_id = Deployment.query.filter_by(cluster_id=id).all()[-1]
     #print('========with_deployment_id====', deployment_id)
     #print("=======g.runner_logs=========_cluster=======", runner_logs)
@@ -371,57 +371,56 @@ def execute_playbook(id):
                             if (not each_data_stdout):
                                 print('======skip when stdout is null========')
                             else:
-                                if 'skip' not in each_data['event']:
-                                    if 'playbook' not in each_data['event']:
-				        ansible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)                                   
-                                        if 'event_data' in each_data:
-                                            yy1 = each_data['event_data']
-                                            if 'runner_on_failed' in each_data['event'] and 'ignore_errors' in yy1 and yy1['ignore_errors']==None:
-                                                if 'stdout' in each_data:
-                                                    yy2= each_data['stdout'].encode('ascii', 'ignore')
-                                                    print('=======res==yy2======', yy2, "===type==",type(yy2))
-                                                    deployment_task_data = Deployment_log(task=yy2, log_type='ERROR',
+                            	if 'skip' not in each_data['event']:
+                                	if 'playbook' not in each_data['event']:
+                                        	if 'event_data' in each_data:
+                                            		yy1 = each_data['event_data']
+                                            		if 'runner_on_failed' in each_data['event'] and 'ignore_errors' in yy1 and yy1['ignore_errors']==None:
+                                                		if 'stdout' in each_data:
+                                                    			yy2= each_data['stdout'].encode('ascii', 'ignore')
+                                                    			print('=======res==yy2======', yy2, "===type==",type(yy2))
+                                                    			deployment_task_data = Deployment_log(task=yy2, log_type='ERROR',
                                                                                           deployment_id=deployment_id.id)
-                                                    db.session.add(deployment_task_data)
-                                                    try:
-                                                        db.session.commit()
-                                                    except:
-                                                        db.session.rollback()
-                                            else:
-                                                if 'event_data' in each_data:
-                                                    yy1 = each_data['event_data']
-                                                    if 'task' in yy1:
-                                                        yy2= yy1['task']
-                                                        print('=========yy2======',yy2)
-                                                        yy3 = yy2.encode('ascii', 'ignore')
-                                                        dep_all_tasks = Deployment_log.query.filter_by(deployment_id=deployment_id.id).all()
-                                                        empty_list = []
-                                                        for each_task in dep_all_tasks:
-                                                            if yy3 == each_task.task.encode('ascii', 'ignore'):
-                                                                empty_list.append('found')
-                                                        if 'found' not in empty_list:
-                                                            deployment_task_data = Deployment_log(task=yy3, log_type='INFO', deployment_id= deployment_id.id)
-                                                            db.session.add(deployment_task_data)
-                                                            try:
-                                                                db.session.commit()
-                                                            except:
-                                                                db.session.rollback()
-                                                            cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
-                                                            cluster_data.status = runner_logs.status
-                                                            try:
-                                                                db.session.commit()
-                                                            except:
-                                                                db.session.rollback()
+                                                    			db.session.add(deployment_task_data)
+                                                    			try:
+                                                        			db.session.commit()
+                                                    			except:
+                                                        			db.session.rollback()
+                                            		else:
+                                                		if 'event_data' in each_data:
+                                                    			yy1 = each_data['event_data']
+                                                   	 		if 'task' in yy1:
+                                                        			yy2= yy1['task']
+                                                        			print('=========yy2======',yy2)
+                                                        			yy3 = yy2.encode('ascii', 'ignore')
+                                                        			dep_all_tasks = Deployment_log.query.filter_by(deployment_id=deployment_id.id).all()
+                                                        			empty_list = []
+                                                        			for each_task in dep_all_tasks:
+                                                            				if yy3 == each_task.task.encode('ascii', 'ignore'):
+                                                                				empty_list.append('found')
+                                                        			if 'found' not in empty_list:
+                                                            				deployment_task_data = Deployment_log(task=yy3, log_type='INFO', deployment_id= deployment_id.id)
+                                                            				db.session.add(deployment_task_data)
+                                                            				try:
+                                                                				db.session.commit()
+                                                            				except:
+                                                                				db.session.rollback()
+                                                            				cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
+                                                            				cluster_data.status = runner_logs.status
+                                                            				try:
+                                                                				db.session.commit()
+                                                            				except:
+                                                                				db.session.rollback()
                 except StopIteration:
-                    cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
-                    cluster_data.status = runner_logs.status
-                    try:
-                        db.session.commit()
-                    except:
-                        db.session.rollback()
-                    print('========break=====')
-                    print task_list
-                    break
+                	cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
+                    	cluster_data.status = runner_logs.status
+                    	try:
+                        	db.session.commit()
+                    	except:
+                        	db.session.rollback()
+                    	print('========break=====')
+                    	print task_list
+                    	break
     thread = Thread(target=threaded_task, args = (current_app._get_current_object(),))
     thread.daemon = True
     thread.start()
@@ -430,13 +429,14 @@ def execute_playbook(id):
     return redirect(url_for('deployment.deployment_log',deployment_id=deployment_id.id))
     #return render_template('cluster/deploy_cluster.html', title='deploy_cluster', table=table)
 
+
 @bp.route('/cluster/<int:id>/delete', methods=['GET','POST'])
-@login_required
+#@login_required
 def delete_cluster(id):
     extra_varibales = dict()
-    cluster_os = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().cluster_os
+    cluster_os = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().cluster_os
     extra_varibales['cluster_os'] = cluster_os.encode('ascii', 'ignore')
-    infra_type = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().cluster_type
+    infra_type = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().cluster_type
     extra_varibales['infra_type'] = infra_type.encode('ascii', 'ignore')
     if extra_varibales['infra_type'] == 'openstack':
         op_OS_AUTH_URL = Openstack_node.query.filter_by(cluster_id=id).first_or_404().auth_url
@@ -447,7 +447,7 @@ def delete_cluster(id):
         op_OS_PROJECT_DOMAIN_NAME = Openstack_node.query.filter_by(cluster_id=id).first_or_404().project_domain_name
         op_OS_REGION_NAME = Openstack_node.query.filter_by(cluster_id=id).first_or_404().region_name
         op_vm_name_prefix = Openstack_node.query.filter_by(cluster_id=id).first_or_404().node_name
-        op_count = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().node_count
+        op_count = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().node_count
         extra_varibales['op_count'] = op_count
         extra_varibales['op_OS_AUTH_URL'] = op_OS_AUTH_URL.encode('ascii', 'ignore')
         extra_varibales['op_OS_USERNAME'] = op_OS_USERNAME.encode('ascii', 'ignore')
@@ -522,7 +522,7 @@ def delete_cluster(id):
         r1 = ansible_runner.run(private_data_dir=PRIVATE_DIR, playbook=playbook_path,envvars=env, extravars=extra_varibales)        
         runner_logs = r1
         with app.app_context():
-            cluster_data = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404()
+            cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
             if runner_logs.rc == 0 and runner_logs.status == 'successful':
                 cluster_data.status = "deleted"
                 try:
