@@ -372,56 +372,56 @@ def execute_playbook(id):
                                 print('======skip when stdout is null========')
                             else:
                                 if 'skip' not in each_data['event']:
-                                        if 'playbook' not in each_data['event']:
-                                                #ansible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)
-                                                if 'event_data' in each_data:
-                                                        yy1 = each_data['event_data']
-                                                        if 'runner_on_failed' in each_data['event'] and 'ignore_errors' in yy1 and yy1['ignore_errors']==None:
-                                                                if 'stdout' in each_data:
-                                                                        yy2= each_data['stdout'].encode('ascii', 'ignore')
-                                                                        print('=======res==yy2======', yy2, "===type==",type(yy2))
-                                                                        deployment_task_data = Deployment_log(task=yy2, log_type='ERROR',
+                                    if 'playbook' not in each_data['event']:
+                                        #ansible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)
+                                        if 'event_data' in each_data:
+                                            yy1 = each_data['event_data']
+                                            if 'runner_on_failed' in each_data['event'] and 'ignore_errors' in yy1 and yy1['ignore_errors']==None:
+                                                if 'stdout' in each_data:
+                                                    yy2= each_data['stdout'].encode('ascii', 'ignore')
+                                                    print('=======res==yy2======', yy2, "===type==",type(yy2))
+                                                    deployment_task_data = Deployment_log(task=yy2, log_type='ERROR',
                                                                                        deployment_id=deployment_id.id)
-                                                                        db.session.add(deployment_task_data)
-                                                                        try:
-                                                                                db.session.commit()
-                                                                        except:
-                                                                                db.session.rollback()
-                                                        else:
-                                                                if 'event_data' in each_data:
-                                                                        yy1 = each_data['event_data']
-                                                                        if 'task' in yy1:
-                                                                                yy2= yy1['task']
-                                                                                print('=========yy2======',yy2)
-                                                                                yy3 = yy2.encode('ascii', 'ignore')
-                                                                                dep_all_tasks = Deployment_log.query.filter_by(deployment_id=deployment_id.id).all()
-                                                                                empty_list = []
-                                                                                for each_task in dep_all_tasks:
-                                                                                        if yy3 == each_task.task.encode('ascii', 'ignore'):
-                                                                                                empty_list.append('found')
-                                                                                if 'found' not in empty_list:
-                                                                                        deployment_task_data = Deployment_log(task=yy3, log_type='INFO', deployment_id= deployment_id.id)
-                                                                                        db.session.add(deployment_task_data)
-                                                                                        try:
-                                                                                                db.session.commit()
-                                                                                        except:
-                                                                                                db.session.rollback()
-                                                                                        cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
-                                                                                        cluster_data.status = runner_logs.status
-                                                                                        try:
-                                                                                                db.session.commit()
-                                                                                        except:
-                                                                                                db.session.rollback()
+                                                    db.session.add(deployment_task_data)
+                                                    try:
+                                                            db.session.commit()
+                                                    except:
+                                                            db.session.rollback()
+                                            else:
+                                                if 'event_data' in each_data:
+                                                    yy1 = each_data['event_data']
+                                                    if 'task' in yy1:
+                                                        yy2= yy1['task']
+                                                        print('=========yy2======',yy2)
+                                                        yy3 = yy2.encode('ascii', 'ignore')
+                                                        dep_all_tasks = Deployment_log.query.filter_by(deployment_id=deployment_id.id).all()
+                                                        empty_list = []
+                                                        for each_task in dep_all_tasks:
+                                                            if yy3 == each_task.task.encode('ascii', 'ignore'):
+                                                                empty_list.append('found')
+                                                        if 'found' not in empty_list:
+                                                            deployment_task_data = Deployment_log(task=yy3, log_type='INFO', deployment_id= deployment_id.id)
+                                                            db.session.add(deployment_task_data)
+                                                            try:
+                                                                db.session.commit()
+                                                            except:
+                                                                db.session.rollback()
+                                                                cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
+                                                                cluster_data.status = runner_logs.status
+                                                            try:
+                                                                db.session.commit()
+                                                            except:
+                                                                db.session.rollback()
                 except StopIteration:
-                        cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
-                        cluster_data.status = runner_logs.status
-                        try:
-                                db.session.commit()
-                        except:
-                                db.session.rollback()
-                        print('========break=====')
-                        print task_list
-                        break
+                    cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
+                    cluster_data.status = runner_logs.status
+                    try:
+                            db.session.commit()
+                    except:
+                            db.session.rollback()
+                    print('========break=====')
+                    print task_list
+                    break
     thread = Thread(target=threaded_task, args = (current_app._get_current_object(),))
     thread.daemon = True
     thread.start()
