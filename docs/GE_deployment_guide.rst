@@ -1,6 +1,6 @@
 Steps to deploy Fiware GE using kubernetes support in UI
 ----------------------------------------------
-**Prerequisite:** User can go through user guide to understand how to access UI dashboard from Fiware Lab Dashboard. 
+**Prerequisite:** User can go through `user guide <https://github.com/Fiware-Community/kubernetes-in-FiwareLab/blob/main/docs/Userguide.rst>`_ to understand how to access UI dashboard from Fiware Lab Dashboard. 
 
 **Dashboard:** After the user gets redirected, the default screen will be Dashboard which will list all the clusters created from the user account. 
 
