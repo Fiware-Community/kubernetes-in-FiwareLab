@@ -384,9 +384,9 @@ def execute_playbook(id):
                                                                                        deployment_id=deployment_id.id)
                                                     db.session.add(deployment_task_data)
                                                     try:
-                                                            db.session.commit()
+                                                        db.session.commit()
                                                     except:
-                                                            db.session.rollback()
+                                                        db.session.rollback()
                                             else:
                                                 if 'event_data' in each_data:
                                                     yy1 = each_data['event_data']
@@ -406,8 +406,8 @@ def execute_playbook(id):
                                                                 db.session.commit()
                                                             except:
                                                                 db.session.rollback()
-                                                                cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
-                                                                cluster_data.status = runner_logs.status
+                                                            cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
+                                                            cluster_data.status = runner_logs.status
                                                             try:
                                                                 db.session.commit()
                                                             except:
@@ -416,9 +416,9 @@ def execute_playbook(id):
                     cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
                     cluster_data.status = runner_logs.status
                     try:
-                            db.session.commit()
+                        db.session.commit()
                     except:
-                            db.session.rollback()
+                        db.session.rollback()
                     print('========break=====')
                     print task_list
                     break
