@@ -20,7 +20,7 @@ import mysql.connector
 from mysql.connector import Error
 
 PRIVATE_DIR = Config.rootdir+"/demo"
-project_id='6abb3128a7f64d508e0e37ee3131d70a'
+project_id='3a42abd9aeef4c38886b909830125169'
 
 
 connection = mysql.connector.connect(host='localhost',
@@ -274,7 +274,7 @@ def execute_playbook(id):
         aws_vpc_subnet_id = Aws_node.query.filter_by(cluster_id=id).first_or_404().vpc_subnet_id
         aws_key_path = Aws_node.query.filter_by(cluster_id=id).first_or_404().key_path
         aws_key_name = Aws_node.query.filter_by(cluster_id=id).first_or_404().keypair_name
-        aws_node_count = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().node_count
+        aws_node_count = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().node_count
         extra_varibales['ACCESS_KEY_ID'] = ACCESS_KEY_ID.encode('ascii', 'ignore')
         extra_varibales['SECRET_ACCESS_KEY'] = SECRET_ACCESS_KEY.encode('ascii', 'ignore')
         extra_varibales['REGION'] = REGION.encode('ascii', 'ignore')
@@ -301,7 +301,7 @@ def execute_playbook(id):
         return ipaddress_list
     if extra_varibales['infra_type'] == 'VM':
         vm_data = Vm_node.query.filter_by(cluster_id=id).first_or_404()
-	vm_master_ip_string = vm_data.vm_master_ip
+        vm_master_ip_string = vm_data.vm_master_ip
         vm_worker_ip_string = vm_data.vm_worker_ip
         def ip_string_to_list(vm_master_ip_string,vm_worker_ip_string):
                 final_vm_ip_list= []
@@ -341,13 +341,13 @@ def execute_playbook(id):
         db.session.commit()
     except:
         db.session.rollback()
-    cluster_data = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404()
+    cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
     cluster_data.status = "started"
     try:
         db.session.commit()
     except:
         db.session.rollback()
-    runner_logs = r1
+    runner_logs = r1[1]
     deployment_id = Deployment.query.filter_by(cluster_id=id).all()[-1]
     #print('========with_deployment_id====', deployment_id)
     #print("=======g.runner_logs=========_cluster=======", runner_logs)
@@ -373,7 +373,7 @@ def execute_playbook(id):
                             else:
                                 if 'skip' not in each_data['event']:
                                     if 'playbook' not in each_data['event']:
-				        ansible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)                                   
+                                        #ansible_runner.run_async(private_data_dir=PRIVATE_DIR, playbook=playbook_path, envvars=env, extravars=extra_varibales)
                                         if 'event_data' in each_data:
                                             yy1 = each_data['event_data']
                                             if 'runner_on_failed' in each_data['event'] and 'ignore_errors' in yy1 and yy1['ignore_errors']==None:
@@ -381,7 +381,7 @@ def execute_playbook(id):
                                                     yy2= each_data['stdout'].encode('ascii', 'ignore')
                                                     print('=======res==yy2======', yy2, "===type==",type(yy2))
                                                     deployment_task_data = Deployment_log(task=yy2, log_type='ERROR',
-                                                                                          deployment_id=deployment_id.id)
+                                                                                       deployment_id=deployment_id.id)
                                                     db.session.add(deployment_task_data)
                                                     try:
                                                         db.session.commit()
@@ -430,13 +430,14 @@ def execute_playbook(id):
     return redirect(url_for('deployment.deployment_log',deployment_id=deployment_id.id))
     #return render_template('cluster/deploy_cluster.html', title='deploy_cluster', table=table)
 
+
 @bp.route('/cluster/<int:id>/delete', methods=['GET','POST'])
-@login_required
+#@login_required
 def delete_cluster(id):
     extra_varibales = dict()
-    cluster_os = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().cluster_os
+    cluster_os = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().cluster_os
     extra_varibales['cluster_os'] = cluster_os.encode('ascii', 'ignore')
-    infra_type = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().cluster_type
+    infra_type = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().cluster_type
     extra_varibales['infra_type'] = infra_type.encode('ascii', 'ignore')
     if extra_varibales['infra_type'] == 'openstack':
         op_OS_AUTH_URL = Openstack_node.query.filter_by(cluster_id=id).first_or_404().auth_url
@@ -447,7 +448,7 @@ def delete_cluster(id):
         op_OS_PROJECT_DOMAIN_NAME = Openstack_node.query.filter_by(cluster_id=id).first_or_404().project_domain_name
         op_OS_REGION_NAME = Openstack_node.query.filter_by(cluster_id=id).first_or_404().region_name
         op_vm_name_prefix = Openstack_node.query.filter_by(cluster_id=id).first_or_404().node_name
-        op_count = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404().node_count
+        op_count = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().node_count
         extra_varibales['op_count'] = op_count
         extra_varibales['op_OS_AUTH_URL'] = op_OS_AUTH_URL.encode('ascii', 'ignore')
         extra_varibales['op_OS_USERNAME'] = op_OS_USERNAME.encode('ascii', 'ignore')
@@ -476,7 +477,7 @@ def delete_cluster(id):
         extra_varibales['bm_node_password'] = vm_data.vm_password.encode('ascii', 'ignore')
         extra_varibales['bm_key_path'] = vm_data.vm_key_path.encode('ascii', 'ignore')
         extra_varibales['bm_key_based_auth'] = vm_data.vm_key_based_auth
-	vm_master_ip_string = vm_data.vm_master_ip
+        vm_master_ip_string = vm_data.vm_master_ip
         vm_worker_ip_string = vm_data.vm_worker_ip
         def ip_string_to_list(vm_master_ip_string,vm_worker_ip_string):
                 final_vm_ip_list= []
@@ -515,14 +516,14 @@ def delete_cluster(id):
             db.session.commit()
         except:
             db.session.rollback()
-	cfg_path=Config.rootdir+"/ansible.cfg"
+        cfg_path=Config.rootdir+"/ansible.cfg"
         env = {}
         env["ANSIBLE_CONFIG"] = cfg_path
         playbook_path = Config.rootdir + "/destroy_baremetal_vm_with_vm_ips.yaml"
         r1 = ansible_runner.run(private_data_dir=PRIVATE_DIR, playbook=playbook_path,envvars=env, extravars=extra_varibales)        
         runner_logs = r1
         with app.app_context():
-            cluster_data = Cluster.query.filter_by(user_id=userID_exist.id).filter_by(id=id).first_or_404()
+            cluster_data = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404()
             if runner_logs.rc == 0 and runner_logs.status == 'successful':
                 cluster_data.status = "deleted"
                 try:
