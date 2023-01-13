@@ -2,10 +2,12 @@ Introduction
 ----------------------------------------------
 This Document provide step by step guide for the users to do changes in code of FIWARE Lab GUI and provide a button in Overview tab of FIWARE LAB GUI to redirect to kubernetes support GUI.
 
+In reference to Fiware Lab [Theme](https://github.com/jicarretero/fiwarelab-horizon-theme "Theme"), version of Openstack dashboard should be Stein and Ubuntu Version should be 18.04. After all the initial installations, system configurations and local settings are completed, the following steps need to be followed: 
+
 **Step 1:** For deployment we have to do change in Horizon code so that we can get Project ID and Instance IP for all the instances on which user want to deploy kubernetes cluster.
 To do so we have to do changes in views.py. 
 
-The path for the file is :- /horizon/openstack_dashboard/dashboards/project/overview/views.py.
+The path for the file is :-  /usr/share/openstack-dashboard/openstack_dashboard/dashboards/project/overview/views.py.
 
 **Code Block:**
 
@@ -40,7 +42,7 @@ def kubernetes(request):
 
 **Step 2:** For redirect we have to do changes in urls.py so that user should be redirected to kubernetes support GUI and button should be functional. 
 
-The path for the file is :- /horizon/openstack_dashboard/dashboards/project/overview/urls.py.
+The path for the file is :-  /usr/share/openstack-dashboard/openstack_dashboard/dashboards/project/overview/urls.py.
 
 **Code Block:**
 
@@ -54,7 +56,7 @@ urlpatterns = [
 
 **Step 3:** To show kubernetes button in horizon dashboard of FIWARE Lab GUI we have to do changes in usage.html file.
 
-The path for the file is :- /horizon/openstack_dashboard/dashboards/project/overview//templates/overview/usage.html
+The path for the file is :-  /usr/share/openstack-dashboard/openstack_dashboard/dashboards/project/overview//templates/overview/usage.html
 
 **Code Block:**
 
