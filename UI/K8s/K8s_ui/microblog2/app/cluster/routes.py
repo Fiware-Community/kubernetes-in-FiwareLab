@@ -37,7 +37,6 @@ def cluster():
                           user_id=userID_exist)
         session['vm_nodecount'] = cluster.node_count
         vm_nodecount = session['vm_nodecount']
-        print(vm_nodecount)
         db.session.add(cluster)
         try:
             db.session.commit()
@@ -50,8 +49,6 @@ def cluster():
 #@login_required
 def clusters():
     project_id=session['projectid']
-
-
     connection = mysql.connector.connect(host='localhost',
                                      database='db',
                                      user='root',
