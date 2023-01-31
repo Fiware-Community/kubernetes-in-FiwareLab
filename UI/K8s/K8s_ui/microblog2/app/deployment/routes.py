@@ -6,11 +6,13 @@ from flask_login import current_user
 from flask_table import Table, Col
 import json
 from sqlalchemy import desc
-from app.cluster.routes import userID_exist
+from flask import session
+
 
 @bp.route('/deployment_log/<int:deployment_id>', methods=['GET','POST'])
 #@login_required
 def deployment_log(deployment_id):
+    userID_exist = session['userID_exist']
     cluster_list = []
     if (deployment_id == 0):
         cluster_list = Cluster.query.filter_by(user_id=userID_exist).filter_by(user_id=userID_exist).all()

@@ -8,7 +8,7 @@ from app.models import Cluster
 from flask_login import current_user
 from flask_table import Table, Col
 from flask import jsonify
-from app.cluster.routes import userID_exist
+from flask import session
 @bp.route('/component', methods=['GET', 'POST'])
 #@login_required
 def add_component():
@@ -159,6 +159,7 @@ def component_list(cluster_id):
 @bp.route('/component_all_list', methods=['GET', 'POST'])
 #@login_required
 def component_all_list():
+    userID_exist = session['userID_exist']
     cluster_list = Cluster.query.filter_by(user_id=userID_exist).all()
     
     return render_template('component/all_component_list.html',

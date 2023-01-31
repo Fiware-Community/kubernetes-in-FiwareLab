@@ -7,10 +7,11 @@ from app.models import User
 from app.auth import bp
 import mysql.connector
 from mysql.connector import Error
-
+from flask import session
 @bp.route('/<sub>', methods=['GET', 'POST','DELETE'])
 def userLogin_auth(sub):
-        project_id = str(sub)
+        session['projectid']= str(sub)
+        project_id = session['projectid']
         connection = mysql.connector.connect(host='localhost',
                                                 database='db',
                                                 user='root',
@@ -38,8 +39,7 @@ def userLogin_auth(sub):
                 except:
                         connection.rollback()
                 finally:
-                        return redirect(url_for('main.index'))
-
+                        return render_template('cluster/clusters.html',project_id = project_id)
 
 @bp.route('/login1', methods=['GET', 'POST'])
 def login1():

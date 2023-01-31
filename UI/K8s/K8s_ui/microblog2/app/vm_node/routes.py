@@ -1,9 +1,13 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import db
-from app.vm_node.forms import VmNodeCreationForm
+from flask_wtf import Form
+from wtforms import StringField, SubmitField, PasswordField, FileField, TextAreaField, validators, BooleanField, SelectField
+from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from wtforms.validators import ValidationError, DataRequired, Length, EqualTo, Regexp
+from app.models import Vm_node, User
+
 from flask_login import login_required
 from app.vm_node import bp
-from app.models import Vm_node
 from app.models import Cluster
 from flask_login import current_user
 from flask_table import Table, Col
@@ -13,12 +17,57 @@ import os
 import mysql.connector
 from mysql.connector import Error
 from werkzeug.utils import secure_filename
-from app.cluster.routes import userID_exist, project_id
+from flask import session
 
 @bp.route('/vm_node', methods=['GET', 'POST'])
 #@login_required
 def vm_node():
+    project_id=session['projectid']
+    connection1 = mysql.connector.connect(host='localhost',
+                                      database='db',
+                                      user='root',
+                                      password='Abc@1234')
+    cursor1 = connection1.cursor()
+    sql_select_query1 = """select Projectip from user where username = (%s) """
+    cursor1.execute(sql_select_query1,(project_id,))
+    get_ip = cursor1.fetchone()
+    if get_ip is None:
+        get_ip1 = User(Projectip=get_ip)
+        db.session.add(get_ip1)
+        db.session.commit()
+    else:
+        Pip1 = str(get_ip[0])
+        session['Pip'] = Pip1
+        Pip = session['Pip']
     cluster_id = request.args.get('id')
+    class VmNodeCreationForm(Form):
+        vm_name_prefix = StringField('Name', [
+                           Length(max=30, message='max lenth 50 allowed'),
+                           DataRequired(),
+                           #Regexp('^\w+$', message="vm_name_prefix must contain only letters numbers or underscore")
+        ])
+        list_ip = Pip.split(",")
+        vm_master_ip = SelectField(u'VM Master IP', choices = [(ip, ip) for ip in list_ip])
+        vm_worker_ip = SelectField(u'VM Worker IP', choices= [(ip, ip) for ip in list_ip])
+        vm_username = StringField('vm_username', validators=[DataRequired(), Length(max=30)])
+        vm_key_based_auth = BooleanField('Key based authentication', default=False, id = 'vm_key_based_auth_abc')
+        vm_password = PasswordField('vm_password', id = 'vm_password_abc')
+        vm_key_path = FileField('Key Path In Infra Node')
+        submit = SubmitField('Add VM Detail to Cluster')
+        def validate_vm_ip(self, vm_ip):
+            cluster_id = request.args.get('id')
+            node_ip = Vm_node.query.filter_by(vm_ip=vm_ip.data).first()
+            node_ip1 = Vm_node.query.filter_by(cluster_id=cluster_id).first()
+            if node_ip is not None:
+                raise ValidationError('Please use a different node ips.')
+            if node_ip1 is not None:
+                raise ValidationError('Only one vm node ip detail can be added in a cluster')
+        def validate_vm_name_prefix(self, vm_name_prefix):
+            #cluster_id = request.args.get('id')
+            vm_name_prefix = Vm_node.query.filter_by(vm_master_ip=vm_name_prefix.data).first()
+            if vm_name_prefix is not None:
+                raise ValidationError('Please use a different vm_name_prefix , this vm_name_prefix is already in use.')
+
     form = VmNodeCreationForm()
     finalpath_key = ""
     if form.vm_key_path.data:
@@ -66,6 +115,7 @@ def vm_node():
 @bp.route('/vm_nodes/<int:cluster_id>', methods=['GET', 'POST'])
 #@login_required
 def vm_nodes(cluster_id):
+    userID_exist = session['userID_exist']
     cluster_list = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=cluster_id).all()
     items =Vm_node.query.filter_by(cluster_id=cluster_id).all()
 

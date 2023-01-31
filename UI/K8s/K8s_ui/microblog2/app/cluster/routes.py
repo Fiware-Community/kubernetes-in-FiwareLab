@@ -7,34 +7,24 @@ from app.cluster import bp
 from app.models import Cluster, Openstack_node, Component, Deployment, Deployment_log, Vm_node, Aws_node
 from flask_login import current_user
 from flask_table import Table, Col, LinkCol, ButtonCol
-
 from flask import jsonify
 from threading import Thread
-
 import ansible_runner
 from config import Config
 import pprint
 import ipaddress
-
+from flask import session
 import mysql.connector
 from mysql.connector import Error
 
+
+
 PRIVATE_DIR = Config.rootdir+"/demo"
-project_id='3a42abd9aeef4c38886b909830125169'
-
-
-connection = mysql.connector.connect(host='localhost',
-                                     database='db',
-                                     user='root',
-                                     password='Abc@1234')
-cursor = connection.cursor()
-sql_select_query = """select id from user where username = (%s) """
-cursor.execute(sql_select_query,(project_id,))
-userID_exist = cursor.fetchone()
 
 @bp.route('/cluster', methods=['GET', 'POST'])
 #@login_required
 def cluster():
+    userID_exist = session['userID_exist']
     #print ("--------------- <=> ",Config.rootdir)
     form = ClusterCreationForm()
     if form.validate_on_submit():
@@ -45,6 +35,8 @@ def cluster():
                           status='Pending',
                           node_count=form.node_count.data,
                           user_id=userID_exist)
+        session['vm_nodecount'] = cluster.node_count
+        vm_nodecount = session['vm_nodecount']
         db.session.add(cluster)
         try:
             db.session.commit()
@@ -56,6 +48,16 @@ def cluster():
 @bp.route('/clusters', methods=['GET'])
 #@login_required
 def clusters():
+    project_id=session['projectid']
+    connection = mysql.connector.connect(host='localhost',
+                                     database='db',
+                                     user='root',
+                                     password='Abc@1234')
+    cursor = connection.cursor()
+    sql_select_query = """select id from user where username = (%s) """
+    cursor.execute(sql_select_query,(project_id,))
+    userID_exist = cursor.fetchone()
+    session['userID_exist'] = userID_exist
     cluster_list = Cluster.query.filter_by(user_id=userID_exist).all()
     class ItemTable(Table):
         #id = Col('ID')
@@ -77,7 +79,7 @@ def clusters():
 @bp.route('/cluster/<int:id>', methods=['GET', 'POST','DELETE'])
 #@login_required
 def get_cluster(id):
-
+    userID_exist = session['userID_exist']
     cluster_list = Cluster.query.filter_by(id=id).first_or_404()
     cl_name= cluster_list.cluster_name.encode('ascii', 'ignore')
     cl_status = cluster_list.status.encode('ascii', 'ignore')
@@ -175,6 +177,7 @@ def get_cluster(id):
 @bp.route('/cluster/<int:id>/deploy', methods=['GET','POST'])
 #@login_required
 def execute_playbook(id):
+    userID_exist = session['userID_exist']
     op_count = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().node_count
     cluster_os = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().cluster_os
     infra_type = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().cluster_type
@@ -434,6 +437,7 @@ def execute_playbook(id):
 @bp.route('/cluster/<int:id>/delete', methods=['GET','POST'])
 #@login_required
 def delete_cluster(id):
+    userID_exist = session['userID_exist']
     extra_varibales = dict()
     cluster_os = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=id).first_or_404().cluster_os
     extra_varibales['cluster_os'] = cluster_os.encode('ascii', 'ignore')
