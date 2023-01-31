@@ -46,7 +46,6 @@ def vm_node():
                            DataRequired(),
                            #Regexp('^\w+$', message="vm_name_prefix must contain only letters numbers or underscore")
         ])
-    #vm_ip = TextAreaField(u'vm_ips', [validators.optional(), validators.length(max=300)])
         list_ip = Pip.split(",")
         vm_master_ip = SelectField(u'VM Master IP', choices = [(ip, ip) for ip in list_ip])
         vm_worker_ip = SelectField(u'VM Worker IP', choices= [(ip, ip) for ip in list_ip])
