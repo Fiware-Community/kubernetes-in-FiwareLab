@@ -331,6 +331,26 @@ def execute_playbook(id):
         #extra_varibales['bm_node_count'] = len(extra_varibales['bm_nodeIPs'])'''
     else:
         extra_varibales['bm_nodeIPs'] = ['192.168.122.1','192.168.122.2']
+
+    #To update hosts file and Add Master IP to env variables
+    hosts_text = ["[kubernetes-master-nodes]","kubernetes-master ansible_host="+str(vm_data.vm_master_ip),"","[kubernetes-worker-nodes]","kubernetes-worker1 ansible_host="+str(vm_data.vm_worker_ip)]
+    ad_addr = ["ad_addr: ",str(vm_data.vm_master_ip)]
+    with open('../UI/K8s/env_variables', 'r') as fr:
+        lines = fr.readlines()
+ 
+        with open('../UI/K8s/env_variables', 'w') as fw:
+            for line in lines:
+                if line.find('ad_addr') == -1:
+                    fw.write(line) 
+    with open('../UI/K8s/hosts', 'w') as f:
+       for line in hosts_text:
+                f.write(line)
+                f.write('\n')
+    with open('../UI/K8s/env_variables', 'a') as f:
+       for line in ad_addr:
+                f.write(line)
+    
+    #Ansible playbook for deployment
     pprint.pprint(extra_varibales)
     #playbook_path = "/home/necuser/sandbox/site_ui.yaml"
     playbook_path = Config.rootdir+"/site_ui.yaml"
