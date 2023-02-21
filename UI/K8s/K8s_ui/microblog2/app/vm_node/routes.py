@@ -83,13 +83,6 @@ def vm_node():
             os.chmod(path1, 0o400)
     #form = VmNodeCreationForm()
     if form.validate_on_submit():
-        text = ["[kubernetes-master-nodes]","kubernetes-master ansible_host="+str(form.vm_master_ip.data),"","[kubernetes-worker-nodes]","kubernetes-worker1 ansible_host="+str(form.vm_worker_ip.data)]
-        with open('/root/keshavk8s/kubernetes-in-FiwareLab/UI/K8s/hosts', 'w') as f:
-                for line in text:
-                        f.write(line)
-                        f.write('\n')
-        print(type(form.vm_master_ip.data))
-        print(form.vm_worker_ip.data)
         vm_node_data = Vm_node(vm_master_ip=str(form.vm_master_ip.data),
                                vm_worker_ip=str(form.vm_worker_ip.data),
                                vm_name_prefix=form.vm_name_prefix.data,
@@ -99,17 +92,12 @@ def vm_node():
                                              vm_key_path=finalpath_key,
                                              cluster_id=cluster_id)
         db.session.add(vm_node_data)
-        print("VM node:", vm_node_data)
-        print("add done")
         try:
             db.session.commit()
-            print("try done")
         except:
             db.session.rollback()
-            print("rollback done")
         return redirect(url_for('vm_node.vm_nodes',cluster_id=cluster_id))
                                 #,cluster_id=cluster_id))
-        print("redirect done")
     return render_template('vm_node/vm_node.html', title='vm_node', form=form)
 
 @bp.route('/vm_nodes/<int:cluster_id>', methods=['GET', 'POST'])

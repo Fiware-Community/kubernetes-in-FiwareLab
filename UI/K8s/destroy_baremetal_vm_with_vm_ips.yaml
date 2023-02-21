@@ -4,6 +4,7 @@
   tasks:
     - name: kubeadm reset cluster
       command: kubeadm reset -f
+    
     - name: ensure a list of kubernetes and dockert  packages removed
       yum:
         name: "{{ packages }}"
@@ -24,3 +25,11 @@
         - kubectl
         - docker.io
       when: ansible_os_family == 'Debian'
+
+    - name: remove kubernetes metadata
+      command: sudo rm -rf ~/.kube
+
+    - name: remove docker metadata
+      command: sudo rm -rf /var/lib/docker
+
+
