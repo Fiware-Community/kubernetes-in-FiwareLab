@@ -14,7 +14,7 @@
 
   - name: make directory
     shell: |
-     ssh -i "/root/demo.pem" -o StrictHostKeyChecking=no centos@"{{ item }}" mkdir -p .ssh
+     ssh -i "/root/demo.pem" -tty -o StrictHostKeyChecking=no centos@"{{ item }}" mkdir -p .ssh
     with_items:
       - "{{ ssh_ips }}"
     #default: yes

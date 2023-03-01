@@ -35,8 +35,6 @@ def cluster():
                           status='Pending',
                           node_count=form.node_count.data,
                           user_id=userID_exist)
-        session['vm_nodecount'] = cluster.node_count
-        vm_nodecount = session['vm_nodecount']
         db.session.add(cluster)
         try:
             db.session.commit()
@@ -79,6 +77,18 @@ def clusters():
 @bp.route('/cluster/<int:id>', methods=['GET', 'POST','DELETE'])
 #@login_required
 def get_cluster(id):
+    cluster_id= str(id)
+    connection1 = mysql.connector.connect(host='localhost',
+                                                database='db',
+                                                user='root',
+                                                password='Abc@1234')
+
+    cursor1 = connection1.cursor()
+    sql_select_query = """select node_count from cluster where id = (%s) """
+    cursor1.execute(sql_select_query,(cluster_id,))
+    vm_nodecount = cursor1.fetchone()
+    session['vm_nodecount'] = vm_nodecount
+
     userID_exist = session['userID_exist']
     cluster_list = Cluster.query.filter_by(id=id).first_or_404()
     cl_name= cluster_list.cluster_name.encode('ascii', 'ignore')

@@ -68,8 +68,10 @@ jQuery(document).ready(function() {
                                          </div>
                                            <div class="col-sm-4">
                                                  <div class="row">
-                                                   <div class="col-sm-4"> VM Worker IP: </div>
-                                                   <div class="col-sm-8 details"> {{ form.vm_worker_ip(style="width:80%;", rows= "4" ) }}  </div>
+                                                     {% for field in form if 'vm_worker_ip' in field.name %}
+                                                         <div class="col-sm-4"> {{ field.label }} </div>
+                                                         <div class="col-sm-8 details"> {{field() }} <br> </div>
+                                                     {% endfor %}
                                                  </div>
                                          </div>
                                         <div class="col-sm-4">
@@ -89,9 +91,8 @@ jQuery(document).ready(function() {
             <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
              {% endfor %}  </div>
                 <div class="col-sm-8 details">
-                         {% for error in form.vm_worker_ip.errors %}
-            <span style="color: red;font-weight:bold ; font-size: 10px;">[{{ error }}]</span>
-             {% endfor %}  </div>
+                         
+             </div>
              </div>
              </div>
                <div class="col-sm-8">
@@ -156,4 +157,5 @@ jQuery(document).ready(function() {
 
 
 {% endblock %}
+
 
