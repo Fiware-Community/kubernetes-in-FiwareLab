@@ -14,19 +14,19 @@
 
   - name: make directory
     shell: |
-     ssh -i "/root/demo.pem" -tty -o StrictHostKeyChecking=no centos@"{{ item }}" mkdir -p .ssh
+     ssh -i "{{vm_key_path}}" -tty -o StrictHostKeyChecking=no centos@"{{ item }}" mkdir -p .ssh
     with_items:
       - "{{ ssh_ips }}"
     #default: yes
 
   - name: copy rsa keyfile
     shell: |
-     cat /root/.ssh/id_rsa.pub | ssh -i demo.pem centos@"{{ item }}" 'cat >> .ssh/authorized_keys'
+     cat /root/.ssh/id_rsa.pub | ssh -i "{{vm_key_path}}".pem centos@"{{ item }}" 'cat >> .ssh/authorized_keys'
     with_items:
       - "{{ ssh_ips }}"
   - name: change permission
     shell: |
-     ssh -i demo.pem centos@"{{ item }}" "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+     ssh -i "{{vm_key_path}}".pem centos@"{{ item }}" "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
     with_items:
       - "{{ ssh_ips }}"
 

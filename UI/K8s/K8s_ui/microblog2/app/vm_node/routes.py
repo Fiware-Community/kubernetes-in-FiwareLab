@@ -50,7 +50,7 @@ def vm_node():
         list_ip = Pip.split(",")
         vm_master_ip = SelectField(u'VM Master IP', choices = [(ip, ip) for ip in list_ip])
         for i in range(vm_nodecount1-1):
-            locals()['vm_worker_ip{}'.format(i)] = SelectField(u'VM Worker IP {}'.format(i), choices = [(ip, ip) for ip in list_ip])
+            locals()['vm_worker_ip{}'.format(i)] = SelectField(u'VM Worker IP {}'.format(i+1), choices = [(ip, ip) for ip in list_ip])
         vm_username = StringField('vm_username', validators=[DataRequired(), Length(max=30)])
         vm_key_based_auth = BooleanField('Key based authentication', default=False, id = 'vm_key_based_auth_abc')
         vm_password = PasswordField('vm_password', id = 'vm_password_abc')
@@ -77,6 +77,7 @@ def vm_node():
         filename = f.filename.split(".")
         docname = secure_filename(filename[0] + "_vm_" + form.vm_name_prefix.data + "." + filename[1])
         finalpath_key = Config.basedir + "/media/" + docname
+        print(finalpath_key)
         path1 = os.path.join(Config.basedir + "/media", docname)
         if os.path.exists(path1) and os.path.isfile(path1):
             print "file already exist"
@@ -93,8 +94,8 @@ def vm_node():
 
         resultString = ','.join(vm_worker_ip_list)
         vm_node_data = Vm_node(vm_master_ip=str(form.vm_master_ip.data),
-                                             vm_worker_ip=resultString,
-                                             vm_name_prefix=form.vm_name_prefix.data,
+                               vm_worker_ip=resultString,
+                               vm_name_prefix=form.vm_name_prefix.data,
                                              vm_username=form.vm_username.data,
                                              vm_key_based_auth=form.vm_key_based_auth.data,
                                              vm_password=form.vm_password.data,
@@ -107,7 +108,7 @@ def vm_node():
             db.session.rollback()
         return redirect(url_for('vm_node.vm_nodes',cluster_id=cluster_id))
                                 #,cluster_id=cluster_id))
-    return render_template('vm_node/vm_node.html', title='vm_node', form=form, vm_nodecount = vm_nodecount1 )
+    return render_template('vm_node/vm_node.html', title='vm_node', form=form )
 
 @bp.route('/vm_nodes/<int:cluster_id>', methods=['GET', 'POST'])
 #@login_required
