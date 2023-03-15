@@ -1,4 +1,4 @@
-mport os
+import os
 from flask import render_template, flash, redirect, url_for, request, current_app, copy_current_request_context
 from app import db
 from app.cluster.forms import ClusterCreationForm
