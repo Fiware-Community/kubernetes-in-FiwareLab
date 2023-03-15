@@ -346,7 +346,17 @@ def execute_playbook(id):
         extra_varibales['bm_nodeIPs'] = ['192.168.122.1','192.168.122.2']
 
     #To update hosts file and Add Master IP to env variables
-    hosts_text = ["[kubernetes-master-nodes]","kubernetes-master ansible_host="+str(vm_data.vm_master_ip),"","[kubernetes-worker-nodes]","kubernetes-worker1 ansible_host="+str(vm_data.vm_worker_ip)]
+    vm_worker_ips_list = str(vm_data.vm_worker_ip).split(',')
+    vm_worker_ips_count= len(vm_worker_ips_list)
+    hosts_text = ["[kubernetes-master-nodes]","kubernetes-master ansible_host="+str(vm_data.vm_master_ip),"","[kubernetes-worker-nodes]"]
+    variables = {}
+    for i in range(vm_worker_ips_count):
+        var_name = "kubernetes-worker"+str(i+1)+" ansible_host"
+        variables[var_name] = vm_worker_ips_list[i]
+        hosts_text += [str(var_name)+"="+str(vm_worker_ips_list[i])]
+
+    print(hosts_text)
+
     ad_addr = ["ad_addr: ",str(vm_data.vm_master_ip)]
     with open('../UI/K8s/env_variables', 'r') as fr:
         lines = fr.readlines()
