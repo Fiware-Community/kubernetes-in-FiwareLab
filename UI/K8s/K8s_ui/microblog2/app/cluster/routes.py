@@ -1,4 +1,4 @@
-import os
+mport os
 from flask import render_template, flash, redirect, url_for, request, current_app, copy_current_request_context
 from app import db
 from app.cluster.forms import ClusterCreationForm
@@ -47,8 +47,6 @@ def cluster():
 #@login_required
 def clusters():
     project_id=session['projectid']
-
-
     connection = mysql.connector.connect(host='localhost',
                                      database='db',
                                      user='root',
@@ -90,7 +88,6 @@ def get_cluster(id):
     cursor1.execute(sql_select_query,(cluster_id,))
     vm_nodecount = cursor1.fetchone()
     session['vm_nodecount'] = vm_nodecount
-
 
     userID_exist = session['userID_exist']
     cluster_list = Cluster.query.filter_by(id=id).first_or_404()
@@ -321,7 +318,6 @@ def execute_playbook(id):
         vm_master_ip_string = vm_data.vm_master_ip
         vm_worker_ip_string = vm_data.vm_worker_ip
         vm_key_path_string = vm_data.vm_key_path.encode('ascii', 'ignore')
-        
         def ip_string_to_list(vm_master_ip_string,vm_worker_ip_string):
                 final_vm_ip_list= []
                 final_vm_ip_list.append(vm_master_ip_string)
@@ -350,32 +346,23 @@ def execute_playbook(id):
         extra_varibales['bm_nodeIPs'] = ['192.168.122.1','192.168.122.2']
 
     #To update hosts file and Add Master IP to env variables
-    vm_worker_ips_list = str(vm_data.vm_worker_ip).split(',')
-    vm_worker_ips_count= len(vm_worker_ips_list)
-    hosts_text = ["[kubernetes-master-nodes]","kubernetes-master ansible_host="+str(vm_data.vm_master_ip),"","[kubernetes-worker-nodes]"]
-    variables = {}
-    for i in range(vm_worker_ips_count):
-        var_name = "kubernetes-worker"+str(i+1)+" ansible_host"
-        variables[var_name] = vm_worker_ips_list[i]
-        hosts_text += [str(var_name)+"="+str(vm_worker_ips_list[i])]
-
-    print(hosts_text)
-
+    hosts_text = ["[kubernetes-master-nodes]","kubernetes-master ansible_host="+str(vm_data.vm_master_ip),"","[kubernetes-worker-nodes]","kubernetes-worker1 ansible_host="+str(vm_data.vm_worker_ip)]
     ad_addr = ["ad_addr: ",str(vm_data.vm_master_ip)]
-    with open('/root/keshavk8s/kubernetes-in-FiwareLab/UI/K8s/env_variables', 'r') as fr:
+    with open('../UI/K8s/env_variables', 'r') as fr:
         lines = fr.readlines()
-    with open('/root/keshavk8s/kubernetes-in-FiwareLab/UI/K8s/env_variables', 'w') as fw:
-        for line in lines:
+ 
+        with open('../UI/K8s/env_variables', 'w') as fw:
+            for line in lines:
                 if line.find('ad_addr') == -1:
-                        fw.write(line)
-    with open('/root/keshavk8s/kubernetes-in-FiwareLab/UI/K8s/hosts', 'w') as f:
-        for line in hosts_text:
+                    fw.write(line) 
+    with open('../UI/K8s/hosts', 'w') as f:
+       for line in hosts_text:
                 f.write(line)
                 f.write('\n')
-    with open('/root/keshavk8s/kubernetes-in-FiwareLab/UI/K8s/env_variables', 'a') as f:
-        for line in ad_addr:
+    with open('../UI/K8s/env_variables', 'a') as f:
+       for line in ad_addr:
                 f.write(line)
-
+    
     #Ansible playbook for deployment
     pprint.pprint(extra_varibales)
     #playbook_path = "/home/necuser/sandbox/site_ui.yaml"
