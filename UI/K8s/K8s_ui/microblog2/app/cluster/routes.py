@@ -35,8 +35,6 @@ def cluster():
                           status='Pending',
                           node_count=form.node_count.data,
                           user_id=userID_exist)
-        session['vm_nodecount'] = cluster.node_count
-        vm_nodecount = session['vm_nodecount']
         db.session.add(cluster)
         try:
             db.session.commit()
@@ -79,6 +77,18 @@ def clusters():
 @bp.route('/cluster/<int:id>', methods=['GET', 'POST','DELETE'])
 #@login_required
 def get_cluster(id):
+    cluster_id= str(id)
+    connection1 = mysql.connector.connect(host='localhost',
+                                                database='db',
+                                                user='root',
+                                                password='Abc@1234')
+
+    cursor1 = connection1.cursor()
+    sql_select_query = """select node_count from cluster where id = (%s) """
+    cursor1.execute(sql_select_query,(cluster_id,))
+    vm_nodecount = cursor1.fetchone()
+    session['vm_nodecount'] = vm_nodecount
+
     userID_exist = session['userID_exist']
     cluster_list = Cluster.query.filter_by(id=id).first_or_404()
     cl_name= cluster_list.cluster_name.encode('ascii', 'ignore')
@@ -302,15 +312,18 @@ def execute_playbook(id):
             temp += 1
             ipaddress_list.append(temp.exploded.encode('ascii', 'ignore'))
         return ipaddress_list
+
     if extra_varibales['infra_type'] == 'VM':
         vm_data = Vm_node.query.filter_by(cluster_id=id).first_or_404()
         vm_master_ip_string = vm_data.vm_master_ip
         vm_worker_ip_string = vm_data.vm_worker_ip
+        vm_key_path_string = vm_data.vm_key_path.encode('ascii', 'ignore')
         def ip_string_to_list(vm_master_ip_string,vm_worker_ip_string):
                 final_vm_ip_list= []
                 final_vm_ip_list.append(vm_master_ip_string)
                 final_vm_ip_list.append(vm_worker_ip_string)
                 return final_vm_ip_list
+        extra_varibales['vm_key_path'] = vm_key_path_string
         extra_varibales['bm_nodeIPs'] = ip_string_to_list(vm_master_ip_string,vm_worker_ip_string)
         #extra_varibales['bm_node_prefix'] = vm_data.vm_name_prefix.encode('ascii', 'ignore')
         #extra_varibales['bm_node_username'] = vm_data.vm_username.encode('ascii', 'ignore')
@@ -333,7 +346,17 @@ def execute_playbook(id):
         extra_varibales['bm_nodeIPs'] = ['192.168.122.1','192.168.122.2']
 
     #To update hosts file and Add Master IP to env variables
-    hosts_text = ["[kubernetes-master-nodes]","kubernetes-master ansible_host="+str(vm_data.vm_master_ip),"","[kubernetes-worker-nodes]","kubernetes-worker1 ansible_host="+str(vm_data.vm_worker_ip)]
+    vm_worker_ips_list = str(vm_data.vm_worker_ip).split(',')
+    vm_worker_ips_count= len(vm_worker_ips_list)
+    hosts_text = ["[kubernetes-master-nodes]","kubernetes-master ansible_host="+str(vm_data.vm_master_ip),"","[kubernetes-worker-nodes]"]
+    variables = {}
+    for i in range(vm_worker_ips_count):
+        var_name = "kubernetes-worker"+str(i+1)+" ansible_host"
+        variables[var_name] = vm_worker_ips_list[i]
+        hosts_text += [str(var_name)+"="+str(vm_worker_ips_list[i])]
+
+    print(hosts_text)
+
     ad_addr = ["ad_addr: ",str(vm_data.vm_master_ip)]
     with open('../UI/K8s/env_variables', 'r') as fr:
         lines = fr.readlines()

@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import db
 from flask_wtf import Form
-from wtforms import StringField, SubmitField, PasswordField, FileField, TextAreaField, validators, BooleanField, SelectField
+from wtforms import StringField, SubmitField, PasswordField, FileField, TextAreaField, validators, BooleanField, SelectField, FieldList
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms.validators import ValidationError, DataRequired, Length, EqualTo, Regexp
 from app.models import Vm_node, User
@@ -22,6 +22,7 @@ from flask import session
 @bp.route('/vm_node', methods=['GET', 'POST'])
 #@login_required
 def vm_node():
+    vm_nodecount1 = int(session['vm_nodecount'][0])
     project_id=session['projectid']
     connection1 = mysql.connector.connect(host='localhost',
                                       database='db',
@@ -48,7 +49,8 @@ def vm_node():
         ])
         list_ip = Pip.split(",")
         vm_master_ip = SelectField(u'VM Master IP', choices = [(ip, ip) for ip in list_ip])
-        vm_worker_ip = SelectField(u'VM Worker IP', choices= [(ip, ip) for ip in list_ip])
+        for i in range(vm_nodecount1-1):
+            locals()['vm_worker_ip{}'.format(i)] = SelectField(u'VM Worker IP {}'.format(i+1), choices = [(ip, ip) for ip in list_ip])
         vm_username = StringField('vm_username', validators=[DataRequired(), Length(max=30)])
         vm_key_based_auth = BooleanField('Key based authentication', default=False, id = 'vm_key_based_auth_abc')
         vm_password = PasswordField('vm_password', id = 'vm_password_abc')
@@ -75,6 +77,7 @@ def vm_node():
         filename = f.filename.split(".")
         docname = secure_filename(filename[0] + "_vm_" + form.vm_name_prefix.data + "." + filename[1])
         finalpath_key = Config.basedir + "/media/" + docname
+        print(finalpath_key)
         path1 = os.path.join(Config.basedir + "/media", docname)
         if os.path.exists(path1) and os.path.isfile(path1):
             print "file already exist"
@@ -83,8 +86,15 @@ def vm_node():
             os.chmod(path1, 0o400)
     #form = VmNodeCreationForm()
     if form.validate_on_submit():
+        #value = dict(form.vm_worker_ip.choices).get(str(form.vm_worker_ip.data))
+        vm_worker_ip_list =[]
+        for i in range(vm_nodecount1-1):
+                field_value = getattr(form, 'vm_worker_ip{}'.format(i)).data
+                vm_worker_ip_list.append(str(field_value))
+
+        resultString = ','.join(vm_worker_ip_list)
         vm_node_data = Vm_node(vm_master_ip=str(form.vm_master_ip.data),
-                               vm_worker_ip=str(form.vm_worker_ip.data),
+                               vm_worker_ip=resultString,
                                vm_name_prefix=form.vm_name_prefix.data,
                                              vm_username=form.vm_username.data,
                                              vm_key_based_auth=form.vm_key_based_auth.data,
@@ -98,7 +108,7 @@ def vm_node():
             db.session.rollback()
         return redirect(url_for('vm_node.vm_nodes',cluster_id=cluster_id))
                                 #,cluster_id=cluster_id))
-    return render_template('vm_node/vm_node.html', title='vm_node', form=form)
+    return render_template('vm_node/vm_node.html', title='vm_node', form=form )
 
 @bp.route('/vm_nodes/<int:cluster_id>', methods=['GET', 'POST'])
 #@login_required
@@ -106,7 +116,6 @@ def vm_nodes(cluster_id):
     userID_exist = session['userID_exist']
     cluster_list = Cluster.query.filter_by(user_id=userID_exist).filter_by(id=cluster_id).all()
     items =Vm_node.query.filter_by(cluster_id=cluster_id).all()
-
     def ip_range(start_ip,end_ip):
         start = ipaddress.IPv4Address(start_ip)
         end = ipaddress.IPv4Address(end_ip)
@@ -116,7 +125,6 @@ def vm_nodes(cluster_id):
             temp += 1
             ipaddress_list.append(temp.exploded.encode('ascii', 'ignore'))
         return ipaddress_list
-
     vm_data = Vm_node.query.filter_by(cluster_id=cluster_id).first_or_404()
     vm_master_ip_string = vm_data.vm_master_ip
     vm_worker_ip_string = vm_data.vm_worker_ip
@@ -126,7 +134,6 @@ def vm_nodes(cluster_id):
         final_vm_ip_list.append(vm_worker_ip_string)
         return final_vm_ip_list
     vm_master_ip_list = ip_string_to_list(vm_master_ip_string,vm_worker_ip_string)
-
 
     class ItemTable2(Table):
         classes = ['table']
